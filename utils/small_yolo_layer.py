@@ -7,7 +7,7 @@ from keras.layers.advanced_activations import LeakyReLU
 from keras.layers.normalization import BatchNormalization
 from keras.regularizers import l2
 
-from model.utils import compose
+from utils.utils import compose
 
 
 @wraps(Conv2D)
@@ -30,9 +30,10 @@ def DarknetConv2D_BN_Leaky(*args, **kwargs):
 
 def make_last_layers(x, num_filters, out_filters):
     '''6 Conv2D_BN_Leaky layers followed by a Conv2D_linear layer'''
+    #x = compose(
+            # DarknetConv2D_BN_Leaky(num_filters, (3,3)))(x)
+            
     x = compose(
-            #DarknetConv2D_BN_Leaky(num_filters, (1,1)),
-            #DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),
             DarknetConv2D_BN_Leaky(num_filters, (1,1)),
             DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),
             DarknetConv2D_BN_Leaky(num_filters, (1,1)))(x)

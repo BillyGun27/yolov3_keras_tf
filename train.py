@@ -16,7 +16,8 @@ from utils.evaluation import AveragePrecision
 import argparse
 
 #change model here
-from model.yolo3 import yolo_body
+from model.squeezenet import yolo_body
+#from model.yolo3 import yolo_body
 from model.yolo3 import tiny_yolo_body
 
 def _main():

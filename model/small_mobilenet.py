@@ -2,12 +2,12 @@
 
 from keras.layers import Conv2D, Add, ZeroPadding2D, UpSampling2D, Concatenate, MaxPooling2D
 from keras.models import Model
-from utils.yolo_layer import DarknetConv2D,DarknetConv2D_BN_Leaky,make_last_layers
+from utils.small_yolo_layer import DarknetConv2D,DarknetConv2D_BN_Leaky,make_last_layers
 from utils.utils import compose
 
 from keras.applications.mobilenet import MobileNet
 
-
+#Mobilenet
 def yolo_body(inputs, num_anchors, num_classes):
     #net, endpoint = inception_v2.inception_v2(inputs)
     mobilenet = MobileNet(input_tensor=inputs,weights='imagenet')
@@ -43,7 +43,7 @@ def yolo_body(inputs, num_anchors, num_classes):
     return Model(inputs = inputs, outputs=[y1,y2,y3])
 
 #mobilenet
-def yolo_body(inputs, num_anchors, num_classes):
+def mobilenet_yolo_body(inputs, num_anchors, num_classes):
      #net, endpoint = inception_v2.inception_v2(inputs)
     mobilenet = MobileNet(input_tensor=inputs,weights='imagenet')
 

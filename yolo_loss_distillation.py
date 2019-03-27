@@ -14,20 +14,21 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
+from utils.distillation import distill_data_generator_wrapper
 
-from utils.distillation import yolo_distill_loss, distill_data_generator_wrapper
-
-#from model.mobilenet import yolo_body
-from model.yolo3 import yolo_body, tiny_yolo_body
+#changeable param
+from utils.distillation import yolo_distill_loss as yolo_custom_loss
+from model.mobilenet import yolo_body
+from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 
 import argparse
 
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'mobilenet'
-    log_dir = 'logs/000/'
-    model_path = 'model_data/trained_weights_final_mobilenetv2.h5'
+    model_name = 'loss_a_basic_mobilenet'
+    log_dir = 'logs/loss_type_a_basic_mobilenet_000/'
+    model_path = 'model_data/trained_weights_final_mobilenet.h5'
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -94,9 +95,9 @@ def _main():
     if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
-             'yolo_distill_loss' : lambda y_true, y_pred: y_pred})
+             'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 1#32
+        batch_size = 18#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
@@ -114,10 +115,10 @@ def _main():
         for i in range(len(model.layers)):
             model.layers[i].trainable = True
         model.compile(optimizer=Adam(lr=1e-4), loss={ 
-            'yolo_distill_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
+            'yolo_custom_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  1#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  18#32 note that more GPU memory is required after unfreezing the body
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
@@ -160,7 +161,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     for y in range(-3, 0):
         model_body.layers[y].name = "conv2d_output_" + str(h//{-3:32, -2:16, -1:8}[y])
 
-    model_loss = Lambda(yolo_distill_loss, output_shape=(1,), name='yolo_distill_loss',
+    model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
         [*model_body.output, *y_true , *l_true])
     model = Model([model_body.input, *y_true , *l_true ], model_loss)
@@ -190,7 +191,7 @@ def create_tiny_model(input_shape, anchors, num_classes, load_pretrained=True, f
             for i in range(num): model_body.layers[i].trainable = False
             print('Freeze the first {} layers of total {} layers.'.format(num, len(model_body.layers)))
 
-    model_loss = Lambda(yolo_distill_loss, output_shape=(1,), name='yolo_distill_loss',
+    model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.7})(
         [*model_body.output, *y_true, *l_true])
     model = Model([model_body.input, *y_true, *l_true], model_loss)

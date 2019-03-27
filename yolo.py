@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#python yolo_video.py --input test_data/akiha.mp4
 """
 Class definition of YOLO_v3 style detection model on image and video
 """
@@ -20,10 +21,18 @@ import os
 from keras.utils import multi_gpu_model
 
 from model.yolo3 import yolo_body, tiny_yolo_body
+#from model.mobilenet import yolo_body
+#from model.small_mobilenet import yolo_body
+
+
+#model_name = 'trained_weights_final.h5'
+#model_name = 'trained_weights_final_mobilenet.h5'
+#model_name = 'trained_weights_final_small_mobilenet.h5'
+model_name = 'tiny_yolo.h5'
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'model_data/trained_weights_final.h5',#yolo.h5,trained_weights_final.h5
+        "model_path": 'model_data/'+model_name,#yolo.h5,trained_weights_final.h5
         "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         "classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
         "score" : 0.3,
@@ -205,8 +214,9 @@ def detect_video(yolo, video_path, output_path=""):
             curr_fps = 0
         cv2.putText(result, text=fps, org=(3, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                     fontScale=0.50, color=(255, 0, 0), thickness=2)
+        height, width, channels = result.shape
         cv2.namedWindow("result", cv2.WINDOW_NORMAL)
-        cv2.resizeWindow('result', 800,800) 
+        cv2.resizeWindow('result', width,height) 
         cv2.imshow("result", result)
         if isOutput:
             out.write(result)

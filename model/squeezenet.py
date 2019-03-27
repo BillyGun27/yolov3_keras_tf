@@ -4,7 +4,7 @@ from keras.layers import Activation, Dropout, GlobalAveragePooling2D, concatenat
 from keras.initializers import RandomNormal
 from keras.regularizers import l2
 from keras.models import Model
-from utils.yolo_layer import DarknetConv2D,DarknetConv2D_BN_Leaky,make_last_layers
+from utils.small_yolo_layer import DarknetConv2D,DarknetConv2D_BN_Leaky,make_last_layers
 from utils.utils import compose
 #from keras.utils.data_utils import get_file
 
@@ -104,7 +104,7 @@ def squeezenet_body(weight_decay=1e-4, input_tensor=Input(shape=(416, 416, 3))):
     
     return model
 
-def squeezenet_yolo_body(inputs, num_anchors, num_classes):
+def yolo_body(inputs, num_anchors, num_classes):
     #net, endpoint = inception_v2.inception_v2(inputs)
     mobilenet = squeezenet_body(input_tensor=inputs)
 

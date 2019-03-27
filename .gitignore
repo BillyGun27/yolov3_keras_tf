@@ -111,5 +111,3 @@ ENV/
 .mypy_cache/
 
 VOCdevkit/
-
-*.txt
