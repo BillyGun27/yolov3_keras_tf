@@ -3,7 +3,7 @@
 import sys
 import argparse
 #from yolo import YOLO, detect_video
-from mobilenet import YOLO, detect_video
+from yolo import YOLO, detect_video
 from PIL import Image
 import numpy as np
 import cv2
