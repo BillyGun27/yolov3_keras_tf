@@ -6,8 +6,8 @@ img = "test_data/london.jpg"
 
 impil = Image.open(img)
 
-print(impil.width)
+print(impil.size)
 
 imgcv = cv2.imread(img)
 
-print(imgcv.width)
+print(imgcv.shape)

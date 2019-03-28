@@ -5,6 +5,7 @@ from functools import reduce
 from PIL import Image
 import numpy as np
 from matplotlib.colors import rgb_to_hsv, hsv_to_rgb
+import cv2
 
 def compose(*funcs):
     """Compose arbitrarily many functions, evaluated left to right.
@@ -30,19 +31,21 @@ def letterbox_image(image, size):
     new_image.paste(image, ((w-nw)//2, (h-nh)//2))
     return new_image
 
-#def letterbox_image_cv(image, size):
-#    '''resize image with unchanged aspect ratio using padding'''
-#    iw, ih , channel =  img.shape  #image.size
-#    w, h = size
-#    scale = min(w/iw, h/ih)
-#    nw = int(iw*scale)
-#    nh = int(ih*scale)
+def letterbox_image_cv(image, expected_size):
+    '''resize image with unchanged aspect ratio using padding'''
+    ih, iw, _ = image.shape
+    eh, ew = expected_size
+    scale = min(eh / ih, ew / iw)
+    nh = int(ih * scale)
+    nw = int(iw * scale)
 
-    #image = image.resize((nw,nh), Image.BICUBIC)
-#    cv2.resize(image ,fx=nw,fy=nh, interpolation = cv2.INTER_CUBIC)
-#    new_image = Image.new('RGB', size, (128,128,128))
-#    new_image.paste(image, ((w-nw)//2, (h-nh)//2))
-#    return new_image
+    image = cv2.resize(image, (nw, nh), interpolation=cv2.INTER_CUBIC)
+    new_img = np.full((eh, ew, 3), 128, dtype='uint8')
+    # fill new image with the resized image and centered it
+    new_img[(eh - nh) // 2:(eh - nh) // 2 + nh,
+            (ew - nw) // 2:(ew - nw) // 2 + nw,
+            :] = image.copy()
+    return new_img
 
 
 def rand(a=0, b=1):
