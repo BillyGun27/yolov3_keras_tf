@@ -70,7 +70,7 @@ def _main():
     num_val = int(len(train_lines))
     num_train = int(len(val_lines))
 
-    meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200] , 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes)
+    meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200] , 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
