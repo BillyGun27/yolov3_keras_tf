@@ -70,7 +70,7 @@ def _main():
     num_val = int(len(train_lines))
     num_train = int(len(val_lines))
 
-    meanAP = AveragePrecision(data_generator_wrapper(val_lines, 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes)
+     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200] , 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes)
 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
@@ -79,16 +79,25 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 1#32
+        batch_size = 18#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
+        history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
                 steps_per_epoch=max(1, num_train//batch_size),
                 validation_data=data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes),
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
-                callbacks=[logging, checkpoint])
+                callbacks=[logging, checkpoint, meanAP])
+
+      
+        last_loss = history.history['loss'][-1]
+        last_val_loss = history.history['val_loss'][-1]
+
+        hist = "loss{0:.4f}-val_loss{1:.4f}".format(last_loss,last_val_loss)
+
+        model.save_weights(log_dir + "last_"+ hist + ".h5")
+
         model.save_weights(log_dir + model_name+'_trained_weights_stage_1.h5')
 
     # Unfreeze and continue training, to fine-tune.
@@ -100,18 +109,25 @@ def _main():
             'yolo_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  1#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  18#32 note that more GPU memory is required after unfreezing the body
 
-        meanAP = AveragePrecision(data_generator_wrapper(val_lines, 1 , input_shape, anchors, num_classes) ,num_val, input_shape , len(anchors)//3 , anchors ,num_classes)
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
+        history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
             steps_per_epoch=max(1, num_train//batch_size),
             validation_data=data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes),
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, checkpoint, reduce_lr, early_stopping])
+            callbacks=[logging, checkpoint, reduce_lr , meanAP])#, early_stopping
+
+        last_loss = history.history['loss'][-1]
+        last_val_loss = history.history['val_loss'][-1]
+
+        hist = "loss{0:.4f}-val_loss{0:.4f}".format(last_loss,last_val_loss)
+
+        model.save_weights(log_dir + "last_"+ hist + ".h5")
+
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
 
     # Further training if needed.

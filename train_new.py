@@ -71,7 +71,7 @@ def _main():
     num_val = int(len(train_lines))
     num_train = int(len(val_lines))
 
-    meanAP = AveragePrecision(data_generator_wrapper(val_lines, 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes)
+    meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
@@ -89,7 +89,7 @@ def _main():
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
-                callbacks=[logging, checkpoint])
+                callbacks=[logging, checkpoint,meanAP])
 
       
         last_loss = history.history['loss'][-1]
@@ -112,7 +112,6 @@ def _main():
 
         batch_size =  18#32 note that more GPU memory is required after unfreezing the body
 
-        meanAP = AveragePrecision(data_generator_wrapper(val_lines, 1 , input_shape, anchors, num_classes) ,num_val, input_shape , len(anchors)//3 , anchors ,num_classes)
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -121,7 +120,7 @@ def _main():
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, checkpoint, reduce_lr])#, early_stopping
+            callbacks=[logging, checkpoint, reduce_lr , meanAP])#, early_stopping
 
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
