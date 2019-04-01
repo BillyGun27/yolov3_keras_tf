@@ -188,6 +188,9 @@ def create_tiny_model(input_shape, anchors, num_classes, load_pretrained=True, f
             for i in range(num): model_body.layers[i].trainable = False
             print('Freeze the first {} layers of total {} layers.'.format(num, len(model_body.layers)))
 
+    for y in range(-2, 0):
+        model_body.layers[y].name = "conv2d_output_" + str(h//{-2:32, -1:16}[y])
+
     model_loss = Lambda(yolo_loss, output_shape=(1,), name='yolo_loss',
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.7})(
         [*model_body.output, *y_true])
