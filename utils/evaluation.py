@@ -1,11 +1,12 @@
 import numpy as np
+import tensorflow as tf
 from keras.layers import  Reshape
 from keras.models import Model
 from keras.callbacks import Callback
-
+from tqdm import tqdm
 
 class AveragePrecision(Callback):
-        def __init__(self, val_data ,total_image,input_shape,num_layers,anchors,num_classes):
+        def __init__(self, val_data ,total_image,input_shape,num_layers,anchors,num_classes,log_dir):
             super().__init__()
             self.validation_data = val_data
             self.total_image = total_image
@@ -13,6 +14,7 @@ class AveragePrecision(Callback):
             self.num_layers = num_layers
             self.anchors = anchors
             self.num_classes = num_classes
+            self.writer = tf.summary.FileWriter(log_dir)
 
         def on_epoch_begin(self, epoch, logs={}):
             self.losses = []
@@ -26,7 +28,7 @@ class AveragePrecision(Callback):
           
             #obj = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
             all_map = []
-            for b in range(self.total_image):
+            for b in tqdm( range(self.total_image) ):
                 layers_map = []
                 #print("batch" + str(b) )
                 val_dat , zeros = next( self.validation_data )
@@ -124,7 +126,10 @@ class AveragePrecision(Callback):
                 all_map.append( np.mean(scale_map) )
 
             #print("batch")
-            print("mAP : " + str( np.mean(all_map) ) )
+            mAPvalue = np.mean(all_map)
+            print("mAP : " + str( mAPvalue ) )
+            summary = tf.Summary(value=[tf.Summary.Value(tag='mAP', simple_value=mAPvalue)])
+            self.writer.add_summary(summary, epoch)
 
 def sigmoid(x):
         """sigmoid.

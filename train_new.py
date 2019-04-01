@@ -95,7 +95,7 @@ def _main():
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
 
-        hist = "loss{0:.4f}-val_loss{0:.4f}".format(last_loss,last_val_loss)
+        hist = "loss{0:.4f}-val_loss{1:.4f}".format(last_loss,last_val_loss)
 
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
