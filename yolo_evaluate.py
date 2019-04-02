@@ -16,7 +16,7 @@ from model.yolo3 import yolo_body, tiny_yolo_body
 import argparse
 
 def _main():
-    weights_path = 'model_data/trained_final.h5'
+    weights_path = 'model_data/trained_weights_final.h5'
     
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -42,8 +42,8 @@ def _main():
         test_lines = f.readlines()
 
 
-    num_val = int(len(train_lines))
-    num_train = int(len(val_lines))
+    num_train = int(len(train_lines))
+    num_val = int(len(val_lines[:500]))
     num_test = int(len(test_lines))
 
     #declare model
@@ -70,11 +70,11 @@ def _main():
     
     num_layers = len(anchors)//3
 
-    datagen = data_generator_wrapper(test_lines, batch_size, input_shape, anchors, num_classes,eval_model)
+    datagen = data_generator_wrapper(val_lines[:500], batch_size, input_shape, anchors, num_classes,eval_model)
     
     
-    print( "{} test data".format(num_test) )
-    for n in tqdm( range(num_test) ):#num_test
+    print( "{} test data".format(num_val) )
+    for n in tqdm( range(num_val) ):#num_test
         img,flogits,mlogits = next(datagen)
 
         for l in range(num_layers):
@@ -96,10 +96,10 @@ def _main():
                 count_detections[l][annotation_label] +=1
     
 
-    #print(len(all_detections) )
-    #print(len(all_annotations) )
-    #print(count_detections)
-
+    print(len(all_detections) )
+    print(len(all_annotations) )
+    print(count_detections)
+    '''
     iou_thres = 0.5
     conf_thres = 0.5
     
@@ -161,24 +161,10 @@ def _main():
 
     for label, average_precision in average_precisions.items():
         print(class_names[label] + ': {:.4f}'.format(average_precision))
-    print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))           
-    '''
-    for i in range(len(box)):
-        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-        print( "({})".format(box[i]) )
-        print( flogits[0][tuple(box[i])][0:5] )
-        print( flogits[0][tuple(box[i])][5:25] )
-        true_label =  np.argmax( flogits[0][tuple(box[i])][5:25]) 
-        print( "{} = {}".format(true_label, class_names[ true_label ] ) )
-        print("-------------------------------------------------------")
-        print( mlogits[0][ tuple(box[i]) ][0:5] )
-        print( mlogits[0][ tuple(box[i]) ][5:25] )
-        pred_label =  np.argmax( flogits[0][tuple(box[i])][5:25]) 
-        print( "{} = {}".format(pred_label, class_names[ pred_label ] ) )
-        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-    '''
+    print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))     
 
-   
+          
+    '''
 
 
 def get_classes(classes_path):

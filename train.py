@@ -50,7 +50,7 @@ def _main():
             freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
     else:
         model = create_model(input_shape, anchors, num_classes,
-            freeze_body=2, weights_path='model_data/yolo_weights.h5') # make sure you know what you freeze
+            freeze_body=2, weights_path=model_path) # make sure you know what you freeze
 
     logging = TensorBoard(log_dir=log_dir)
     checkpoint = ModelCheckpoint(log_dir + 'ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5',
@@ -63,14 +63,14 @@ def _main():
 
     with open(val_path) as f:
         val_lines = f.readlines()
-
+    val_lines = val_lines[:500]
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
     num_val = int(len(train_lines))
     num_train = int(len(val_lines))
 
-    meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200] , 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
+    meanAP = AveragePrecision(data_generator_wrapper(val_lines , 1 , input_shape, anchors, num_classes) , num_val , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.

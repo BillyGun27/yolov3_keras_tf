@@ -18,4 +18,8 @@ For VOC dataset, try `python voc_annotation.py`
 `python evaluate.py -c eval_config.json`
 
 
-tensorboard --logdir=logs/000
+tensorboard --logdir=logs/000 --port=6007
+
+train batch size
+yolo -> 32 , ?
+smaal model -> 64 , 24

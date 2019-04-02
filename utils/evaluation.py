@@ -123,10 +123,19 @@ class AveragePrecision(Callback):
                         
                 
                 #print(np.mean(scale_map))
-                all_map.append( np.mean(scale_map) )
+                if( scale_map ):
+                    all_map.append( np.mean(scale_map) )
+                else :
+                     all_map.append( 0 )
+                
 
             #print("batch")
-            mAPvalue = np.mean(all_map)
+            if( all_map ):
+                    mAPvalue = np.mean(all_map)
+            else :
+                    print("no object")
+                    mAPvalue = 0
+            
             print("mAP : " + str( mAPvalue ) )
             summary = tf.Summary(value=[tf.Summary.Value(tag='mAP', simple_value=mAPvalue)])
             self.writer.add_summary(summary, epoch)
