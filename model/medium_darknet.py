@@ -13,7 +13,7 @@ def darknet_resblock_body(x, num_filters):
     x = DarknetConv2D_BN_Leaky(num_filters, (3,3))(x)
     return x
 
-def darknet_ref_body(x):
+def darknet_ref_body(x):#tiny yolo with three output
     '''Darknent body having 52 Convolution2D layers'''
     x = DarknetConv2D_BN_Leaky(16, (3,3))(x)
     x = darknet_resblock_body(x, 32)
