@@ -111,3 +111,5 @@ ENV/
 .mypy_cache/
 
 VOCdevkit/
+
+.vscode
