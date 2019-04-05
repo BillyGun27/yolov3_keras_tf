@@ -53,7 +53,7 @@ def mobilenet_yolo_body(inputs, num_anchors, num_classes):
     # conv_pw_5_relu : 52 x 52 x 256
 
     f1 = mobilenet.get_layer('conv_pw_13_relu').output
-    # f1 :13 x 13 x 1024
+    # f1 :13 x 13 x 512
     x, y1 = make_last_layers(f1, 512, num_anchors * (num_classes + 5))
 
     x = compose(
@@ -61,7 +61,7 @@ def mobilenet_yolo_body(inputs, num_anchors, num_classes):
             UpSampling2D(2))(x)
 
     f2 = mobilenet.get_layer('conv_pw_11_relu').output
-    # f2: 26 x 26 x 512
+    # f2: 26 x 26 x 256
     x = Concatenate()([x,f2])
 
     x, y2 = make_last_layers(x, 256, num_anchors*(num_classes+5))
@@ -71,7 +71,7 @@ def mobilenet_yolo_body(inputs, num_anchors, num_classes):
             UpSampling2D(2))(x)
 
     f3 = mobilenet.get_layer('conv_pw_5_relu').output
-    # f3 : 52 x 52 x 256
+    # f3 : 52 x 52 x 128
     x = Concatenate()([x, f3])
     x, y3 = make_last_layers(x, 128, num_anchors*(num_classes+5))
 
