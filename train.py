@@ -63,8 +63,8 @@ def _main():
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
-    num_val = int(len(train_lines))
-    num_train = int(len(val_lines))
+    num_train = int(len(train_lines))
+    num_val = int(len(val_lines))
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines , 1 , input_shape, anchors, num_classes) , num_val , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
