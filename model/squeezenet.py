@@ -106,14 +106,14 @@ def squeezenet_body(weight_decay=1e-4, input_tensor=Input(shape=(416, 416, 3))):
 
 def yolo_body(inputs, num_anchors, num_classes):
     #net, endpoint = inception_v2.inception_v2(inputs)
-    mobilenet = squeezenet_body(input_tensor=inputs)
+    squeezenet = squeezenet_body(input_tensor=inputs)
 
     # input: 416 x 416 x 3
     # contatenate_10 :12 x 12 x 640
     # contatenate_6 :25 x 25 x 384
     # contatenate_4 : 51 x 51 x 256
 
-    f1 = mobilenet.get_layer('concatenate_10').output
+    f1 = squeezenet.get_layer('concatenate_10').output
     # f1 :13 x 13 x 1024
     x, y1 = make_last_layers(f1, 512, num_anchors * (num_classes + 5))
 
@@ -121,7 +121,7 @@ def yolo_body(inputs, num_anchors, num_classes):
             DarknetConv2D_BN_Leaky(256, (1,1)),
             UpSampling2D(2))(x)
 
-    f2 = mobilenet.get_layer('concatenate_6').output
+    f2 = squeezenet.get_layer('concatenate_6').output
     # f2: 26 x 26 x 512
     x = Concatenate()([x,f2])
 
@@ -131,7 +131,7 @@ def yolo_body(inputs, num_anchors, num_classes):
             DarknetConv2D_BN_Leaky(128, (1,1)),
             UpSampling2D(2))(x)
 
-    f3 = mobilenet.get_layer('concatenate_4').output
+    f3 = squeezenet.get_layer('concatenate_4').output
     # f3 : 52 x 52 x 256
     x = Concatenate()([x, f3])
     x, y3 = make_last_layers(x, 128, num_anchors*(num_classes+5))

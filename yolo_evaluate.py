@@ -10,8 +10,8 @@ from utils.core import preprocess_true_boxes, yolo_loss
 from utils.utils  import get_random_data
 from tqdm import tqdm
 
-from model.yolo3 import yolo_body, tiny_yolo_body
-
+#from model.yolo3 import yolo_body, tiny_yolo_body
+from model.squeezenet import yolo_body
 
 import argparse
 
@@ -70,11 +70,11 @@ def _main():
     
     num_layers = len(anchors)//3
 
-    datagen = data_generator_wrapper(val_lines[:500], batch_size, input_shape, anchors, num_classes,eval_model)
+    datagen = data_generator_wrapper(test_lines, batch_size, input_shape, anchors, num_classes,eval_model)
     
     
-    print( "{} test data".format(num_val) )
-    for n in tqdm( range(num_val) ):#num_test
+    print( "{} test data".format(num_test) )
+    for n in tqdm( range(num_test) ):#num_test
         img,flogits,mlogits = next(datagen)
 
         for l in range(num_layers):
@@ -96,10 +96,10 @@ def _main():
                 count_detections[l][annotation_label] +=1
     
 
-    print(len(all_detections) )
-    print(len(all_annotations) )
-    print(count_detections)
-    '''
+    #print(len(all_detections) )
+    #print(len(all_annotations) )
+    #print(count_detections)
+    
     iou_thres = 0.5
     conf_thres = 0.5
     
@@ -130,27 +130,27 @@ def _main():
         
             if( iou > iou_thres and  detect_conf > conf_thres and (label == detect_label ) ):
                 #print( best_iou[tuple(box[i])] )
-                print("pos")
+                #print("pos")
                 false_positives = np.append(false_positives, 0)
                 true_positives   = np.append(true_positives, 1)
             else:
-                print("neg")
+                #print("neg")
                 false_positives = np.append(false_positives, 1)
                 true_positives  = np.append(true_positives, 0)
                 
         indices         = np.argsort(-scores)
         false_positives = false_positives[indices]
         true_positives  = true_positives[indices]
-        print(true_positives)
+        #print(true_positives)
 
         false_positives = np.cumsum(false_positives)
         true_positives  = np.cumsum(true_positives)
-        print(true_positives)
+        #print(true_positives)
 
         recall = true_positives  / num_detect
-        print( recall )
+        #print( recall )
         precision = true_positives / np.maximum(true_positives + false_positives, np.finfo(np.float64).eps)
-        print( precision )
+        #print( precision )
 
         average_precision  = compute_ap(recall, precision)
         average_precisions[label] = average_precision
@@ -164,7 +164,7 @@ def _main():
     print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))     
 
           
-    '''
+    
 
 
 def get_classes(classes_path):
