@@ -20,14 +20,15 @@ from utils.utils import letterbox_image
 import os
 from keras.utils import multi_gpu_model
 
-from model.yolo3 import yolo_body, tiny_yolo_body
+#from model.yolo3 import yolo_body, tiny_yolo_body
 #from model.mobilenet import yolo_body
-#from model.small_mobilenet import yolo_body
+from model.small_mobilenet import yolo_body
 
 
-model_name = 'trained_weights_final.h5'
+#model_name = 'trained_weights_final.h5'
 #model_name = 'trained_weights_final_mobilenet.h5'
 #model_name = 'trained_weights_final_small_mobilenet.h5'
+model_name = 'small_mobilenet_trained_weights_final.h5'
 #model_name = 'tiny_yolo.h5'
 
 class YOLO(object):

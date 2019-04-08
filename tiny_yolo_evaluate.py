@@ -10,20 +10,33 @@ from utils.core import preprocess_true_boxes, yolo_loss
 from utils.utils  import get_random_data
 from tqdm import tqdm
 
-#from model.yolo3 import yolo_body, tiny_yolo_body
-from model.squeezenet import yolo_body
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="1"
+
+from model.yolo3 import tiny_yolo_body
+
+#from model.yolo3 import yolo_body
+#from model.mobilenet import yolo_body
+#from model.small_mobilenet import yolo_body
+#from model.squeezenet import yolo_body
+
 
 import argparse
 
 def _main():
-    weights_path = 'model_data/trained_weights_final.h5'
+    #weights_path = 'model_data/trained_weights_final_mobilenet.h5'
+    #weights_path = 'model_data/trained_weights_final_small_mobilenet.h5'
+   # weights_path = 'logs/tiny_yolo_000/ep027-loss28.354-val_loss27.772.h5'
+    weights_path = 'logs/tiny_yolo_000/tiny_yolo_trained_weights_stage_1.h5'
+    #weights_path = 'logs/tiny_yolo_000/ep060-loss25.849-val_loss26.280.h5'
+
     
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
     test_path = '2007_test.txt'
     #log_dir = 'logs/logits_only_000/'
     classes_path = 'class/voc_classes.txt'
-    anchors_path = 'anchors/yolo_anchors.txt'
+    anchors_path = 'anchors/tiny_yolo_anchors.txt'
     
     class_names = get_classes(classes_path)
     num_classes = len(class_names)
@@ -42,33 +55,38 @@ def _main():
         test_lines = f.readlines()
 
 
-    num_train = int(len(train_lines))
-    num_val = int(len(val_lines[:500]))
+    num_val = int(len(train_lines))
+    num_train = int(len(val_lines))
     num_test = int(len(test_lines))
 
     #declare model
-    num_anchors = len(anchors) #9
+    num_anchors = len(anchors)
+    #num_anchors = 6
+    #num_anchors//2 == 3
     image_input = Input(shape=(416, 416, 3))
-    eval_model = yolo_body(image_input, num_anchors//3, num_classes)#9//3
+    eval_model = tiny_yolo_body(image_input, num_anchors//2, num_classes)
     eval_model.load_weights(weights_path)
     
     # return the constructed network architecture
     # class+5
-    yolo3 = Reshape((13, 13, 3, 25))(eval_model.layers[-3].output)
-    yolo2 = Reshape((26, 26, 3, 25))(eval_model.layers[-2].output)
-    yolo1 = Reshape((52, 52, 3, 25))(eval_model.layers[-1].output)
+    yolo2 = Reshape((13, 13, 3, 25))(eval_model.layers[-2].output)
+    yolo1 = Reshape((26, 26, 3, 25))(eval_model.layers[-1].output)
+ #   yolo1 = Reshape((52, 52, 3, 25))(eval_model.layers[-1].output)
     
-    eval_model = Model( inputs= eval_model.input , outputs=[yolo3,yolo2,yolo1] )
+    eval_model = Model( inputs= eval_model.input , outputs=[yolo2,yolo1] )
     eval_model._make_predict_function()
 
     batch_size = 1
    
     all_detections  = [ [] for i in range(num_classes) ]
     all_annotations = [ [] for i in range(num_classes) ]
-
-    num_layers = num_anchors//3 #9//3
+    
+    num_layers = num_anchors//3
+    #print(num_layers)
+    
     count_detections  = [ [0 for i in range(num_classes)] for i in range(num_layers) ]
-
+    
+    
     datagen = data_generator_wrapper(test_lines, batch_size, input_shape, anchors, num_classes,eval_model)
     
     
@@ -95,10 +113,10 @@ def _main():
                 count_detections[l][annotation_label] +=1
     
 
-    #print(len(all_detections) )
-    #print(len(all_annotations) )
-    #print(count_detections)
-    
+    print(len(all_detections) )
+    print(len(all_annotations) )
+    print(count_detections)
+
     iou_thres = 0.5
     conf_thres = 0.5
     
@@ -156,14 +174,28 @@ def _main():
     
     print( "loaded weights {}".format(weights_path) )
 
-    print(average_precisions)
+    #print(average_precisions)
 
     for label, average_precision in average_precisions.items():
         print(class_names[label] + ': {:.4f}'.format(average_precision))
-    print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))     
+    print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))           
+    '''
+    for i in range(len(box)):
+        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+        print( "({})".format(box[i]) )
+        print( flogits[0][tuple(box[i])][0:5] )
+        print( flogits[0][tuple(box[i])][5:25] )
+        true_label =  np.argmax( flogits[0][tuple(box[i])][5:25]) 
+        print( "{} = {}".format(true_label, class_names[ true_label ] ) )
+        print("-------------------------------------------------------")
+        print( mlogits[0][ tuple(box[i]) ][0:5] )
+        print( mlogits[0][ tuple(box[i]) ][5:25] )
+        pred_label =  np.argmax( flogits[0][tuple(box[i])][5:25]) 
+        print( "{} = {}".format(pred_label, class_names[ pred_label ] ) )
+        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+    '''
 
-          
-    
+   
 
 
 def get_classes(classes_path):
