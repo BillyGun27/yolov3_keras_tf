@@ -26,8 +26,8 @@ import argparse
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'loss_b_apprentice_mobilenet'
-    log_dir = 'logs/loss_type_b_apprrentice_mobilenet_000/'
+    model_name = 'loss_apprentice_mobilenet'
+    log_dir = 'logs/loss_apprentice_mobilenet_000/'
     model_path = 'model_data/trained_weights_final_mobilenet.h5'
 
     train_path = '2007_train.txt'
@@ -76,7 +76,7 @@ def _main():
     #declare model
     num_anchors = len(anchors)
     image_input = Input(shape=(416, 416, 3))
-    teacher = yolo_body(image_input, num_anchors//3, num_classes)
+    teacher = teacher_body(image_input, num_anchors//3, num_classes)
     teacher.load_weights("model_data/trained_weights_final.h5")
     
     # return the constructed network architecture
@@ -95,7 +95,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 18#32
+        batch_size = 2#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),

@@ -26,8 +26,8 @@ import argparse
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'loss_a_basic_mobilenet'
-    log_dir = 'logs/loss_type_a_basic_mobilenet_000/'
+    model_name = 'loss_basic_distill_mobilenet'
+    log_dir = 'logs/loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/trained_weights_final_mobilenet.h5'
 
     train_path = '2007_train.txt'
@@ -78,7 +78,7 @@ def _main():
     #declare model
     num_anchors = len(anchors)
     image_input = Input(shape=(416, 416, 3))
-    teacher = yolo_body(image_input, num_anchors//3, num_classes)
+    teacher = teacher_body(image_input, num_anchors//3, num_classes)
     teacher.load_weights("model_data/trained_weights_final.h5")
     
     # return the constructed network architecture

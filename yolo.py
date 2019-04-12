@@ -20,25 +20,29 @@ from utils.utils import letterbox_image
 import os
 from keras.utils import multi_gpu_model
 
-#from model.yolo3 import yolo_body, tiny_yolo_body
+from model.yolo3 import yolo_body, tiny_yolo_body
 #from model.mobilenet import yolo_body
-from model.small_mobilenet import yolo_body
+#from model.small_mobilenets2 import yolo_body
 
 
 #model_name = 'trained_weights_final.h5'
 #model_name = 'trained_weights_final_mobilenet.h5'
 #model_name = 'trained_weights_final_small_mobilenet.h5'
-model_name = 'small_mobilenet_trained_weights_final.h5'
+#model_name = 'small_mobilenet_trained_weights_final.h5'
 #model_name = 'tiny_yolo.h5'
+#model_name = 'tiny_yolo_trained_weights_final.h5'
+#model_name = '2scale_small_mobilenet_trained_model.h5'
+#model_name = '1scale_tiny_yolo_model.h5'
+model_name = 'new_tiny_yolo_trained_weights_final.h5'
 
 class YOLO(object):
     _defaults = {
         "model_path": 'model_data/'+model_name,#yolo.h5,trained_weights_final.h5
-        "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
+        "anchors_path": 'anchors/tiny_yolo_anchors.txt',#yolo_anchors.txt
         "classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
         "score" : 0.3,
         "iou" : 0.45,
-        "model_image_size" : (416 , 416),#416,288,224 ,128 32multiplier
+        "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
         "gpu_num" : 1,
     }
 
@@ -85,10 +89,10 @@ class YOLO(object):
             self.yolo_model = tiny_yolo_body(Input(shape=(None,None,3)), num_anchors//2, num_classes) \
                 if is_tiny_version else yolo_body(Input(shape=(None,None,3)), num_anchors//3, num_classes)
             self.yolo_model.load_weights(self.model_path) # make sure model, anchors and classes match
-        else:
-            assert self.yolo_model.layers[-1].output_shape[-1] == \
-                num_anchors/len(self.yolo_model.output) * (num_classes + 5), \
-                'Mismatch between model and given anchor and class sizes'
+        #else:
+        #    assert self.yolo_model.layers[-1].output_shape[-1] == \
+        #        num_anchors/len(self.yolo_model.output) * (num_classes + 5), \
+        #        'Mismatch between model and given anchor and class sizes'
 
         print('{} model, anchors, and classes loaded.'.format(model_path))
 
@@ -109,20 +113,24 @@ class YOLO(object):
             self.yolo_model = multi_gpu_model(self.yolo_model, gpus=self.gpu_num)
         boxes, scores, classes = yolo_eval(self.yolo_model.output, self.anchors,
                 len(self.class_names), self.input_image_shape,
-                score_threshold=self.score, iou_threshold=self.iou)
+                score_threshold=self.score, iou_threshold=self.iou, yolo_one=0)
         return boxes, scores, classes
 
     def detect_image(self, image):
         start = timer()
 
         if self.model_image_size != (None, None):
+            #runthi
             assert self.model_image_size[0]%32 == 0, 'Multiples of 32 required'
             assert self.model_image_size[1]%32 == 0, 'Multiples of 32 required'
             boxed_image = letterbox_image(image, tuple(reversed(self.model_image_size)))
+            #print("if")
         else:
             new_image_size = (image.width - (image.width % 32),
                               image.height - (image.height % 32))
             boxed_image = letterbox_image(image, new_image_size)
+            #print("else")
+        #print(boxed_image.shape)
         image_data = np.array(boxed_image, dtype='float32')
 
         print(image.size)
@@ -137,6 +145,10 @@ class YOLO(object):
                 self.input_image_shape: [image.size[1], image.size[0]],
                 K.learning_phase(): 0
             })
+
+        #print(out_boxes)
+        #print(out_classes)
+        #print(out_scores)
 
         print('Found {} boxes for {}'.format(len(out_boxes), 'img'))
 

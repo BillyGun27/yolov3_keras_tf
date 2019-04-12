@@ -234,6 +234,7 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
     y_true = args[num_layers:num_layers*2]
     l_true = args[num_layers*2:]
     anchor_mask = [[6,7,8], [3,4,5], [0,1,2]] if num_layers==3 else [[3,4,5], [1,2,3]]
+    
     input_shape = K.cast(K.shape(yolo_outputs[0])[1:3] * 32, K.dtype(y_true[0]))
     grid_shapes = [K.cast(K.shape(yolo_outputs[l])[1:3], K.dtype(y_true[0])) for l in range(num_layers)]
     
@@ -323,5 +324,8 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
+
     
     
+
+   

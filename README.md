@@ -21,7 +21,7 @@ For VOC dataset, try `python voc_annotation.py`
 tensorboard --logdir=logs/000 --port=6007
 
 train batch size
-yolo -> 32 , ?
+yolo -> 18,12
 small model -> 64 , 24
 
 small mobilenet yolo for now
