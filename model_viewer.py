@@ -1,14 +1,16 @@
 import numpy as np
 from utils.core import preprocess_true_boxes, yolo_loss
-from keras.models import Model
+from keras.models import Model,load_model
 from keras.layers import Input
 from keras.utils.vis_utils import plot_model as plot
 
 from keras.applications.mobilenet import MobileNet
+from keras.applications.mobilenet_v2 import MobileNetV2
 
-#from model.squeezenet import SqueezeNet,yolo_body
-from model.small_mobilenet import yolo_body
+#from model.new_squeezenet import SqueezeNet,yolo_body
+#from model.small_mobilenets2 import yolo_body
 #from model.mobilenet import yolo_body
+from model.mobilenetv2 import yolo_body
 #from model.medium_darknet import darknet_ref_body,yolo_body
 #from model.yolo3 import darknet_body, yolo_body, tiny_yolo_body
 
@@ -40,7 +42,7 @@ anchors = get_anchors(anchors_path)
 input_shape = (416,416) # multiple of 32, hw
     
   
-image_input = Input(shape=(416, 416, 3))
+image_input = Input(shape=(416,416, 3))
 h, w = input_shape
 num_anchors = len(anchors)
 
@@ -48,6 +50,7 @@ num_anchors = len(anchors)
 #darknet = yolo_body(image_input, num_anchors//3, num_classes)
 #plot(darknet , to_file='{}.png'.format("darknet_ref_yolo2"), show_shapes=True)
 #darknet.summary()
+#print(len(darknet.layers))
 #darknet.save_weights('empty_medium_yolo2.h5')
 
 #squeezenet_model = squeezenet_body(weight_decay=1e-4, input_tensor=Input(shape=(416, 416, 3)))
@@ -55,20 +58,23 @@ num_anchors = len(anchors)
 #squeezenet_model = yolo_body(image_input, num_anchors//3, num_classes)
 #plot(squeezenet_model, to_file='{}.png'.format("squeezenet_yolo"), show_shapes=True)
 #squeezenet_model.summary()
+#print(len(squeezenet_model.layers))
 #squeezenet_model.save_weights('empty_squeezenet.h5')
 
-#mobilenet_model = MobileNet(input_tensor=image_input,weights='imagenet')
-mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
-plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenet_yolo"), show_shapes=True)
-mobilenet_model.summary()
+#mobilenet_model = MobileNetV2(input_tensor=image_input,weights='imagenet' ,include_top=False)
+#mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
+#plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenets2_yolo"), show_shapes=True)
+#mobilenet_model.summary()
 #print(len(mobilenet_model.output))
-mobilenet_model.save_weights('empty_mobilenet.h5')
+#print(len(mobilenet_model.layers))
+#mobilenet_model.save_weights('empty_mobilenet.h5')
 
 
-#mobilenetv2_model = MobileNetV2(input_tensor=image_input,weights='imagenet')
+#mobilenetv2_model = MobileNetV2(input_tensor=image_input,weights='imagenet',include_top=False)
 #mobilenetv2_model = mobilenetv2_yolo_body(image_input, num_anchors//3, num_classes)
-#plot(model, to_file='{}.png'.format("mobilenet_yolo"), show_shapes=True)
+#plot(mobilenetv2_model, to_file='{}.png'.format("mobilenet_yolov2"), show_shapes=True)
 #mobilenetv2_model.summary()
+#print(len(mobilenetv2_model.layers))
 #mobilenetv2_model.save_weights('empty_mobilenetv2.h5')
 
 #darknet = Model( image_input ,  darknet_body(image_input) )
@@ -80,8 +86,12 @@ mobilenet_model.save_weights('empty_mobilenet.h5')
 #darknet = tiny_yolo_body(image_input, num_anchors//3, num_classes)
 #plot(darknet , to_file='{}.png'.format("tiny_yolo"), show_shapes=True)
 #darknet.summary()
+#print(len(darknet.layers))
 #darknet.save_weights('empty_tiny_yolo.h5')
 
+model = load_model("model_data/416bnfuse_small_mobilenets2_trained_model.h5") 
+model.summary()
+print(len(model.layers))
 
 
 

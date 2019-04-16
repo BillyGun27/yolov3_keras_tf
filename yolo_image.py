@@ -9,11 +9,12 @@ import numpy as np
 import cv2
 
 def detect_img(yolo):
-    img = "darknet53_body.png"
+    img = "test_data/london.jpg"
     image = Image.open(img)
     #print(image.width)
     r_image = yolo.detect_image(image)
-    result = np.asarray(image)
+    #result = np.asarray(image)
+    result = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
     #r_image.show()
     #print(image.size)
     #print(result.shape)
