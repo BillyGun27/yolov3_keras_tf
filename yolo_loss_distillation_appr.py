@@ -43,7 +43,6 @@ def _main():
     num_anchors = len(anchors)
     image_input = Input(shape=(None, None, 3))
     
-    is_tiny_version = len(anchors)==6 # default setting
 
     is_tiny_version = len(anchors)==6 # default setting
     if is_tiny_version:
