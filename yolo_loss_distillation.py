@@ -45,8 +45,7 @@ def _main():
     
     is_tiny_version = len(anchors)==6 # default setting
 
-    custom_loss = yolo_distill_loss
-    custom_loss_name = 'yolo_distill_loss'
+   
     is_tiny_version = len(anchors)==6 # default setting
     if is_tiny_version:
         model = create_tiny_model(input_shape, anchors, num_classes,
@@ -70,8 +69,8 @@ def _main():
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
-    num_val = int(len(train_lines))
-    num_train = int(len(val_lines))
+    num_train = int(len(train_lines))
+    num_val = int(len(val_lines))
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
@@ -135,9 +134,8 @@ def _main():
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, checkpoint, reduce_lr, early_stopping])
-        model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-
+            callbacks=[logging, checkpoint, reduce_lr])#, early_stopping
+       
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
 
