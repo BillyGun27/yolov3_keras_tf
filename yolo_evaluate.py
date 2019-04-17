@@ -51,7 +51,7 @@ def _main():
 
     with open(test_path) as f:
         test_lines = f.readlines()
-    test_lines = test_lines[:2]
+    #test_lines = test_lines[:2]
 
 
     #num_train = int(len(train_lines))
