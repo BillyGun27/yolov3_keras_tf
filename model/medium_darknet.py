@@ -46,21 +46,21 @@ def yolo_body(inputs, num_anchors, num_classes):
     # f2: 26 x 26 x 512
     x = Concatenate()([x,f2])
 
-    y2 = compose(
-          DarknetConv2D_BN_Leaky(128*2, (3,3)),
-          DarknetConv2D(num_anchors*(num_classes+5) , (1,1)))(x)
-    #x, y2 = make_last_layers(x, 128, num_anchors*(num_classes+5))
+    x, y2 = make_last_layers(x, 128, num_anchors*(num_classes+5))
 
-  #  x = compose(
-  #          DarknetConv2D_BN_Leaky(64, (1,1)),
-  #          UpSampling2D(2))(x)
+    x = compose(
+            DarknetConv2D_BN_Leaky(64, (1,1)),
+            UpSampling2D(2))(x)
 
-  #  f3 = darknet.get_layer('leaky_re_lu_4').output
+    f3 = darknet.get_layer('leaky_re_lu_4').output
     # f3 : 52 x 52 x 256
-  #  x = Concatenate()([x, f3])
+    x = Concatenate()([x, f3])
   #  x, y3 = make_last_layers(x, 64, num_anchors*(num_classes+5))
+    y3 = compose(
+            DarknetConv2D_BN_Leaky(64*2, (3,3)),
+            DarknetConv2D(num_anchors*(num_classes+5) , (1,1)))(x)
 
-    return Model(inputs = inputs, outputs=[y1,y2])#,y3
+    return Model(inputs = inputs, outputs=[y1,y2,y3])
 
 
 
