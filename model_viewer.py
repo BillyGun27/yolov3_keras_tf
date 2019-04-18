@@ -3,6 +3,7 @@ from utils.core import preprocess_true_boxes, yolo_loss
 from keras.models import Model,load_model
 from keras.layers import Input
 from keras.utils.vis_utils import plot_model as plot
+from kito import reduce_keras_model
 
 from keras.applications.mobilenet import MobileNet
 from keras.applications.mobilenet_v2 import MobileNetV2
@@ -61,6 +62,19 @@ num_anchors = len(anchors)
 #print(len(squeezenet_model.layers))
 #squeezenet_model.save_weights('empty_squeezenet.h5')
 
+<<<<<<< HEAD
+#mobilenet_model = MobileNet(input_tensor=image_input,weights='imagenet')
+mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
+#plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenet_yolo"), show_shapes=True)
+mobilenet_model.summary()
+print(len(mobilenet_model.layers))
+#print(len(mobilenet_model.output))
+#mobilenet_model.save_weights('empty_mobilenet.h5')
+print("reduce model")
+model_reduced = reduce_keras_model(mobilenet_model)
+model_reduced.summary()
+print(len(model_reduced.layers))
+=======
 #mobilenet_model = MobileNetV2(input_tensor=image_input,weights='imagenet' ,include_top=False)
 #mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
 #plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenets2_yolo"), show_shapes=True)
@@ -69,6 +83,7 @@ num_anchors = len(anchors)
 #print(len(mobilenet_model.layers))
 #mobilenet_model.save_weights('empty_mobilenet.h5')
 
+>>>>>>> e7cf39ad7bccef256f2d7bae92991342373dbf7a
 
 #mobilenetv2_model = MobileNetV2(input_tensor=image_input,weights='imagenet',include_top=False)
 #mobilenetv2_model = mobilenetv2_yolo_body(image_input, num_anchors//3, num_classes)

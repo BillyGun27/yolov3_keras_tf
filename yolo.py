@@ -33,6 +33,8 @@ from model.small_mobilenets2 import yolo_body
 #model_name = 'trained_weights_final_mobilenet.h5'
 #model_name = 'trained_weights_final_mobilenetv2.h5'
 #model_name = 'trained_weights_final_small_mobilenet.h5'
+#model_name = 'small_mobilenet_trained_weights_final.h5'
+model_name = 'small_mobilenets2_trained_weights_final.h5'
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
 #model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
 model_name = '416bnfuse_tiny_yolo.h5'
@@ -45,8 +47,10 @@ model_name = '416bnfuse_tiny_yolo.h5'
 class YOLO(object):
     _defaults = {
         "model_path": 'model_data/'+model_name,#yolo.h5,trained_weights_final.h5
-        "anchors_path": 'anchors/tiny_yolo_anchors.txt',#yolo_anchors.txt
-        "classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
+        "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
+        "classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
+        #"anchors_path": 'anchors/tiny_yolo_anchors.txt',#yolo_anchors.txt
+        #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
         "score" : 0.3,
         "iou" : 0.45,
         "model_image_size" : (416 , 416),#416,288,224,128 32multiplier
