@@ -17,10 +17,10 @@ from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 
 #changeable param
 from utils.distillation import apprentice_distill_loss as yolo_custom_loss
-from model.mobilenet import yolo_body
+from model.small_mobilenets2 import yolo_body
 from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 
-from keras.utils.vis_utils import plot_model as plot
+#from keras.utils.vis_utils import plot_model as plot
 
 import argparse
 
@@ -70,8 +70,8 @@ def _main():
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
-    num_val = int(len(train_lines))
-    num_train = int(len(val_lines))
+    num_train = int(len(train_lines))
+    num_val = int(len(val_lines))
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
@@ -188,7 +188,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         [*model_body.output, *y_true , *teacher.output ])
     model = Model([model_body.input,  *y_true ], model_loss)
 
-    plot(model, to_file='{}.png'.format("train_together"), show_shapes=True)
+    #plot(model, to_file='{}.png'.format("train_together"), show_shapes=True)
 
     return model
 

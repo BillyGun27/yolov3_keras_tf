@@ -62,7 +62,42 @@ def yolo_body(inputs, num_anchors, num_classes):
 
     return Model(inputs = inputs, outputs=[y1,y2,y3])
 
+def tiny_yolo_body(inputs, num_anchors, num_classes):
+    #net, endpoint = inception_v2.inception_v2(inputs)
+    darknet =  Model(inputs, darknet_ref_body(inputs))
 
+    # input: 416 x 416 x 3
+    # leaky_re_lu_7 :13 x 13 x 1024
+    # leaky_re_lu_5 :26 x 26 x 512
+    # leaky_re_lu_4 : 52 x 52 x 256
+
+    f1 = darknet.get_layer('leaky_re_lu_7').output
+    # f1 :13 x 13 x 1024
+    x, y1 = make_last_layers(f1, 256, num_anchors * (num_classes + 5))
+
+    x = compose(
+            DarknetConv2D_BN_Leaky(128, (1,1)),
+            UpSampling2D(2))(x)
+
+    f2 = darknet.get_layer('leaky_re_lu_5').output
+    # f2: 26 x 26 x 512
+    x = Concatenate()([x,f2])
+
+    #x, y2 = make_last_layers(x, 128, num_anchors*(num_classes+5))
+
+   # x = compose(
+   #         DarknetConv2D_BN_Leaky(64, (1,1)),
+   #         UpSampling2D(2))(x)
+
+    #f3 = darknet.get_layer('leaky_re_lu_4').output
+    # f3 : 52 x 52 x 256
+    #x = Concatenate()([x, f3])
+  ##  x, y3 = make_last_layers(x, 64, num_anchors*(num_classes+5))
+    y2 = compose(
+            DarknetConv2D_BN_Leaky(128*2, (3,3)),
+            DarknetConv2D(num_anchors*(num_classes+5) , (1,1)))(x)
+
+    return Model(inputs = inputs, outputs=[y1,y2])#,y3
 
 #def tiny_resblock_body(x, num_filters, num_blocks):
 #    '''A series of resblocks starting with a downsampling Convolution2D'''

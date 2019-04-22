@@ -26,34 +26,34 @@ from kito import reduce_keras_model
 #from model.mobilenet import yolo_body
 #from model.mobilenetv2 import yolo_body
 #from model.small_mobilenets2 import yolo_body
-from model.small_mobilenets2 import yolo_body
-
+from model.medium_darknet import yolo_body
 
 #model_name = 'trained_weights_final.h5'
-#model_name = 'trained_weights_final_mobilenet.h5'
+#model_name = 'trained_weights_final_mobilenet_new.h5'
 #model_name = 'trained_weights_final_mobilenetv2.h5'
 #model_name = 'trained_weights_final_small_mobilenet.h5'
 #model_name = 'small_mobilenet_trained_weights_final.h5'
-model_name = 'small_mobilenets2_trained_weights_final.h5'
+#model_name = 'small_mobilenets2_trained_weights_final.h5'
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
 #model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
-model_name = '416bnfuse_tiny_yolo.h5'
+#model_name = 'bnfuse_tiny_yolo.h5'
 #model_name = 'tiny_yolo.h5'
-#model_name = 'tiny_yolo_trained_weights_final.h5'
+#model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = '2scale_small_mobilenet_trained_model.h5'
 #model_name = '1scale_tiny_yolo_model.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
+model_name = 'new_med_darknet_trained_weights_final.h5'
 
 class YOLO(object):
     _defaults = {
         "model_path": 'model_data/'+model_name,#yolo.h5,trained_weights_final.h5
-        "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         "classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
-        #"anchors_path": 'anchors/tiny_yolo_anchors.txt',#yolo_anchors.txt
+        "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
+        #"anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
-        "score" : 0.3,
+        "score" : 0.2,
         "iou" : 0.45,
-        "model_image_size" : (416 , 416),#416,288,224,128 32multiplier
+        "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
         "gpu_num" : 1,
     }
 
@@ -220,6 +220,10 @@ def detect_video(yolo, video_path, output_path=""):
     isOutput = True if output_path != "" else False
     if isOutput:
         print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
+        if(video_path == 0 ):
+            video_FourCC = cv2.VideoWriter_fourcc(*'XVID')
+            video_fps = 20.0
+        print(video_FourCC,video_fps)
         out = cv2.VideoWriter(output_path, video_FourCC, video_fps, video_size)
     accum_time = 0
     curr_fps = 0
@@ -249,5 +253,9 @@ def detect_video(yolo, video_path, output_path=""):
             out.write(result)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+
+    vid.release()
+    out.release()
+    cv2.destroyAllWindows()
     yolo.close_session()
 

@@ -21,6 +21,7 @@ def detect_img(yolo):
     height, width, channels = result.shape
     cv2.namedWindow("result", cv2.WINDOW_NORMAL)
     cv2.resizeWindow('result', width,height) 
+    cv2.imwrite("detect.jpg", result)
     cv2.imshow("result", result)
     cv2.waitKey(0)
     cv2.destroyAllWindows()

@@ -11,8 +11,8 @@ from keras.applications.mobilenet_v2 import MobileNetV2
 #from model.new_squeezenet import SqueezeNet,yolo_body
 #from model.small_mobilenets2 import yolo_body
 #from model.mobilenet import yolo_body
-from model.mobilenetv2 import yolo_body
-#from model.medium_darknet import darknet_ref_body,yolo_body
+#from model.mobilenetv2 import yolo_body
+from model.medium_darknet import tiny_yolo_body,yolo_body
 #from model.yolo3 import darknet_body, yolo_body, tiny_yolo_body
 
 
@@ -62,35 +62,17 @@ num_anchors = len(anchors)
 #print(len(squeezenet_model.layers))
 #squeezenet_model.save_weights('empty_squeezenet.h5')
 
-<<<<<<< HEAD
 #mobilenet_model = MobileNet(input_tensor=image_input,weights='imagenet')
-mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
-#plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenet_yolo"), show_shapes=True)
-mobilenet_model.summary()
-print(len(mobilenet_model.layers))
-#print(len(mobilenet_model.output))
-#mobilenet_model.save_weights('empty_mobilenet.h5')
-print("reduce model")
-model_reduced = reduce_keras_model(mobilenet_model)
-model_reduced.summary()
-print(len(model_reduced.layers))
-=======
-#mobilenet_model = MobileNetV2(input_tensor=image_input,weights='imagenet' ,include_top=False)
 #mobilenet_model = yolo_body(image_input, num_anchors//3, num_classes)
-#plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenets2_yolo"), show_shapes=True)
+#plot(mobilenet_model, to_file='{}.png'.format("new_small_mobilenet_yolo"), show_shapes=True)
 #mobilenet_model.summary()
-#print(len(mobilenet_model.output))
 #print(len(mobilenet_model.layers))
+#print(len(mobilenet_model.output))
 #mobilenet_model.save_weights('empty_mobilenet.h5')
-
->>>>>>> e7cf39ad7bccef256f2d7bae92991342373dbf7a
-
-#mobilenetv2_model = MobileNetV2(input_tensor=image_input,weights='imagenet',include_top=False)
-#mobilenetv2_model = mobilenetv2_yolo_body(image_input, num_anchors//3, num_classes)
-#plot(mobilenetv2_model, to_file='{}.png'.format("mobilenet_yolov2"), show_shapes=True)
-#mobilenetv2_model.summary()
-#print(len(mobilenetv2_model.layers))
-#mobilenetv2_model.save_weights('empty_mobilenetv2.h5')
+#print("reduce model")
+#model_reduced = reduce_keras_model(mobilenet_model)
+#model_reduced.summary()
+#print(len(model_reduced.layers))
 
 #darknet = Model( image_input ,  darknet_body(image_input) )
 #darknet = yolo_body(image_input, num_anchors//3, num_classes)
@@ -98,15 +80,15 @@ print(len(model_reduced.layers))
 #darknet.summary()
 #darknet.save_weights('empty_darknet_body.h5')
 
-#darknet = tiny_yolo_body(image_input, num_anchors//3, num_classes)
-#plot(darknet , to_file='{}.png'.format("tiny_yolo"), show_shapes=True)
+darknet = yolo_body(image_input, num_anchors//3, num_classes)
+plot(darknet , to_file='{}.png'.format("medium_tiny_yolo"), show_shapes=True)
 #darknet.summary()
 #print(len(darknet.layers))
-#darknet.save_weights('empty_tiny_yolo.h5')
+darknet.save_weights('empty_medium_tiny_yolo.h5')
 
-model = load_model("model_data/416bnfuse_small_mobilenets2_trained_model.h5") 
-model.summary()
-print(len(model.layers))
+#model = load_model("model_data/416bnfuse_small_mobilenets2_trained_model.h5") 
+#model.summary()
+#print(len(model.layers))
 
 
 

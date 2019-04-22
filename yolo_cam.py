@@ -6,4 +6,4 @@ import argparse
 from yolo import YOLO, detect_video
 from PIL import Image
 
-detect_video(YOLO(), 0 )
+detect_video(YOLO(), 0 ,"saved_cam.avi")
