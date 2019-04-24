@@ -25,8 +25,8 @@ from kito import reduce_keras_model
 #from model.yolo3 import yolo_body, tiny_yolo_body
 #from model.mobilenet import yolo_body
 #from model.mobilenetv2 import yolo_body
-#from model.small_mobilenets2 import yolo_body
-from model.medium_darknet import yolo_body
+from model.small_mobilenets2 import yolo_body
+#from model.medium_darknet import yolo_body
 
 #model_name = 'trained_weights_final.h5'
 #model_name = 'trained_weights_final_mobilenet_new.h5'
@@ -35,14 +35,15 @@ from model.medium_darknet import yolo_body
 #model_name = 'small_mobilenet_trained_weights_final.h5'
 #model_name = 'small_mobilenets2_trained_weights_final.h5'
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
-#model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
+model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
 #model_name = 'bnfuse_tiny_yolo.h5'
+#model_name = 'bnfuse_med_tiny_yolo.h5'
 #model_name = 'tiny_yolo.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = '2scale_small_mobilenet_trained_model.h5'
 #model_name = '1scale_tiny_yolo_model.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
-model_name = 'new_med_darknet_trained_weights_final.h5'
+#model_name = 'new_med_darknet_trained_weights_final.h5'
 
 class YOLO(object):
     _defaults = {
@@ -51,9 +52,9 @@ class YOLO(object):
         "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
-        "score" : 0.2,
+        "score" : 0.3,
         "iou" : 0.45,
-        "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
+        "model_image_size" : (416 , 416),#416,288,224,128 32multiplier
         "gpu_num" : 1,
     }
 

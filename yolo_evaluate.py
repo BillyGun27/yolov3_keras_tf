@@ -92,8 +92,6 @@ def _main():
 
     batch_size = 1
    
-    
-    
     all_detections  = [ [] for i in range(num_classes) ]
     all_annotations = [ [] for i in range(num_classes) ]
 
