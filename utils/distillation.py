@@ -195,7 +195,7 @@ def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0.5,
         pred_box = K.concatenate([pred_xy, pred_wh])
         
         # Darknet raw box to calculate loss.
-        raw_true_xy,raw_true_wh,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,grid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
+        raw_true_xy,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,grid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
 
         # Find ignore mask, iterate over each of batch.
         ignore_mask = ignorer(y_true[l],object_mask,pred_box,ignore_thresh,m)
@@ -261,7 +261,7 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
         true_class_probs = y_true[l][..., 5:]
         
         # Darknet raw box to calculate loss.
-        raw_true_xy,raw_true_wh,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,tgrid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
+        raw_true_xy,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,tgrid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
 
         # Find ignore mask, iterate over each of batch.
         ignore_mask = ignorer(y_true[l],object_mask,pred_box,ignore_thresh,m)
@@ -286,7 +286,7 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
         true_class_probs = y_true[l][..., 5:]
         
         # Darknet raw box to calculate loss.
-        raw_true_xy,raw_true_wh,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,grid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
+        raw_true_xy,raw_true_wh,box_loss_scale = darknet_raw(y_true[l],object_mask,grid_shapes[l],grid,input_shape,anchors,anchor_mask[l])
 
         # Find ignore mask, iterate over each of batch.
         ignore_mask = ignorer(y_true[l],object_mask,pred_box,ignore_thresh,m)
@@ -310,7 +310,7 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
         true_class_probs = l_true[l][..., 5:]
 
         # Darknet raw box to calculate loss.
-        raw_true_xy,raw_true_wh,raw_true_wh,box_loss_scale = darknet_raw(l_true[l],object_mask,lgrid_shapes[l],grid,linput_shape,anchors,anchor_mask[l])
+        raw_true_xy,raw_true_wh,box_loss_scale = darknet_raw(l_true[l],object_mask,lgrid_shapes[l],grid,linput_shape,anchors,anchor_mask[l])
 
         # Find ignore mask, iterate over each of batch.
         ignore_mask = ignorer(l_true[l],object_mask,pred_box,ignore_thresh,m)
