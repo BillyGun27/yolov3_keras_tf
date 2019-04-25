@@ -17,8 +17,9 @@ from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 from utils.distillation import distill_data_generator_wrapper
 
 #changeable param
-from utils.distillation import yolo_distill_loss as yolo_custom_loss
-from model.mobilenet import yolo_body
+from utils.distillation import new_yolo_distill_loss as yolo_custom_loss
+#from model.mobilenet import yolo_body
+from model.small_mobilenets2 import yolo_body
 from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 
 import argparse
@@ -26,9 +27,10 @@ import argparse
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'loss_basic_distill_mobilenet'
-    log_dir = 'logs/loss_basic_distill_mobilenet_000/'
+    model_name = 'test_loss_basic_distill_mobilenet'
+    log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
+    teacher_path = "model_data/new_yolo_trained_weights_final.h5"
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -78,7 +80,7 @@ def _main():
     num_anchors = len(anchors)
     image_input = Input(shape=(416, 416, 3))
     teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    teacher.load_weights("model_data/trained_weights_final.h5")
+    teacher.load_weights(teacher_path)
     
     # return the constructed network architecture
     # class+5
@@ -156,7 +158,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 18#32
+        batch_size = 1#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
@@ -204,7 +206,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-        '
+        
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
@@ -237,7 +239,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         model_body.layers[y].name = "conv2d_output_" + str(h//{-3:32, -2:16, -1:8}[y])
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
+        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha': 0 })(
         [*model_body.output, *y_true , *l_true])
     model = Model([model_body.input, *y_true , *l_true ], model_loss)
 
