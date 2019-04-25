@@ -1,5 +1,0 @@
-bottle
-car
-chair
-person
-tvmonitor
