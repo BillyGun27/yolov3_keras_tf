@@ -16,14 +16,15 @@ from utils.evaluation import AveragePrecision
 import argparse
 
 #change model here
-from model.squeezenet import yolo_body
+#from model.squeezenet import yolo_body
 #from model.yolo3 import yolo_body
-from model.yolo3 import tiny_yolo_body
+from model.small_mobilenets2 import yolo_body
+#from model.yolo3 import tiny_yolo_body
 
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'mobilenet'
+    model_name = 'small_mobilenet'
     log_dir = 'logs/000/'
     model_path = 'model_data/yolo_weights.h5'
 
@@ -59,7 +60,7 @@ def _main():
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    val_lines = val_lines[:500]
+   # val_lines = val_lines[:500]
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
@@ -75,7 +76,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 18#32
+        batch_size = 1#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),

@@ -42,7 +42,8 @@ from model.medium_darknet import yolo_body
 #model_name = '2scale_small_mobilenet_trained_model.h5'
 #model_name = '1scale_tiny_yolo_model.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
-model_name = 'new_med_darknet_trained_weights_final.h5'
+#model_name = 'new_med_darknet_trained_weights_final.h5'
+model_name = 'bnfuse_med_tiny_yolo.h5'
 
 class YOLO(object):
     _defaults = {
@@ -53,7 +54,7 @@ class YOLO(object):
         #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
         "score" : 0.2,
         "iou" : 0.45,
-        "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
+        "model_image_size" : (416 , 416),#416,288,224,128 32multiplier
         "gpu_num" : 1,
     }
 
@@ -129,7 +130,7 @@ class YOLO(object):
                 score_threshold=self.score, iou_threshold=self.iou, yolo_one=0)
         return boxes, scores, classes
 
-    def detect_image(self, image):
+    def detect_image(self, image ):
         start = timer()
 
         if self.model_image_size != (None, None):
@@ -165,6 +166,7 @@ class YOLO(object):
 
         print('Found {} boxes for {}'.format(len(out_boxes), 'img'))
 
+        
         font = ImageFont.truetype(font='font/FiraMono-Medium.otf',
                     size=np.floor(3e-2 * image.size[1] + 0.5).astype('int32'))
         thickness = (image.size[0] + image.size[1]) // 300
@@ -185,6 +187,7 @@ class YOLO(object):
             right = min(image.size[0], np.floor(right + 0.5).astype('int32'))
             print(label, (left, top), (right, bottom), ( (right-left) ,(bottom-top) ) )
 
+            
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
             else:
@@ -207,6 +210,7 @@ class YOLO(object):
 
     def close_session(self):
         self.sess.close()
+
 
 def detect_video(yolo, video_path, output_path=""):
     import cv2

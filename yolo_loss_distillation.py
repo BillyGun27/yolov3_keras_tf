@@ -28,7 +28,7 @@ def _main():
     epoch_end_final = 60
     model_name = 'loss_basic_distill_mobilenet'
     log_dir = 'logs/loss_basic_distill_mobilenet_000/'
-    model_path = 'model_data/trained_weights_final_mobilenet.h5'
+    model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'

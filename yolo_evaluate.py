@@ -45,9 +45,11 @@ def _main():
 
     #with open(train_path) as f:
     #    train_lines = f.readlines()
+    #train_lines = train_lines[:200]
 
     #with open(val_path) as f:
     #    val_lines = f.readlines()
+    #val_lines = val_lines[:150]
 
     with open(test_path) as f:
         test_lines = f.readlines()
@@ -55,7 +57,7 @@ def _main():
 
 
     #num_train = int(len(train_lines))
-    #num_val = int(len(val_lines[:500]))
+    #num_val = int(len(val_lines))
     num_test = int(len(test_lines))
 
     #declare model
@@ -100,7 +102,7 @@ def _main():
     count_detections  = [ [0 for i in range(num_classes)] for i in range(num_layers) ]
     total_object = 0
 
-    datagen = data_generator_wrapper(test_lines, batch_size, input_shape, anchors, num_classes,eval_model)
+    datagen = data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes,eval_model)
     
     
     print( "{} test data".format(num_test) )
@@ -133,7 +135,7 @@ def _main():
     print(total_object)
 
     
-    conf_thres = 0.3
+    conf_thres = 0.5
     iou_thres = 0.45
     
     average_precisions = {}
