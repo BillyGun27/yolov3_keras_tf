@@ -88,9 +88,69 @@ def _main():
     
     teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
     teacher._make_predict_function()
+    
+    '''
+    batch_size = 1
+    datagen =  distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
+    logits , zero = next(datagen)
 
+    print(logits[1].shape)
+    #print(logits[1])
+    arrp = logits[1]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[1][tuple(box[0])])
+
+    print(logits[4].shape)
+    #print(logits[4])
+    arrp = logits[4]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print( logits[4][tuple(box[0])] )
+
+    print(logits[2].shape)
+    #print(logits[1])
+    arrp = logits[2]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[2][tuple(box[0])])
+
+    print(logits[5].shape)
+    #print(logits[4])
+    arrp = logits[5]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print( logits[5][tuple(box[0])] )
+
+    print(logits[3].shape)
+    #print(logits[1])
+    arrp = logits[3]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[3][tuple(box[0])])
+
+    print(logits[6].shape)
+    #print(logits[4])
+    arrp = logits[6]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print( logits[6][tuple(box[0])] )
+    '''
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
+    
     if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
@@ -144,7 +204,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-        
+        '
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
