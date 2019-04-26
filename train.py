@@ -8,7 +8,7 @@ from keras.optimizers import Adam
 from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping 
 from keras.layers import Input, Lambda
 
-from utils.core import  yolo_loss
+from utils.core import test_yolo_loss as yolo_loss
 from utils.utils  import get_random_data
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 from utils.evaluation import AveragePrecision
