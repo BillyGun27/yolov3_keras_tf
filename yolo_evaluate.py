@@ -16,7 +16,7 @@ from model.yolo3 import tiny_yolo_body
 
 #from model.yolo3 import yolo_body
 #from model.mobilenet import yolo_body
-from model.small_mobilenet import yolo_body
+from model.small_mobilenets2 import yolo_body
 #from model.squeezenet import yolo_body
 
 
