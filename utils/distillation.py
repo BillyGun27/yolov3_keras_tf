@@ -293,13 +293,13 @@ def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, p
         xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = basic_yolo_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
         loss += ( alpha * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss teacher: ')
+        #loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss teacher: ')
 
         #student
         xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask = basic_yolo_loss(yolo_outputs[l],y_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
         loss += ( (1-alpha) * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss student: ')
+        #loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss student: ')
 
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
