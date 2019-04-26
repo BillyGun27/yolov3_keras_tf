@@ -305,6 +305,54 @@ def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, p
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
 
+def fake_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, print_loss=False):
+    '''Return yolo_loss tensor
+
+    Parameters
+    ----------
+    yolo_outputs: list of tensor, the output of yolo_body or tiny_yolo_body
+    y_true: list of array, the output of preprocess_true_boxes 
+    anchors: array, shape=(N, 2), wh
+    num_classes: integer
+    ignore_thresh: float, the iou threshold whether to ignore object confidence loss
+
+    Returns
+    -------
+    loss: tensor, shape=(1,)
+
+    '''
+    num_layers = len(anchors)//3 # default setting
+    yolo_outputs = args[:num_layers]#yolo output
+    y_true = args[num_layers:num_layers*2]
+    l_true = args[num_layers*2:]
+    anchor_mask = [[6,7,8], [3,4,5], [0,1,2]] if num_layers==3 else [[3,4,5], [1,2,3]]
+    
+    input_shape = K.cast(K.shape(yolo_outputs[0])[1:3] * 32, K.dtype(y_true[0]))
+    grid_shapes = [K.cast(K.shape(yolo_outputs[l])[1:3], K.dtype(y_true[0])) for l in range(num_layers)]
+    
+
+    loss = 0
+    m = K.shape(yolo_outputs[0])[0] # batch size, tensor
+    mf = K.cast(m, K.dtype(yolo_outputs[0]))
+
+    for l in range(num_layers):
+        #teacher
+        #xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = basic_yolo_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
+        #loss += ( alpha * (xy_loss + wh_loss + confidence_loss + class_loss) )
+
+        #loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss teacher: ')
+
+        #student
+        xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask = basic_yolo_loss(yolo_outputs[l],y_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
+        #loss += ( (1-alpha) * (xy_loss + wh_loss + confidence_loss + class_loss) )
+        loss += xy_loss + wh_loss + confidence_loss + class_loss
+
+        #loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss student: ')
+
+        if print_loss:
+            loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
+    return loss
+
 def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 1, beta = 0.5, gamma = 0.5, print_loss=False):
     '''Return yolo_loss tensor
 
