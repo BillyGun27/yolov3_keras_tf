@@ -135,4 +135,4 @@ def data_generator_double(annotation_lines, batch_size, input_shape, anchors, nu
 def data_generator_wrapper_double(annotation_lines, batch_size, input_shape, anchors, num_classes):
     n = len(annotation_lines)
     if n==0 or batch_size<=0: return None
-    return data_generator(annotation_lines, batch_size, input_shape, anchors, num_classes)
+    return data_generator_double(annotation_lines, batch_size, input_shape, anchors, num_classes)
