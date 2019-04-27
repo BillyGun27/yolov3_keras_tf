@@ -130,7 +130,7 @@ def data_generator_double(annotation_lines, batch_size, input_shape, anchors, nu
         image_data = np.array(image_data)
         box_data = np.array(box_data)
         y_true = preprocess_true_boxes(box_data, input_shape, anchors, num_classes)
-        yield [image_data, *y_true], np.zeros(batch_size)
+        yield [image_data, *y_true, *ytrue], np.zeros(batch_size)
 
 def data_generator_wrapper_double(annotation_lines, batch_size, input_shape, anchors, num_classes):
     n = len(annotation_lines)
