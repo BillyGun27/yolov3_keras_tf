@@ -392,7 +392,7 @@ def test_yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=Fals
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
 
-def pretend_distill_yolo_loss(args, anchors, num_classes, ignore_thresh=.5, alpha=0.5 print_loss=False):
+def pretend_distill_yolo_loss(args, anchors, num_classes, ignore_thresh=.5, alpha=0.5 ,print_loss=False):
     '''Return yolo_loss tensor
 
     Parameters
