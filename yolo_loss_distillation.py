@@ -30,7 +30,7 @@ def _main():
     model_name = 'test_loss_basic_distill_mobilenet'
     log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
-    teacher_path = "model_data/new_yolo_trained_weights_final.h5"
+    teacher_path = "model_data/trained_weights_final.h5"
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -53,7 +53,7 @@ def _main():
         model = create_tiny_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
     else:
-        model = create_model(input_shape, anchors, num_classes,
+        model = create_model(input_shape, anchors, num_classes,load_pretrained=False,
             freeze_body=2, weights_path=model_path ) # make sure you know what you freeze
 
     logging = TensorBoard(log_dir=log_dir)
@@ -185,6 +185,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha': 0.1 })(
         [*model_body.output, *y_true , *l_true])
     model = Model([model_body.input, *y_true , *l_true ], model_loss)
+
 
     return model
 

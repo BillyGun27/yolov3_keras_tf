@@ -8,7 +8,7 @@ from keras.optimizers import Adam
 from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping 
 from keras.layers import Input, Lambda
 
-from utils.core import test_yolo_loss as yolo_loss
+from utils.core import yolo_loss #test_yolo_loss as
 from utils.utils  import get_random_data
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 from utils.evaluation import AveragePrecision
@@ -24,9 +24,9 @@ from model.small_mobilenets2 import yolo_body
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'small_mobilenet'
+    model_name = 'xx'
     log_dir = 'logs/000/'
-    model_path = 'model_data/yolo_weights.h5'
+    model_path = 'model_data/small_mobilenets2_trained_weights_final.h5'
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -46,7 +46,7 @@ def _main():
         model = create_tiny_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
     else:
-        model = create_model(input_shape, anchors, num_classes,
+        model = create_model(input_shape, anchors, num_classes,load_pretrained=False,
             freeze_body=2, weights_path=model_path) # make sure you know what you freeze
 
     logging = TensorBoard(log_dir=log_dir)
@@ -60,7 +60,8 @@ def _main():
 
     with open(val_path) as f:
         val_lines = f.readlines()
-   # val_lines = val_lines[:500]
+    val_lines = val_lines[:500]
+
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
@@ -76,7 +77,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 1#32
+        batch_size = 24#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -85,7 +86,7 @@ def _main():
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
-                callbacks=[logging, checkpoint, meanAP])
+                callbacks=[logging, checkpoint])#, meanAP
 
       
         last_loss = history.history['loss'][-1]
@@ -106,7 +107,7 @@ def _main():
             'yolo_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  18#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  20#32 note that more GPU memory is required after unfreezing the body
 
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
@@ -116,7 +117,7 @@ def _main():
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, checkpoint, reduce_lr , meanAP])#, early_stopping
+            callbacks=[logging, checkpoint, reduce_lr ])#, meanAP, early_stopping
 
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
@@ -159,6 +160,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
         [*model_body.output, *y_true])
     model = Model([model_body.input, *y_true], model_loss)
+
 
     return model
 

@@ -24,7 +24,7 @@ import argparse
 
 def _main():
     #weights_path = 'model_data/trained_weights_final_mobilenet.h5'
-    weights_path = 'model_data/small_mobilenet_trained_weights_final.h5'
+    weights_path = 'model_data/small_mobilenets2_trained_weights_final.h5'
     #weights_path = 'logs/squeezenet_000/squeezenet_trained_weights_final.h5'
     
     train_path = '2007_train.txt'
@@ -117,6 +117,7 @@ def _main():
 
             for i in range(len(box)):
                 #print("obj" + str(i) )
+                #print( tuple(box[i]) )
                 #detection_label =  np.argmax( flogits[l][tuple(box[i])][5:]) 
                 annotation_label =  np.argmax( flogits[l][tuple(box[i])][5:]) 
 
@@ -199,6 +200,6 @@ def _main():
     print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))   
     
   
-
+#0661
 if __name__ == '__main__':
     _main()
