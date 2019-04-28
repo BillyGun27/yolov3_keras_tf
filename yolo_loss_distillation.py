@@ -14,7 +14,7 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation import distill_data_generator_wrapper
+from utils.distillation import distill_data_generator_wrapper_lite
 
 #changeable param
 from utils.distillation import yolo_distill_loss as yolo_custom_loss
@@ -79,23 +79,46 @@ def _main():
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     #declare model
-    num_anchors = len(anchors)
-    image_input = Input(shape=(416, 416, 3))
-    teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    teacher.load_weights(teacher_path)
+    #num_anchors = len(anchors)
+    #image_input = Input(shape=(416, 416, 3))
+    #teacher = teacher_body(image_input, num_anchors//3, num_classes)
+    #teacher.load_weights(teacher_path)
     
     # return the constructed network architecture
     # class+5
-    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
-    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
-    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
+    #yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
+    #yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
+    #yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
     
-    teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
-    teacher._make_predict_function()
+    #teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
+    #teacher._make_predict_function()
     
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     
+    batch_size = 1
+    datagen =  distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes)
+    logits , zero = next(datagen)
+
+    print(logits[1].shape)
+    #print(logits[1])
+    arrp = logits[1]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[1][tuple(box[0])])
+
+    print(logits[4].shape)
+    #print(logits[4])
+    arrp = logits[4]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print( logits[4][tuple(box[0])] )
+
+    '''
     if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
@@ -149,7 +172,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-        
+    ''' 
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
