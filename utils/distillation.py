@@ -166,10 +166,10 @@ def data_generator_teacher(annotation_lines, batch_size, input_shape, anchors, n
         
         yield [image_data, *l_true ], np.zeros(batch_size)
 
-def distill_data_generator_wrapperr_teacher(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher):
+def distill_data_generator_wrapper_teacher(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher):
     n = len(annotation_lines)
     if n==0 or batch_size<=0: return None
-    return data_generatorr_teacher(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher)
+    return data_generator_teacher(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher)
 
 '''
 def darknet_raw(feats,object_mask,grid_shape,grid,input_shape,anchors,anchor_msk):
