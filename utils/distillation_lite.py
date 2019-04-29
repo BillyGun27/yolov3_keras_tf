@@ -17,24 +17,17 @@ def sigmoid(x):
             numpy ndarray.
         """
         return 1 / (1 + np.exp(-x))
-        
-# Load TFLite model and allocate tensors.
-interpreter = tf.lite.Interpreter(model_path="model_data/trained_yolo_model.tflite")
-interpreter.allocate_tensors()
 
-# Get input and output tensors.
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
 
-def tflite_out(image_data, num_layers=3 ,num_classes=20 ):
+def tflite_out(image_data , interpreter, batch_size , num_layers=3 ,num_classes=20 ):
 
-    # Test model on random input data.
-    #input_shape = input_details[0]['shape']
-    #print(input_details[0]['shape'])
-    #input_data = np.array(np.random.random_sample(input_shape), dtype=np.float32)
+    # Get input and output tensors.
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+ 
     input_data = image_data
     interpreter.set_tensor(input_details[0]['index'], input_data)
-    
+
     model_image_size = (416 , 416)
     fmap = model_image_size[0]//32
     
@@ -45,7 +38,8 @@ def tflite_out(image_data, num_layers=3 ,num_classes=20 ):
 
     for ly in range(num_layers):
         output_data = interpreter.get_tensor(output_details[ly]['index'])
-        output_data= np.reshape(output_data , (1, fmap*mapsize[ly], fmap*mapsize[ly] , 3 , (num_classes + 5) ) ) 
+        #print(output_data.shape)
+        output_data= np.reshape(output_data , (batch_size, fmap*mapsize[ly], fmap*mapsize[ly] , 3 , (num_classes + 5) ) ) 
         outs.append(output_data)
 
 
@@ -54,9 +48,8 @@ def tflite_out(image_data, num_layers=3 ,num_classes=20 ):
 
     return outs
 
-def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_classes):
+def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_classes,interpreter):
     '''data generator for fit_generator'''
-
 
     n = len(annotation_lines)
     i = 0
@@ -64,10 +57,10 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
         image_data = []
         box_data = []
 
-        sm_pred = []
-        med_pred = []
-        lrg_pred = []
-        m_true = []
+        #sm_pred = []
+        #med_pred = []
+        #lrg_pred = []
+        #m_true = []
 
         for b in range(batch_size):
             if i==0:
@@ -82,11 +75,11 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
             image_data.append(image)
             box_data.append(box)
             
-            out_data = tflite_out( np.expand_dims(image, axis=0) )
+            #out_data = tflite_out( np.expand_dims(image, axis=0) )
             #print(out_data[0].shape)
-            lrg_pred.append(out_data[0])
-            med_pred.append(out_data[1])
-            sm_pred.append(out_data[2])
+            #lrg_pred.append(out_data[0])
+            #med_pred.append(out_data[1])
+            #sm_pred.append(out_data[2])
 
             i = (i+1) % n
         image_data = np.array(image_data)
@@ -99,11 +92,12 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
         #print(m_true.shape)
     
         #print( np.vstack( lrg_pred ).shape )
-        m_true.append( np.vstack( lrg_pred ) )
-        m_true.append( np.vstack( med_pred ) )
-        m_true.append( np.vstack( sm_pred ) )
+        #m_true.append( np.vstack( lrg_pred ) )
+        #m_true.append( np.vstack( med_pred ) )
+        #m_true.append( np.vstack( sm_pred ) )
+        m_true =  tflite_out( image_data , interpreter  , batch_size)
 
-        #print(m_true[0].shape
+        #print(m_true[0].shape )
 
         h, w = input_shape
         num_anchors = len(anchors)
@@ -144,7 +138,17 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
         
         yield [image_data, *y_true , *l_true ], np.zeros(batch_size)
 
-def distill_data_generator_wrapper_lite(annotation_lines, batch_size, input_shape, anchors, num_classes):
+def distill_data_generator_wrapper_lite(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher_path):
+    #print("called")
+
+    # Load TFLite model and allocate tensors.
+    interpreter = tf.lite.Interpreter(model_path=teacher_path)
+    
+    input_details = interpreter.get_input_details()
+
+    interpreter.resize_tensor_input(input_details[0]['index'],[ batch_size , 416, 416, 3])
+    interpreter.allocate_tensors()
+
     n = len(annotation_lines)
     if n==0 or batch_size<=0: return None
-    return data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_classes)
+    return data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_classes,interpreter)

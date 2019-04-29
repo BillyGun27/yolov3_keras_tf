@@ -30,7 +30,7 @@ def _main():
     model_name = 'test_loss_basic_distill_mobilenet'
     log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
-    teacher_path = "model_data/trained_weights_final.h5"
+    teacher_path = "model_data/trained_yolo_model.tflite"
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -64,11 +64,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
-    train_lines = train_lines[:2]
+    train_lines = train_lines[:8]
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    val_lines = val_lines[:2]
+    val_lines = val_lines[:8]
 
    # with open(test_path) as f:
    #     test_lines = f.readlines()
@@ -96,8 +96,9 @@ def _main():
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     '''
+    print("batching")
     batch_size = 4
-    datagen =  distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes)
+    datagen =  distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path)
     logits , zero = next(datagen)
 
     print(logits[1].shape)
@@ -117,6 +118,19 @@ def _main():
     print(box)
     if( len(box) ):
         print( logits[4][tuple(box[0])] )
+
+    print("next")
+    logits , zero = next(datagen)
+
+    print(logits[1].shape)
+    #print(logits[1])
+    arrp = logits[1]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[1][tuple(box[0])])
+
     '''
     
     if True:
@@ -127,9 +141,9 @@ def _main():
         batch_size = 2#24#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes),
+        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
                 steps_per_epoch=max(1, num_train//batch_size),
-                validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes),
+                validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
@@ -156,9 +170,9 @@ def _main():
         batch_size =  2#20#32 note that more GPU memory is required after unfreezing the body
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes),
+        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
             steps_per_epoch=max(1, num_train//batch_size),
-            validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes),
+            validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
