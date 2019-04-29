@@ -14,10 +14,10 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation_lite import distill_data_generator_wrapper_lite
+from utils.distillation_new import distill_data_generator_wrapper
+from utils.distillation_new import yolo_distill_loss as yolo_custom_loss
 
 #changeable param
-from utils.distillation import yolo_distill_loss as yolo_custom_loss
 #from model.mobilenet import yolo_body
 from model.small_mobilenets2 import yolo_body
 from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
@@ -25,12 +25,12 @@ from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 import argparse
 
 def _main():
-    epoch_end_first = 1#30
-    epoch_end_final = 2#60
+    epoch_end_first = 1
+    epoch_end_final = 2
     model_name = 'test_loss_basic_distill_mobilenet'
     log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
-    teacher_path = "model_data/trained_yolo_model.tflite"
+    teacher_path = "model_data/trained_weights_final.h5"
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -44,10 +44,7 @@ def _main():
     input_shape = (416,416) # multiple of 32, hw
     num_anchors = len(anchors)
     image_input = Input(shape=(None, None, 3))
-    
-    is_tiny_version = len(anchors)==6 # default setting
 
-   
     is_tiny_version = len(anchors)==6 # default setting
     if is_tiny_version:
         model = create_tiny_model(input_shape, anchors, num_classes,
@@ -64,11 +61,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
-    train_lines = train_lines[:8]
+    train_lines = train_lines[:4]
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    val_lines = val_lines[:8]
+    val_lines = val_lines[:4]
 
    # with open(test_path) as f:
    #     test_lines = f.readlines()
@@ -79,53 +76,48 @@ def _main():
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     #declare model
-    #num_anchors = len(anchors)
-    #image_input = Input(shape=(416, 416, 3))
-    #teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    #teacher.load_weights(teacher_path)
+    num_anchors = len(anchors)
+    image_input = Input(shape=(416, 416, 3))
+    teacher = teacher_body(image_input, num_anchors//3, num_classes)
+    teacher.load_weights(teacher_path)
     
     # return the constructed network architecture
     # class+5
-    #yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
-    #yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
-    #yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
+    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
+    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
+    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
     
-    #teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
-    #teacher._make_predict_function()
+    teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
+    for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
+    teacher._make_predict_function()
     
+    
+    #teacher.summary()
+    #print(len(teacher.layers))
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
-    
+    '''
     print("batching")
     batch_size = 4
-    datagen =  distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path)
+    datagen =  distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
     logits , zero = next(datagen)
 
+    print(logits)
+    print(len(logits))
     print(logits[1].shape)
     #print(logits[1])
-    arrp = logits[1]
+    ytrue =  logits[1][...,:25]
+    ltrue = logits[1][...,25:]
+
+    arrp = ytrue
     box = np.where(arrp[...,4] > 0 )
     box = np.transpose(box)
     print(box)
     if( len(box) ):
-        print(logits[1][tuple(box[0])])
-
-    print(logits[4].shape)
-    #print(logits[4])
-    arrp = logits[4]
-    box = np.where(arrp[...,4] > 0 )
-    box = np.transpose(box)
-    print(box)
-    if( len(box) ):
-        print( logits[4][tuple(box[0])] )
-
-    combiner = np.concatenate( [ logits[1],logits[4] ] , axis=-1 )
-
-    print(combiner.shape)
-    
+        print(ytrue[tuple(box[0])])
+        print(ltrue[tuple(box[0])])
 
     '''
-    
     if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
@@ -134,9 +126,9 @@ def _main():
         batch_size = 2#24#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
+        history = model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
                 steps_per_epoch=max(1, num_train//batch_size),
-                validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
+                validation_data=distill_data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes,teacher),
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
@@ -161,11 +153,13 @@ def _main():
         print('Unfreeze all of the layers.')
 
         batch_size =  2#20#32 note that more GPU memory is required after unfreezing the body
+        
+        teacher.summary()
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
-        history = model.fit_generator(distill_data_generator_wrapper_lite(train_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
+        history = model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
             steps_per_epoch=max(1, num_train//batch_size),
-            validation_data=distill_data_generator_wrapper_lite(val_lines, batch_size, input_shape, anchors, num_classes,teacher_path),
+            validation_data=distill_data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes,teacher),
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
@@ -179,7 +173,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-     '''
+    
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
@@ -191,10 +185,10 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     num_anchors = len(anchors)
 
     y_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
-        num_anchors//3, num_classes+5)) for l in range(3)]
+        num_anchors//3, ( num_classes+5 ) * 2 )) for l in range(3)]
 
-    l_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
-        num_anchors//3, num_classes+5)) for l in range(3)]
+    #l_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
+    #    num_anchors//3, num_classes+5)) for l in range(3)]
 
     model_body = yolo_body(image_input, num_anchors//3, num_classes)
     print('Create YOLOv3 model with {} anchors and {} classes.'.format(num_anchors, num_classes))
@@ -213,8 +207,8 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha': 0 })(
-        [*model_body.output, *y_true , *l_true])
-    model = Model([model_body.input, *y_true , *l_true ], model_loss)
+        [*model_body.output, *y_true ])
+    model = Model([model_body.input, *y_true ], model_loss)
 
 
     return model
@@ -243,9 +237,9 @@ def create_tiny_model(input_shape, anchors, num_classes, load_pretrained=True, f
             print('Freeze the first {} layers of total {} layers.'.format(num, len(model_body.layers)))
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.7})(
-        [*model_body.output, *y_true, *l_true])
-    model = Model([model_body.input, *y_true, *l_true], model_loss)
+        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha':0 })(
+        [*model_body.output, *y_true])
+    model = Model([model_body.input, *y_true], model_loss)
 
     return model
 
@@ -312,4 +306,4 @@ if __name__ == '__main__':
     print(box)
     if( len(box) ):
         print( logits[6][tuple(box[0])] )
-    '''
+'''
