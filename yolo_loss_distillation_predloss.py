@@ -74,23 +74,6 @@ def _main():
     num_val = int(len(val_lines))
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
-
-    #declare model
-    num_anchors = len(anchors)
-    image_input = Input(shape=(416, 416, 3))
-    teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    teacher.load_weights(teacher_path)
-    
-    # return the constructed network architecture
-    # class+5
-    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
-    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
-    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
-    
-    teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
-    for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
-    teacher._make_predict_function()
-    
     
     #teacher.summary()
     #print(len(teacher.layers))
@@ -153,6 +136,8 @@ def _main():
         print('Unfreeze all of the layers.')
 
         batch_size =  2#20#32 note that more GPU memory is required after unfreezing the body
+        
+        teacher.summary()
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(distill_data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
@@ -182,8 +167,23 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     h, w = input_shape
     num_anchors = len(anchors)
 
+    #declare model
+    teacher = teacher_body(image_input, num_anchors//3, num_classes)
+    teacher.load_weights(teacher_path)
+    
+    # return the constructed network architecture
+    # class+5
+    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
+    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
+    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
+    
+    teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
+    for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
+    teacher._make_predict_function()
+
+
     y_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
-        num_anchors//3, ( num_classes+5 ) * 2 )) for l in range(3)]
+        num_anchors//3, ( num_classes+5 )  )) for l in range(3)]
 
     #l_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
     #    num_anchors//3, num_classes+5)) for l in range(3)]
@@ -204,7 +204,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         model_body.layers[y].name = "conv2d_output_" + str(h//{-3:32, -2:16, -1:8}[y])
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha': 0 })(
+        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5 , 'alpha': 0 , 'teacher':teacher })(
         [*model_body.output, *y_true ])
     model = Model([model_body.input, *y_true ], model_loss)
 
