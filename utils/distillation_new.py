@@ -93,7 +93,7 @@ def data_generator_fteacher(annotation_lines, batch_size, input_shape, anchors, 
     '''data generator for fit_generator'''
 
 
-     n = len(annotation_lines)
+    n = len(annotation_lines)
     i = 0
     while True:
         image_data = []
