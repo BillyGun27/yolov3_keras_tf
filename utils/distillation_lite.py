@@ -7,6 +7,17 @@ from utils.utils  import get_random_data
 from utils.core import yolo_head,box_iou
 from utils.core import preprocess_true_boxes
 
+def sigmoid(x):
+        """sigmoid.
+
+        # Arguments
+            x: Tensor.
+
+        # Returns
+            numpy ndarray.
+        """
+        return 1 / (1 + np.exp(-x))
+        
 # Load TFLite model and allocate tensors.
 interpreter = tf.lite.Interpreter(model_path="model_data/trained_yolo_model.tflite")
 interpreter.allocate_tensors()
@@ -52,6 +63,10 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
     while True:
         image_data = []
         box_data = []
+
+        sm_pred = []
+        med_pred = []
+        lrg_pred = []
         m_true = []
 
         for b in range(batch_size):
@@ -61,24 +76,34 @@ def data_generator_lite(annotation_lines, batch_size, input_shape, anchors, num_
             
             #change data type
             image = image.astype('float32')
-            print("check")
-            print(np.expand_dims(image, axis=0).shape)
-            print(image.shape)
+            #print("check")
+            #print(np.expand_dims(image, axis=0).shape)
+            #print(image.shape)
             image_data.append(image)
             box_data.append(box)
             
             out_data = tflite_out( np.expand_dims(image, axis=0) )
-            m_true.append(out_data)
+            #print(out_data[0].shape)
+            lrg_pred.append(out_data[0])
+            med_pred.append(out_data[1])
+            sm_pred.append(out_data[2])
 
             i = (i+1) % n
         image_data = np.array(image_data)
-        print(image_data.shape)
+        #print(image_data.shape)
         box_data = np.array(box_data)
         y_true = preprocess_true_boxes(box_data, input_shape, anchors, num_classes)
         #m_true = teacher.predict(image_data)
-        print(image_data.dtype)
-        print(image_data.shape)
-        m_true = np.array(m_true) 
+        #print(image_data.dtype)
+        #print(image_data.shape)
+        #print(m_true.shape)
+    
+        #print( np.vstack( lrg_pred ).shape )
+        m_true.append( np.vstack( lrg_pred ) )
+        m_true.append( np.vstack( med_pred ) )
+        m_true.append( np.vstack( sm_pred ) )
+
+        #print(m_true[0].shape
 
         h, w = input_shape
         num_anchors = len(anchors)
