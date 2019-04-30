@@ -230,7 +230,7 @@ def data_generator_double(annotation_lines, batch_size, input_shape, anchors, nu
                 l_true[l][tuple(box[i])] = m_true[l][tuple(box[i])] #pred_model[tuple(box[i])]
         '''
         
-        yield [image_data, *y_true , *l_true ], np.zeros(batch_size)
+        yield [image_data, *y_true , *y_true ], np.zeros(batch_size)
 
 def distill_data_generator_wrapper_double(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher):
     n = len(annotation_lines)
