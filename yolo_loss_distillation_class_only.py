@@ -14,7 +14,7 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation import distill_data_generator_wrapper_class_only
+from utils.distillation import distill_data_generator_wrapper_class_only ,distill_data_generator_wrapper_weights
 
 #changeable param
 from utils.core import yolo_loss as yolo_custom_loss
@@ -79,18 +79,30 @@ def _main():
     #declare model
     num_anchors = len(anchors)
     image_input = Input(shape=(416, 416, 3))
+    print("load model")
     teacher = teacher_body(image_input, num_anchors//3, num_classes)
+    print("load modal end")
+    print("load weight")
     teacher.load_weights(teacher_path)
-    
+    print("load weight end")
+
+    print("load reshape")
     # return the constructed network architecture
     # class+5
     yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
     yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
     yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
-    
+    print("load reshape end")
+
+    print("construct model")
     teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
+    print("construct model end")
+
+    print("load freeze and predict end")
     for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
     teacher._make_predict_function()
+    print("load freeze and predict end")
+
 
     #print ( teacher.layers[-3].get_weights() )
     #print ( teacher.layers[-2].get_weights() )
@@ -109,21 +121,9 @@ def _main():
 
     #teacher.summary()
     #print(len(teacher.layers))
-    '''
-    batch_size = 1
-    datagen =  distill_data_generator_wrapper_class_only(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
-    logits , zero = next(datagen)
-
-    print(logits[1].shape)
-    #print(logits[1])
-    arrp = logits[1]
-    box = np.where(arrp[...,4] > 0 )
-    box = np.transpose(box)
-    print(box)
-    if( len(box) ):
-        print(logits[1][tuple(box[0])])
     
-    datagen =  distill_data_generator_wrapper_class_only(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
+    batch_size = 1
+    datagen =  distill_data_generator_wrapper_weights(train_lines, batch_size, input_shape, anchors, num_classes,teacher,teacher_path)
     logits , zero = next(datagen)
 
     print(logits[1].shape)
@@ -134,7 +134,10 @@ def _main():
     print(box)
     if( len(box) ):
         print(logits[1][tuple(box[0])])
-    '''
+        print(logits[4][tuple(box[0])])
+
+    
+    
     '''
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
