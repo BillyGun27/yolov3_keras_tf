@@ -16,7 +16,7 @@ from utils.evaluation import AveragePrecision
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 
 #changeable param
-from utils.distillation import apprentice_distill_loss as yolo_custom_loss
+from utils.distillation import yolo_distill_loss as yolo_custom_loss
 from model.small_mobilenets2 import yolo_body
 from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 
@@ -25,8 +25,8 @@ from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 import argparse
 
 def _main():
-    epoch_end_first = 30
-    epoch_end_final = 60
+    epoch_end_first = 1#30
+    epoch_end_final = 2#60
     model_name = 'loss_apprentice_joint_mobilenet'
     log_dir = 'logs/loss_apprentice_joint_mobilenet_000/'
     model_path = 'model_data/trained_weights_final_mobilenet.h5'
@@ -47,7 +47,6 @@ def _main():
     
     is_tiny_version = len(anchors)==6 # default setting
 
-    is_tiny_version = len(anchors)==6 # default setting
     if is_tiny_version:
         model = create_tiny_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
@@ -63,10 +62,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
+    train_lines = train_lines[:1]
 
     with open(val_path) as f:
         val_lines = f.readlines()
-
+    val_lines = val_lines[:1]
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
@@ -126,7 +126,7 @@ def _main():
             'yolo_custom_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  18#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  1#32 note that more GPU memory is required after unfreezing the body
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -148,7 +148,7 @@ def _main():
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
     
     # Further training if needed.
-
+    
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
             weights_path='model_data/yolo_weights.h5',teacher_weights_path="model_data/trained_weights_final.h5"):
     '''create the training model'''
@@ -160,6 +160,9 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     y_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
         num_anchors//3, num_classes+5)) for l in range(3)]
     
+    l_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
+        num_anchors//3, num_classes+5)) for l in range(3)]
+
     teacher = teacher_body(image_input, num_anchors//3, num_classes)
     teacher.load_weights(teacher_weights_path)
     yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
@@ -185,10 +188,12 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
         arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
-        [*model_body.output, *y_true , *teacher.output ])
-    model = Model([model_body.input,  *y_true ], model_loss)
+        [*model_body.output, *y_true , *teacher.output  ])
+    model = Model([ image_input , *y_true  ], model_loss)
 
+    #from keras.utils.vis_utils import plot_model as plot
     #plot(model, to_file='{}.png'.format("train_together"), show_shapes=True)
+    #print("stop")
 
     return model
 

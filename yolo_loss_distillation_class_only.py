@@ -62,11 +62,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
-    train_lines = train_lines[:1]
+    train_lines = train_lines[:4]
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    val_lines = val_lines[:1]
+    val_lines = val_lines[:4]
 
    # with open(test_path) as f:
    #     test_lines = f.readlines()
@@ -91,8 +91,19 @@ def _main():
     teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
     for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
     teacher._make_predict_function()
-    
-    
+
+    #print ( teacher.layers[-3].get_weights() )
+    #print ( teacher.layers[-2].get_weights() )
+    #print ( teacher.layers[-1].get_weights() )
+    print ( len( teacher.layers[-6].get_weights() ) )
+    print ( teacher.layers[-6].get_weights()[0].shape )
+    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    #print ( teacher.layers[-6].get_weights()[0] )
+    #print ( teacher.layers[-5].get_weights() )
+    #print ( teacher.layers[-4].get_weights() )
+
     #teacher.summary()
     #print(len(teacher.layers))
     '''
@@ -108,8 +119,20 @@ def _main():
     print(box)
     if( len(box) ):
         print(logits[1][tuple(box[0])])
-    '''
+    
+    datagen =  distill_data_generator_wrapper_class_only(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
+    logits , zero = next(datagen)
 
+    print(logits[1].shape)
+    #print(logits[1])
+    arrp = logits[1]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[1][tuple(box[0])])
+    '''
+    '''
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     if True:
@@ -117,7 +140,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 1#32
+        batch_size = 2#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(distill_data_generator_wrapper_class_only(train_lines, batch_size, input_shape, anchors, num_classes,teacher),
@@ -168,7 +191,7 @@ def _main():
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
     
     # Further training if needed.
-'''
+    '''
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
             weights_path='model_data/yolo_weights.h5'):
     '''create the training model'''
