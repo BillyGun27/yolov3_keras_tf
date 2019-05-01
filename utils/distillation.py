@@ -41,6 +41,7 @@ def data_generator(annotation_lines, batch_size, input_shape, anchors, num_class
         m_true = teacher.predict(image_data)
         
         print( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+        print ( teacher.layers[-6].get_weights()[1][0] )
 
         h, w = input_shape
         num_anchors = len(anchors)

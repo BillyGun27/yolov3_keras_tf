@@ -97,9 +97,12 @@ def _main():
     #print ( teacher.layers[-1].get_weights() )
     print ( len( teacher.layers[-6].get_weights() ) )
     print ( teacher.layers[-6].get_weights()[0].shape )
+    print ( teacher.layers[-6].get_weights()[1].shape )
+    print ( teacher.layers[-6].get_weights()[1][0] )
+    print ( teacher.layers[-6].get_weights()[1][0] )
     print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
     print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
-    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    
     #print ( teacher.layers[-6].get_weights()[0] )
     #print ( teacher.layers[-5].get_weights() )
     #print ( teacher.layers[-4].get_weights() )
