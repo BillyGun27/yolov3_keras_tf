@@ -117,3 +117,4 @@ VOCdevkit/
 2007_test.txt
 2007_train.txt
 2007_val.txt
+model_data/trained_small_mobilenets2_model.pb

@@ -96,7 +96,89 @@ def data_generator(annotation_lines, batch_size, input_shape, anchors, num_class
 def distill_data_generator_wrapper(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher):
     n = len(annotation_lines)
     if n==0 or batch_size<=0: return None
-    return data_generator(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher,teacher_path)
+    return data_generator(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher)
+
+def data_generator_tf(annotation_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names):
+    '''data generator for fit_generator'''
+    
+    with detection_graph.as_default():
+        with tf.Session(graph=detection_graph) as sess:
+            tensor_output1 = sess.graph.get_tensor_by_name(graph_names[0])
+            tensor_output2 = sess.graph.get_tensor_by_name(graph_names[1])
+            tensor_output3 = sess.graph.get_tensor_by_name(graph_names[2])
+            tensor_input = sess.graph.get_tensor_by_name(graph_names[3])
+    
+    n = len(annotation_lines)
+    i = 0
+    while True:
+        image_data = []
+        box_data = []
+        for b in range(batch_size):
+            if i==0:
+                np.random.shuffle(annotation_lines)
+            image, box = get_random_data(annotation_lines[i], input_shape, random=True)
+            image_data.append(image)
+            box_data.append(box)
+            i = (i+1) % n
+        image_data = np.array(image_data)
+        box_data = np.array(box_data)
+        y_true = preprocess_true_boxes(box_data, input_shape, anchors, num_classes)
+        
+        with detection_graph.as_default():
+            with tf.Session(graph=detection_graph) as sess:
+                m_true = sess.run([tensor_output1,tensor_output2,tensor_output3], {tensor_input: image_data})
+        
+        for ly in range(len(m_true)):
+            m_true[ly] = m_true[ly].reshape( m_true[ly].shape[:-1] + (3, num_classes+5 ))
+
+        #print(m_true[0].shape)
+        #print( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+        #print ( teacher.layers[-6].get_weights()[1][0] )
+
+        h, w = input_shape
+        num_anchors = len(anchors)
+        
+        l_true =  [ np.zeros( shape=( batch_size ,416//{0:32, 1:16, 2:8}[l], 416//{0:32, 1:16, 2:8}[l], 9//3, 20+5) ) for l in range(3) ]
+
+        #print(len(y_true))
+        #print(len(m_true))
+        #print(len(l_true))
+        anchor_mask = [[6,7,8], [3,4,5], [0,1,2]] if len(m_true)==3 else [[3,4,5], [1,2,3]] 
+
+        for l in range( len(m_true) ) : 
+          
+            anchors_tensor = np.reshape( anchors[anchor_mask[l]] , [1, 1, 1, len( anchors[anchor_mask[l]] ) , 2] )
+
+            grid_shape = m_true[l].shape[1:3] # height, width
+            grid_shape
+            grid_y = np.tile(np.reshape(np.arange(0, stop=grid_shape[0]), [-1, 1, 1, 1]),
+                [1, grid_shape[1], 1, 1])
+            grid_x = np.tile(np.reshape(np.arange(0, stop=grid_shape[1]), [1, -1, 1, 1]),
+                [grid_shape[0], 1, 1, 1])
+            grid = np.concatenate([grid_x, grid_y],axis=-1)
+
+            #print(l)
+            m_true[l][...,:2] = (sigmoid(m_true[l][...,:2]) + grid ) / np.array( grid_shape[::-1] )
+            m_true[l][..., 2:4] = np.exp(m_true[l][..., 2:4]) * anchors_tensor  / np.array( input_shape[::-1] )
+            m_true[l][..., 4] = sigmoid(m_true[l][..., 4])
+            m_true[l][..., 5:] = sigmoid(m_true[l][..., 5:])
+            
+            #print("inside")
+            box = np.where(y_true[l][...,4] > 0.5 )
+            box = np.transpose(box)
+
+            for i in range(len(box)):
+                #if m_true[l][..., 4] > 0.5 :
+                l_true[l][tuple(box[i])] = m_true[l][tuple(box[i])] #pred_model[tuple(box[i])]
+        
+        
+        yield [image_data, *y_true , *l_true ], np.zeros(batch_size)
+
+def distill_data_generator_wrapper_tf(annotation_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names):
+    n = len(annotation_lines)
+    if n==0 or batch_size<=0: return None
+    return data_generator_tf(annotation_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names)
+
 
 def data_generator_weights(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher,teacher_path):
     '''data generator for fit_generator'''
@@ -567,7 +649,7 @@ def basic_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,inp
 
     return xy_loss , wh_loss , confidence_loss ,class_loss ,ignore_mask
 
-def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, print_loss=True):
+def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, print_loss=False):
     '''Return yolo_loss tensor
 
     Parameters
