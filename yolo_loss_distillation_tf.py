@@ -17,7 +17,7 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation import distill_data_generator_wrapper_tf
+from utils.distillation import distill_data_generator_wrapper_tf2 as distill_data_generator_wrapper_tf
 
 #changeable param
 from utils.distillation import yolo_distill_loss as yolo_custom_loss
@@ -33,7 +33,8 @@ def _main():
     model_name = 'test_loss_basic_distill_mobilenet'
     log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
-    teacher_path = 'model_data/trained_small_mobilenets2_model.pb'
+    #teacher_path = 'model_data/trained_small_mobilenets2_model.pb'
+    teacher_path = 'model_data/small_mobilenet_trained_model.pb'
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -81,7 +82,9 @@ def _main():
     #declare model
     #print("setup graph")
     #setup graph
-    graph_names = ['import/conv2d_3/convolution:0','import/conv2d_7/convolution:0','import/conv2d_10/convolution:0','import/input_1:0']
+
+    #graph_names = ['import/conv2d_3/convolution:0','import/conv2d_7/convolution:0','import/conv2d_10/convolution:0','import/input_1:0']
+    graph_names = ['import/conv2d_5/convolution:0','import/conv2d_11/convolution:0','import/conv2d_17/convolution:0','import/input_1:0']
     detection_graph = tf.Graph()
     with detection_graph.as_default():
         with gfile.FastGFile(teacher_path,'rb') as f:
@@ -90,7 +93,7 @@ def _main():
             g_in = tf.import_graph_def(graph_def)
     #print("finish graph")
     
-    '''
+    
     batch_size = 2
     datagen =  distill_data_generator_wrapper_tf(train_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names)
     logits , zero = next(datagen)
@@ -115,6 +118,7 @@ def _main():
 
     #teacher.summary()
     #print(len(teacher.layers))
+    
     '''
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model
@@ -172,7 +176,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-    
+    '''
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
