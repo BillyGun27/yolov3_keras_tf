@@ -154,7 +154,7 @@ def data_generator_rand(annotation_lines, batch_size, input_shape, anchors, num_
         image_data = np.array(image_data)
         box_data = np.array(box_data)
         y_true = preprocess_true_boxes(box_data, input_shape, anchors, num_classes)
-        l_true =  [ 0.99 * np.ones( shape=( batch_size ,416//{0:32, 1:16, 2:8}[l], 416//{0:32, 1:16, 2:8}[l], 9//3, 20+5) ) for l in range(3) ]
+        l_true =  [ np.ones( shape=( batch_size ,416//{0:32, 1:16, 2:8}[l], 416//{0:32, 1:16, 2:8}[l], 9//3, 20+5) ) for l in range(3) ]
 
         yield [image_data, *y_true, *l_true], np.zeros(batch_size)
 
