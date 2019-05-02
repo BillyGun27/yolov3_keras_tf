@@ -165,9 +165,9 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
 
     teacher = teacher_body(image_input, num_anchors//3, num_classes)
     teacher.load_weights(teacher_weights_path)
-    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
-    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
-    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
+    #yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
+    #yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
+    #yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
     
     teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
 
@@ -191,9 +191,11 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
         [*model_body.output, *y_true , *teacher.output  ])
     model = Model([ image_input , *y_true  ], model_loss)
 
+    model.save_weights("joint.h5")
+
     #from keras.utils.vis_utils import plot_model as plot
     #plot(model, to_file='{}.png'.format("train_together"), show_shapes=True)
-    #print("stop")
+    print("stop")
 
     return model
 

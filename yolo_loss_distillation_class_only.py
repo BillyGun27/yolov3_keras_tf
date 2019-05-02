@@ -14,7 +14,7 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation import distill_data_generator_wrapper_class_only ,distill_data_generator_wrapper_weights
+from utils.distillation import distill_data_generator_wrapper2 #distill_data_generator_wrapper_class_only ,distill_data_generator_wrapper_weights
 
 #changeable param
 from utils.core import yolo_loss as yolo_custom_loss
@@ -100,20 +100,20 @@ def _main():
 
     print("load freeze and predict end")
     for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
-    teacher._make_predict_function()
+    #teacher._make_predict_function()
     print("load freeze and predict end")
 
 
     #print ( teacher.layers[-3].get_weights() )
     #print ( teacher.layers[-2].get_weights() )
     #print ( teacher.layers[-1].get_weights() )
-    print ( len( teacher.layers[-6].get_weights() ) )
-    print ( teacher.layers[-6].get_weights()[0].shape )
-    print ( teacher.layers[-6].get_weights()[1].shape )
-    print ( teacher.layers[-6].get_weights()[1][0] )
-    print ( teacher.layers[-6].get_weights()[1][0] )
-    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
-    print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    #print ( len( teacher.layers[-6].get_weights() ) )
+    #print ( teacher.layers[-6].get_weights()[0].shape )
+    #print ( teacher.layers[-6].get_weights()[1].shape )
+    #print ( teacher.layers[-6].get_weights()[1][0] )
+    #print ( teacher.layers[-6].get_weights()[1][0] )
+    #print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
+    #print ( teacher.layers[-6].get_weights()[0][0][0][0][0] )
     
     #print ( teacher.layers[-6].get_weights()[0] )
     #print ( teacher.layers[-5].get_weights() )
@@ -123,7 +123,7 @@ def _main():
     #print(len(teacher.layers))
     
     batch_size = 1
-    datagen =  distill_data_generator_wrapper_weights(train_lines, batch_size, input_shape, anchors, num_classes,teacher,teacher_path)
+    datagen =  distill_data_generator_wrapper2(train_lines, batch_size, input_shape, anchors, num_classes,teacher)
     logits , zero = next(datagen)
 
     print(logits[1].shape)
@@ -134,8 +134,15 @@ def _main():
     print(box)
     if( len(box) ):
         print(logits[1][tuple(box[0])])
-        print(logits[4][tuple(box[0])])
 
+    print(logits[4].shape)
+    #print(logits[4])
+    arrp = logits[4]
+    box = np.where(arrp[...,4] > 0 )
+    box = np.transpose(box)
+    print(box)
+    if( len(box) ):
+        print(logits[4][tuple(box[0])])
     
     
     '''
