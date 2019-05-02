@@ -15,7 +15,7 @@ from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 #from utils.distillation import distill_data_generator_wrapper
-from utils.core import yolo_loss as yolo_custom_loss , combine_distill_loss
+from utils.core import single_yolo_loss as yolo_custom_loss , combine_scale_distill_loss
 
 #changeable param
 #from model.mobilenet import yolo_body
@@ -192,6 +192,8 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     h, w = input_shape
     num_anchors = len(anchors)
 
+    anchor_mask = [[6,7,8], [3,4,5], [0,1,2]] #if num_layers==3 else [[3,4,5], [1,2,3]]
+
     y_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
         num_anchors//3, num_classes+5 )) for l in range(3)]
 
@@ -215,20 +217,25 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
 
     
 
-    model_loss_student = Lambda(yolo_custom_loss, output_shape=(1,),
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5  })(
-        [*model_body.output, *y_true ])
+    model_loss_large = Lambda(yolo_custom_loss, output_shape=(1,),
+        arguments={'anchors': anchors[anchor_mask[0]] , 'num_classes': num_classes, 'ignore_thresh': 0.5  })(
+        [ model_body.output[0] , y_true[0] ])
 
-    model_loss_teacher = Lambda(yolo_custom_loss, output_shape=(1,), 
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5  })(
-        [*model_body.output, *l_true ])
+    model_loss_medium = Lambda(yolo_custom_loss, output_shape=(1,), 
+        arguments={'anchors': anchors[anchor_mask[1]], 'num_classes': num_classes, 'ignore_thresh': 0.5  })(
+        [ model_body.output[1] , y_true[1] ])
 
-    model_distill_loss = Lambda(combine_distill_loss ,name='yolo_custom_distill_loss')([model_loss_student,model_loss_teacher])
+    model_loss_small = Lambda(yolo_custom_loss, output_shape=(1,), 
+        arguments={'anchors': anchors[anchor_mask[2]], 'num_classes': num_classes, 'ignore_thresh': 0.5  })(
+        [ model_body.output[2] , y_true[2] ])
 
-    model = Model( [model_body.input, *y_true , *l_true ], [model_distill_loss] )
+    model_distill_loss = Lambda(combine_scale_distill_loss ,name='yolo_custom_distill_loss')([model_loss_large ,model_loss_medium ,model_loss_small ])
+
+    model = Model( [model_body.input, *y_true ], [model_distill_loss] )
 
     from keras.utils.vis_utils import plot_model as plot
-    plot(model , to_file='{}.png'.format("branch_train"), show_shapes=True)
+    plot(model , to_file='{}.png'.format("3s_branch_train"), show_shapes=True)
+    print("vis")
 
     return model
 

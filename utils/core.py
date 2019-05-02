@@ -317,6 +317,12 @@ def yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):
             loss = tf.Print(loss, [l ,loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
 
+def combine_scale_distill_loss(args):
+    large_loss , medium_loss , small_loss = args
+    loss = large_loss + medium_loss + small_loss
+    loss = tf.Print(loss, [loss, large_loss , medium_loss ,small_loss ], message=' loss combine: ')
+    return loss
+
 def combine_distill_loss(args):
     student_loss , teacher_loss = args
     loss = student_loss
