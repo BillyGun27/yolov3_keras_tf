@@ -98,6 +98,7 @@ def distill_data_generator_wrapper(annotation_lines, batch_size, input_shape, an
     if n==0 or batch_size<=0: return None
     return data_generator(annotation_lines, batch_size, input_shape, anchors, num_classes,teacher)
 
+
 def data_generator_tf(annotation_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names):
     '''data generator for fit_generator'''
     
@@ -891,7 +892,7 @@ def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, p
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
 
-def another_yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, print_loss=False):
+def joint_yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, print_loss=False):
     '''Return yolo_loss tensor
 
     Parameters

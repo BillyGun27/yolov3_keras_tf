@@ -100,7 +100,7 @@ def _main():
 
     print("load freeze and predict end")
     for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
-    teacher._make_predict_function()
+    #teacher._make_predict_function()
     print("load freeze and predict end")
 
 
