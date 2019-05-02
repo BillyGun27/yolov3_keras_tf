@@ -763,7 +763,7 @@ def teacher_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,i
     pred_box = K.concatenate([pred_xy, pred_wh])
 
     # Darknet raw box to calculate loss.
-    _ , box_wh, box_confidence, box_class_probs = yolo_head(y_true, anchors, num_classes, input_shape, calc_loss=False)
+    _ , true_wh, box_confidence, box_class_probs = yolo_head(y_true, anchors, num_classes, input_shape, calc_loss=False)
 
     object_mask = box_confidence #y_true[..., 4:5]
     true_class_probs = box_class_probs #y_true[..., 5:]
