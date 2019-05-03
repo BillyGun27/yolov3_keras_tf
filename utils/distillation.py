@@ -10,7 +10,7 @@ from utils.core import preprocess_true_boxes
 
 class DistillCheckpointCallback(Callback):
     def __init__(self , model, model_name , log_dir):
-        super(TrainingCallback, self ).__init__()
+        super(DistillCheckpointCallback, self ).__init__()
         self.model = model
         self.model_name = model_name
         self.log_dir = log_dir
