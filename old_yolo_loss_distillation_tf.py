@@ -17,7 +17,7 @@ from utils.train_tool import get_classes,get_anchors
 from utils.evaluation import AveragePrecision
 
 from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
-from utils.distillation import distill_data_generator_wrapper_tf2 as distill_data_generator_wrapper_tf
+from utils.distillation import distill_data_generator_wrapper_tf as distill_data_generator_wrapper_tf
 
 #changeable param
 from utils.distillation import yolo_distill_loss as yolo_custom_loss
@@ -28,11 +28,11 @@ from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 import argparse
 
 def _main():
-    epoch_end_first = 2
+    epoch_end_first = 1
     epoch_end_final = 2
-    model_name = 'test_loss_basic_distill_mobilenet'
-    log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
-    model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
+    model_name = 'tf_a'
+    log_dir = 'logs/tf_a/'
+    model_path = 'model_data/s_final.h5'
     #teacher_path = 'model_data/trained_small_mobilenets2_model.pb'
     teacher_path = 'model_data/small_mobilenet_trained_model.pb'
 
@@ -65,11 +65,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
-    train_lines = train_lines[:4]
+    train_lines = train_lines[:1]
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    val_lines = val_lines[:4]
+    val_lines = val_lines[:1]
 
    # with open(test_path) as f:
    #     test_lines = f.readlines()
@@ -93,7 +93,7 @@ def _main():
             g_in = tf.import_graph_def(graph_def)
     #print("finish graph")
     
-    
+    '''
     batch_size = 2
     datagen =  distill_data_generator_wrapper_tf(train_lines, batch_size, input_shape, anchors, num_classes,detection_graph,graph_names)
     logits , zero = next(datagen)
@@ -176,7 +176,7 @@ def _main():
         model.save_weights(log_dir + "last_"+ hist + ".h5")
 
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-    '''
+    
     # Further training if needed.
 
 def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze_body=2,
