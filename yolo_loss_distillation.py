@@ -23,16 +23,14 @@ from model.yolo3 import yolo_body as teacher_body
 
 #from keras.utils.vis_utils import plot_model as plot
 
-import os
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
 
 import argparse
 
 def _main():
     epoch_end_first = 30
     epoch_end_final = 60
-    model_name = 'joint_mobilenet'
-    log_dir = 'logs_d/loss_apprentice_joint_mobilenet_000/'
+    model_name = 'distillation_small_mobilenets2'
+    log_dir = 'logs/000/'
     model_path = 'model_data/fake_trained_weights_final_mobilenet.h5'
     #teacher_path ="logs/new_yolo_000/last_loss16.9831-val_loss16.9831.h5"
     teacher_path = "model_data/trained_weights_final.h5"
@@ -61,7 +59,8 @@ def _main():
 
 
     logging = TensorBoard(log_dir=log_dir)
-    checkpointStudent = DistillCheckpointCallback(model, model_name , log_dir)
+    checkpointStudent = DistillCheckpointCallback(student, model_name , log_dir)
+    checkpointTeacher = DistillCheckpointCallback(teacher, "yolo" , log_dir)
     #checkpoint = ModelCheckpoint(log_dir + 'ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5', monitor='val_loss', save_weights_only=True, save_best_only=True, period=3)
     reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=3, verbose=1)
     early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=10, verbose=1)
@@ -84,7 +83,7 @@ def _main():
     
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
-    if False:
+    if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
              'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
@@ -98,7 +97,7 @@ def _main():
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
-                callbacks=[logging, checkpointStudent ])
+                callbacks=[logging, checkpointStudent ,checkpointTeacher ])
 
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
@@ -107,12 +106,12 @@ def _main():
 
         model.save( hist + "model_checkpoint.h5")
         student.save_weights(log_dir + "last_"+ hist + ".h5")
-        student.save_weights(log_dir + model_name + '_trained_weights_final.h5')
-        teacher.save_weights(log_dir + "teacher" + model_name + '_trained_weights_final.h5')
+        student.save_weights(log_dir + model_name + '_trained_weights_stage_1.h5')
+        teacher.save_weights(log_dir + "teacher" + model_name + '_trained_weights_stage_1.h5')
 
     # Unfreeze and continue training, to fine-tune.
     # Train longer if the result is not good.
-    if False:
+    if True:
         for i in range(len(student.layers)):
             student.layers[i].trainable = True
         model.compile(optimizer=Adam(lr=1e-4), loss={ 
@@ -128,7 +127,7 @@ def _main():
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, reduce_lr ,checkpointStudent ]) #, early_stopping
+            callbacks=[logging, reduce_lr ,checkpointStudent , checkpointTeacher ]) #, early_stopping
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
 
         last_loss = history.history['loss'][-1]

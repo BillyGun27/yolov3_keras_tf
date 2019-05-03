@@ -21,7 +21,7 @@ class DistillCheckpointCallback(Callback):
         #model_name = 'inf_ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5'
         model_name = '{}_epoch_{:03d}_val_loss_{:.4f}_loss_{:.4f}.h5'.format(
            self.model_name , epoch + 1, logs['val_loss'],logs['loss'])
-        save_model_path = os.path.join( self.log_dir , model_name)
+        save_model_path = self.log_dir + model_name
 
         self.model.save_weights(save_model_path)
 
