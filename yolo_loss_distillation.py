@@ -5,7 +5,7 @@ import numpy as np
 import keras.backend as K
 from keras.models import Model
 from keras.optimizers import Adam
-from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping , Callback
+from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping 
 from keras.layers import Input, Lambda ,Reshape
 
 from utils.core import preprocess_true_boxes

@@ -3,6 +3,7 @@ import tensorflow as tf
 from keras import backend as K
 from keras.layers import Input, Lambda
 from keras.models import Model
+from keras.callbacks import Callback
 from utils.utils  import get_random_data
 from utils.core import yolo_head,box_iou
 from utils.core import preprocess_true_boxes
