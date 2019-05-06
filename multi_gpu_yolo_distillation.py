@@ -1,7 +1,9 @@
 """
 Retrain the YOLO model for your own dataset.
 """
+
 import numpy as np
+import tensorflow as tf
 import keras.backend as K
 from keras.models import Model
 from keras.optimizers import Adam
@@ -23,20 +25,22 @@ from model.yolo3 import yolo_body as teacher_body
 
 #from keras.utils.vis_utils import plot_model as plot
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="1,2"
 
 import argparse
 
 def _main():
     epoch_end_first = 30
-    epoch_end_final = 60
-    model_name = 'distillation_small_mobilenets2'
-    log_dir = 'logs/000/'
+    epoch_end_final = 100
+    model_name = 'ds_mobilenets2'
+    log_dir = 'logs_distill/mgpu_distill_small_mobilenets2/'
     model_path = 'model_data/fake_trained_weights_final_mobilenet.h5'
-    #teacher_path ="logs/new_yolo_000/last_loss16.9831-val_loss16.9831.h5"
-    teacher_path = "model_data/trained_weights_final.h5"
+    teacher_path ="logs/new_yolo_000/last_loss16.9831-val_loss16.9831.h5"
+    
 
-    train_path = '2007_train.txt'
-    val_path = '2007_val.txt'
+    train_path = '2012_train.txt'
+    val_path = '2012_val.txt'
    # test_path = '2007_test.txt'
     classes_path = 'class/voc_classes.txt'
     anchors_path = 'anchors/yolo_anchors.txt'
@@ -57,8 +61,6 @@ def _main():
         model , student , teacher = create_model(input_shape, anchors, num_classes,  load_pretrained=False,
             freeze_body=2, weights_path=model_path , teacher_weights_path=teacher_path ) # make sure you know what you freeze
 
-    student.summary()
-    student.save_weights("s.h5")
 
     logging = TensorBoard(log_dir=log_dir)
     checkpointStudent = DistillCheckpointCallback(student, model_name , log_dir)
@@ -69,11 +71,11 @@ def _main():
      
     with open(train_path) as f:
         train_lines = f.readlines()
-    #train_lines = train_lines[:8]
+    
 
     with open(val_path) as f:
         val_lines = f.readlines()
-    #val_lines = val_lines[:8]
+   
    # with open(test_path) as f:
    #     test_lines = f.readlines()
 
@@ -82,7 +84,7 @@ def _main():
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines, 1 , input_shape, anchors, num_classes) , num_val , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
-    '''
+    
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     if True:
@@ -90,7 +92,7 @@ def _main():
             # use custom yolo_loss Lambda layer.
              'yolo_custom_loss' : lambda y_true, y_pred: y_pred})
 
-        batch_size = 4#24#32
+        batch_size = 24#4#32
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -99,7 +101,7 @@ def _main():
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
-                callbacks=[logging, checkpointStudent ,checkpointTeacher ])
+                callbacks=[logging, checkpointStudent, checkpointTeacher ])
 
         last_loss = history.history['loss'][-1]
         last_val_loss = history.history['val_loss'][-1]
@@ -120,7 +122,7 @@ def _main():
             'yolo_custom_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  4#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  20#4#32 note that more GPU memory is required after unfreezing the body
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -129,7 +131,7 @@ def _main():
             validation_steps=max(1, num_val//batch_size),
             epochs=epoch_end_final,
             initial_epoch=epoch_end_first,
-            callbacks=[logging, reduce_lr ,checkpointStudent , checkpointTeacher ]) #, early_stopping
+            callbacks=[logging, reduce_lr ,checkpointStudent ,checkpointTeacher ]) #, early_stopping
         model.save_weights(log_dir + model_name + '_trained_weights_final.h5')
 
         last_loss = history.history['loss'][-1]
@@ -140,7 +142,7 @@ def _main():
         student.save_weights(log_dir + "last_"+ hist + ".h5")
         student.save_weights(log_dir + model_name + '_trained_weights_final.h5')
         teacher.save_weights(log_dir + "teacher" + model_name + '_trained_weights_final.h5')
-       '''
+       
     
     # Further training if needed.
 
@@ -155,57 +157,35 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
     y_true = [Input(shape=(h//{0:32, 1:16, 2:8}[l], w//{0:32, 1:16, 2:8}[l], \
         num_anchors//3, num_classes+5)) for l in range(3)]
     
-    teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    teacher.load_weights(teacher_weights_path)
+    with tf.device('/gpu:0'):
+        teacher = teacher_body(image_input, num_anchors//3, num_classes)
+        teacher.load_weights(teacher_weights_path)
 
-    #teacher_output = []
-    #for ty in range(-3, 0):#13,26,52
-    #    out_ty = Reshape( teacher.layers[ty].output_shape[:-1] + ( 3, num_classes+5 )  )(teacher.layers[ty].output)
-        
-    #yolo13 = Reshape( ( teacher.layers[-3].output_shape[:-1] + ( 3, num_classes+5 ) ) )(teacher.layers[-3].output)
-    #yolo26 = Reshape( ( teacher.layers[-3].output_shape[:-1] + ( 3, num_classes+5 ) ) )(teacher.layers[-2].output)
-    #yolo52 = Reshape( ( teacher.layers[-3].output_shape[:-1] + (3, num_classes+5 ) ) )(teacher.layers[-1].output)
+        for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
+ 
+    with tf.device('/gpu:1'):
+        student = yolo_body(image_input, num_anchors//3, num_classes)
+        print('Create YOLOv3 model with {} anchors and {} classes.'.format(num_anchors, num_classes))
     
-    #teacher = Model( inputs= teacher.input , outputs= teacher_output )
-    #print("teacher before freeze" , len(teacher.trainable_weights) )
-    for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
-    #print("teacher after freeze" , len(teacher.trainable_weights) )
+        if load_pretrained:
+            student.load_weights(weights_path, by_name=True, skip_mismatch=True)
+            print('Load weights {}.'.format(weights_path))
+            if freeze_body in [1, 2]:
+                # Freeze darknet53 body or freeze all but 3 output layers.
+                num = (185, len(student.layers)-3)[freeze_body-1]
+                for i in range(num): student.layers[i].trainable = False
+                print('Freeze the first {} layers of total {} layers.'.format(num, len(student.layers)))
 
-    student = yolo_body(image_input, num_anchors//3, num_classes)
-    print('Create YOLOv3 model with {} anchors and {} classes.'.format(num_anchors, num_classes))
+        for y in range(-3, 0):
+            student.layers[y].name = "conv2d_output_" + str(h//{-3:32, -2:16, -1:8}[y])
 
-    #print("student before freeze" ,  len(student.trainable_weights) )
+    with tf.device('/cpu:0'):
+        model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
+            arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
+            [*student.output, *y_true , *teacher.output  ])
     
-    if load_pretrained:
-        student.load_weights(weights_path, by_name=True, skip_mismatch=True)
-        print('Load weights {}.'.format(weights_path))
-        if freeze_body in [1, 2]:
-            # Freeze darknet53 body or freeze all but 3 output layers.
-            num = (185, len(student.layers)-3)[freeze_body-1]
-            for i in range(num): student.layers[i].trainable = False
-            print('Freeze the first {} layers of total {} layers.'.format(num, len(student.layers)))
-    
-    for y in range(-3, 0):
-        student.layers[y].name = "conv2d_output_" + str(h//{-3:32, -2:16, -1:8}[y])
+        model = Model([ image_input , *y_true  ], model_loss)
 
-
-    model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
-        [*student.output, *y_true , *teacher.output  ])
-    model = Model([ image_input , *y_true  ], model_loss)
-
-    #print("student after freeze" ,  len(student.trainable_weights) )
-    #print("model" , len( model.trainable_weights) )
-
-    #for i in range(len( student.layers ) ): student.layers[i].trainable = True
-
-    #print("student after unfreeze" ,  len(student.trainable_weights) )
-
-    #print("model after" ,  len(model.trainable_weights) )
-
-    #from keras.utils.vis_utils import plot_model as plot
-    #plot(model, to_file='{}.png'.format("train_together"), show_shapes=True)
-    #print("stop")
 
     return model , student , teacher
 

@@ -9,13 +9,12 @@ from utils.core import yolo_head,box_iou
 from utils.core import preprocess_true_boxes
 
 class DistillCheckpointCallback(Callback):
-    def __init__(self , model, model_name , log_dir):
+    def __init__(self , cp_model, model_name , log_dir):
         super(DistillCheckpointCallback, self ).__init__()
-        self.model = model
+        self.cp_model = cp_model
         self.model_name = model_name
         self.log_dir = log_dir
         
-
     def on_epoch_end(self, epoch, logs=None):
         
         #model_name = 'inf_ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5'
@@ -23,7 +22,7 @@ class DistillCheckpointCallback(Callback):
            self.model_name , epoch + 1, logs['val_loss'],logs['loss'])
         save_model_path = self.log_dir + model_name
 
-        self.model.save_weights(save_model_path)
+        self.cp_model.save_weights(save_model_path)
 
 def soft_target_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,input_shape,grid_shapes,m,mf):
     
