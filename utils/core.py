@@ -28,7 +28,7 @@ def yolo_head(feats, anchors, num_classes, input_shape, calc_loss=False):
     box_class_probs = K.sigmoid(feats[..., 5:])
 
     if calc_loss == True:
-        return grid, feats, box_xy, box_wh
+        return grid, feats, box_xy, box_wh , box_confidence, box_class_probs
     return box_xy, box_wh, box_confidence, box_class_probs
 
 
@@ -276,7 +276,7 @@ def yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):
         object_mask = y_true[l][..., 4:5]
         true_class_probs = y_true[l][..., 5:]
 
-        grid, raw_pred, pred_xy, pred_wh = yolo_head(yolo_outputs[l],
+        grid, raw_pred, pred_xy, pred_wh , _ , _ = yolo_head(yolo_outputs[l],
              anchors[anchor_mask[l]], num_classes, input_shape, calc_loss=True)
         pred_box = K.concatenate([pred_xy, pred_wh])
 
@@ -316,24 +316,12 @@ def yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):
         if print_loss:
             loss = tf.Print(loss, [l ,loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
     return loss
-
-def combine_scale_distill_loss(args):
-    large_loss , medium_loss , small_loss = args
-    loss = large_loss + medium_loss + small_loss
-    loss = tf.Print(loss, [loss, large_loss , medium_loss ,small_loss ], message=' loss combine: ')
-    return loss
-
-def combine_distill_loss(args):
-    student_loss , teacher_loss = args
-    loss = student_loss
-    loss = tf.Print(loss, [loss, student_loss , teacher_loss ], message=' loss combine: ')
-    return loss
     
 def basic_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,input_shape,grid_shapes,m,mf):
     object_mask = y_true[..., 4:5]
     true_class_probs = y_true[..., 5:]
 
-    grid, raw_pred, pred_xy, pred_wh = yolo_head(yolo_outputs,
+    grid, raw_pred, pred_xy, pred_wh , _ , _ = yolo_head(yolo_outputs,
         anchors, num_classes, input_shape, calc_loss=True)
     pred_box = K.concatenate([pred_xy, pred_wh])
 
@@ -403,6 +391,18 @@ def test_yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=Fals
         loss += xy_loss + wh_loss + confidence_loss + class_loss
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
+    return loss
+
+def combine_scale_distill_loss(args):
+    large_loss , medium_loss , small_loss = args
+    loss = large_loss + medium_loss + small_loss
+    loss = tf.Print(loss, [loss, large_loss , medium_loss ,small_loss ], message=' loss combine: ')
+    return loss
+
+def combine_distill_loss(args):
+    student_loss , teacher_loss = args
+    loss = student_loss
+    loss = tf.Print(loss, [loss, student_loss , teacher_loss ], message=' loss combine: ')
     return loss
 
 def single_yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):

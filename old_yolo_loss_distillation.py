@@ -1,6 +1,8 @@
 """
 Retrain the YOLO model for your own dataset.
 """
+import tensorflow as tf
+from tensorflow import Graph, Session
 import numpy as np
 import keras.backend as K
 from keras.models import Model
@@ -25,12 +27,13 @@ from model.yolo3 import yolo_body as teacher_body, tiny_yolo_body
 import argparse
 
 def _main():
-    epoch_end_first = 20
+    epoch_end_first = 1
     epoch_end_final = 2
-    model_name = 'test_loss_basic_distill_mobilenet'
-    log_dir = 'logs/test_loss_basic_distill_mobilenet_000/'
+    model_name = 'grapha'
+    log_dir = 'logs/grapha/'
     model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
-    teacher_path = 'model_data/new_yolo_trained_weights_final.h5'
+    teacher_path = 'model_data/trained_weights_final.h5'
+    #teacher_path = 'model_data/new_yolo_trained_weights_final.h5'
 
     train_path = '2007_train.txt'
     val_path = '2007_val.txt'
@@ -50,7 +53,7 @@ def _main():
         model = create_tiny_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
     else:
-        model = create_model(input_shape, anchors, num_classes,load_pretrained=True,
+        model = create_model(input_shape, anchors, num_classes,load_pretrained=False,
             freeze_body=2, weights_path=model_path ) # make sure you know what you freeze
 
     logging = TensorBoard(log_dir=log_dir)
@@ -74,22 +77,24 @@ def _main():
     num_val = int(len(val_lines))
 
     meanAP = AveragePrecision(data_generator_wrapper(val_lines[:200], 1 , input_shape, anchors, num_classes) , 200 , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
-
+            
     #declare model
-    num_anchors = len(anchors)
-    image_input = Input(shape=(416, 416, 3))
-    teacher = teacher_body(image_input, num_anchors//3, num_classes)
-    teacher.load_weights(teacher_path)
+    #num_anchors = len(anchors)
+    #image_input = Input(shape=(416, 416, 3))
+    #teacher = teacher_body(image_input, num_anchors//3, num_classes)
+    #teacher.load_weights(teacher_path)
     
     # return the constructed network architecture
     # class+5
-    yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
-    yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
-    yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
+    #yolo3 = Reshape((13, 13, 3, 25))(teacher.layers[-3].output)
+    #yolo2 = Reshape((26, 26, 3, 25))(teacher.layers[-2].output)
+    #yolo1 = Reshape((52, 52, 3, 25))(teacher.layers[-1].output)
     
-    teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
-    for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
-    teacher._make_predict_function()
+    #teacher = Model( inputs= teacher.input , outputs=[yolo3,yolo2,yolo1] )
+    #for i in range(len( teacher.layers ) ): teacher.layers[i].trainable = False
+    #teacher._make_predict_function()
+
+    teacher = TeacherModel(teacher_path, anchors,num_classes)
     
     
     #teacher.summary()
@@ -97,7 +102,7 @@ def _main():
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     
-    
+
     if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
@@ -222,7 +227,33 @@ def create_tiny_model(input_shape, anchors, num_classes, load_pretrained=True, f
 
     return model
 
+class TeacherModel:
+    def __init__(self, path, anchors , num_classes):
+        #declare model
+        num_anchors = len(anchors)
+        image_input = Input(shape=(416, 416, 3))
+        
+        self.model = teacher_body(image_input, num_anchors//3, num_classes)
+        self.model.load_weights(path)
 
+        # return the constructed network architecture
+        # class+5
+        yolo3 = Reshape((13, 13, 3, 25))(self.model.layers[-3].output)
+        yolo2 = Reshape((26, 26, 3, 25))(self.model.layers[-2].output)
+        yolo1 = Reshape((52, 52, 3, 25))(self.model.layers[-1].output)
+
+        self.model = Model( inputs= self.model.input , outputs=[yolo3,yolo2,yolo1] )
+        for i in range(len( self.model.layers ) ): self.model.layers[i].trainable = False
+        
+
+        self.graph = Graph()#tf.get_default_graph()
+        self.session = Session()
+    
+    def predict(self, X):
+        with self.graph.as_default():
+            with self.session.as_default() as sess:
+                #sess.run(tf.global_variables_initializer())
+                return sess.run( self.model.predict(X) )
 
 if __name__ == '__main__':
     _main()
