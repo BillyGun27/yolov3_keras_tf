@@ -10,7 +10,7 @@ from keras.applications.mobilenet_v2 import MobileNetV2
 
 def yolo_body(inputs, num_anchors, num_classes):
     #net, endpoint = inception_v2.inception_v2(inputs)
-    mobilenet = MobileNet(input_tensor=inputs,weights='imagenet')
+    mobilenet = MobileNet(input_tensor=inputs,weights='imagenet',include_top=False)
 
     # input: 416 x 416 x 3
     # conv_pw_13_relu :13 x 13 x 1024
