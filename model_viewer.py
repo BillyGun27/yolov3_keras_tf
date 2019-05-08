@@ -9,10 +9,10 @@ from keras.applications.mobilenet import MobileNet
 from keras.applications.mobilenet_v2 import MobileNetV2
 
 #from model.new_squeezenet import SqueezeNet,yolo_body
-#from model.small_mobilenets2 import yolo_body
+from model.small_mobilenets2 import yolo_body
 #from model.mobilenet import yolo_body
 #from model.mobilenetv2 import yolo_body
-from model.medium_darknet import tiny_yolo_body,yolo_body
+#from model.medium_darknet import tiny_yolo_body,yolo_body
 #from model.yolo3 import darknet_body, yolo_body, tiny_yolo_body
 
 
