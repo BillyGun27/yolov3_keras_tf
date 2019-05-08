@@ -17,7 +17,7 @@ from utils.train_tool import get_classes,get_anchors,data_generator_wrapper
 
 #changeable param
 from utils.distillation import DistillCheckpointCallback 
-from utils.distillation import yolo_distill_loss as yolo_custom_loss
+from utils.distillation import apprentice_distill_loss as yolo_custom_loss
 from model.small_mobilenets2 import yolo_body
 from model.yolo3 import yolo_body as teacher_body
 
@@ -28,7 +28,7 @@ import argparse
 
 def _main():
     epoch_end_first = 1#30
-    epoch_end_final = 1#60
+    epoch_end_final = 2#60
     model_name = 'distillation_small_mobilenets2'
     log_dir = 'logs/000/'
     model_path = 'model_data/fake_trained_weights_final_mobilenet.h5'
@@ -57,6 +57,8 @@ def _main():
         model , student , teacher = create_model(input_shape, anchors, num_classes,  load_pretrained=False,
             freeze_body=2, weights_path=model_path , teacher_weights_path=teacher_path ) # make sure you know what you freeze
 
+    #student.summary()
+    #student.save_weights("s.h5")
 
     logging = TensorBoard(log_dir=log_dir)
     checkpointStudent = DistillCheckpointCallback(student, model_name , log_dir)
@@ -118,7 +120,7 @@ def _main():
             'yolo_custom_loss' : lambda y_true, y_pred: y_pred}) # recompile to apply the change
         print('Unfreeze all of the layers.')
 
-        batch_size =  1#4#32 note that more GPU memory is required after unfreezing the body
+        batch_size =  4#32 note that more GPU memory is required after unfreezing the body
 
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
@@ -188,7 +190,7 @@ def create_model(input_shape, anchors, num_classes, load_pretrained=True, freeze
 
 
     model_loss = Lambda(yolo_custom_loss, output_shape=(1,), name='yolo_custom_loss',
-        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5, 'alpha':0.5})(
+        arguments={'anchors': anchors, 'num_classes': num_classes, 'ignore_thresh': 0.5})(
         [*student.output, *y_true , *teacher.output  ])
     model = Model([ image_input , *y_true  ], model_loss)
 

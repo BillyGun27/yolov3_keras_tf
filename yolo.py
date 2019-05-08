@@ -243,6 +243,9 @@ def detect_video(yolo, video_path, output_path=""):
         prev_time = curr_time
         accum_time = accum_time + exec_time
         curr_fps = curr_fps + 1
+        print("accum : " + str(accum_time) )
+        print("curr_fps : " + str(curr_fps))
+
         if accum_time > 1:
             accum_time = accum_time - 1
             fps = "FPS: " + str(curr_fps)

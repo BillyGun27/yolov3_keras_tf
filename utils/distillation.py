@@ -24,7 +24,7 @@ class DistillCheckpointCallback(Callback):
 
         self.cp_model.save_weights(save_model_path)
 
-def soft_target_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,input_shape,grid_shapes,m,mf):
+def soft_target_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thresh ,input_shape,grid_shapes,m,mf,gt_object_mask):
     
     #from output get real xywh and raw all
     grid, raw_pred, pred_xy, pred_wh , _ , _ = yolo_head(yolo_outputs,
@@ -32,9 +32,14 @@ def soft_target_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thres
     pred_box = K.concatenate([pred_xy, pred_wh])
 
     #from soft label get real conf, probs, wh and raw xywh
+    '''
     _ , raw_pred , _ , true_wh, box_confidence, box_class_probs = yolo_head(y_true, 
         anchors, num_classes, input_shape, calc_loss=True)
-
+    
+    raw_pred =  K.switch(gt_object_mask, raw_pred , K.zeros_like(raw_pred))
+    true_wh = K.switch(gt_object_mask, true_wh  , K.zeros_like(true_wh))
+    box_confidence = K.switch(gt_object_mask, box_confidence , K.zeros_like(box_confidence))
+    box_class_probs = K.switch(gt_object_mask, box_class_probs , K.zeros_like(box_class_probs))
 
     object_mask = box_confidence #y_true[..., 4:5]
     true_class_probs = box_class_probs #y_true[..., 5:]
@@ -43,6 +48,19 @@ def soft_target_yolo_loss(yolo_outputs,y_true,anchors,num_classes , ignore_thres
     raw_true_wh = raw_pred[..., 2:4]
     raw_true_wh = K.switch(object_mask, raw_true_wh, K.zeros_like(raw_true_wh)) # avoid log(0)=-inf
     box_loss_scale = 2 - true_wh[0] *true_wh[1]
+    '''
+    #from hard label get real conf, probs, wh and raw xywh
+    true_xy, true_wh , true_conf , true_class = yolo_head( y_true ,anchors, num_classes, input_shape, calc_loss=False)
+    y_true = K.concatenate([ true_xy, true_wh , true_conf , true_class  ])
+    y_true = K.switch(gt_object_mask, y_true , K.zeros_like(y_true))
+
+    object_mask = y_true[..., 4:5]
+    true_class_probs = y_true[..., 5:]
+    # Darknet raw box to calculate loss.
+    raw_true_xy = y_true[..., :2]*grid_shapes[::-1] - grid
+    raw_true_wh = K.log(y_true[..., 2:4] / anchors * input_shape[::-1])
+    raw_true_wh = K.switch(object_mask, raw_true_wh, K.zeros_like(raw_true_wh)) # avoid log(0)=-inf
+    box_loss_scale = 2 - y_true[...,2:3]*y_true[...,3:4]
 
 
     # Find ignore mask, iterate over each of batch.
@@ -150,16 +168,20 @@ def yolo_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha = 0, p
 
     for l in range(num_layers):
         #teacher
-        xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = soft_target_yolo_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
+        gt_object_mask = y_true[l][..., 4:5]
+
+        xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = soft_target_yolo_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf, gt_object_mask)
+       
         loss += ( alpha * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        #loss = tf.Print(loss, [l, loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss teacher: ')
+        #loss = tf.Print(loss, [l, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask) ,loss , temploss  ], message=' loss teacher: ')
 
         #student
         xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask = hard_target_yolo_loss(yolo_outputs[l],y_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
+   
         loss += ( (1-alpha) * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        #loss = tf.Print(loss, [l, loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss student: ')
+        #loss = tf.Print(loss, [l, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask) , loss, temploss ], message=' loss student: ')
 
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
@@ -202,19 +224,20 @@ def apprentice_distill_loss(args, anchors, num_classes, ignore_thresh=.5, alpha 
         xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = hard_target_yolo_loss(l_true[l],y_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
         loss += ( alpha * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        loss = tf.Print(loss, [l, loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss teacher: ')
+        #loss = tf.Print(loss, [l,  xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask),loss], message=' loss teacher: ')
 
         #student (student , label)
         xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask = hard_target_yolo_loss(yolo_outputs[l],y_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
         loss += (  beta * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        loss = tf.Print(loss, [l, loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss student: ')
+        #loss = tf.Print(loss, [l,  xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask),loss], message=' loss student: ')
 
         #apprentice  (student , teacher)
-        xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = soft_label_apprentice_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf)
+        gt_object_mask = y_true[l][..., 4:5]
+        xy_loss , wh_loss , confidence_loss ,class_loss , ignore_mask  = soft_target_yolo_loss(yolo_outputs[l],l_true[l], anchors[anchor_mask[l]], num_classes , ignore_thresh ,input_shape,grid_shapes[l],m,mf,gt_object_mask)
         loss += ( gamma * (xy_loss + wh_loss + confidence_loss + class_loss) )
 
-        loss = tf.Print(loss, [l, loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss apprentice: ')
+        #loss = tf.Print(loss, [l, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask),loss], message=' loss apprentice: ')
 
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss, K.sum(ignore_mask)], message=' loss: ')
