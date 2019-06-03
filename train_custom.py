@@ -71,16 +71,16 @@ def _main():
     num_train = int(len(train_lines))
     num_val = int(len(val_lines))
 
-    print('Train on {} samples, val on {} samples.'.format(num_train, num_val))
-    print('Train on {} samples, val on {} samples.'.format( len(train_lines), len(val_lines)))
-    print(train_lines)
-    print(val_lines)
+    #print('Train on {} samples, val on {} samples.'.format(num_train, num_val))
+    #print('Train on {} samples, val on {} samples.'.format( len(train_lines), len(val_lines)))
+    #print(train_lines)
+    #print(val_lines)
 
     #meanAP = AveragePrecision(data_generator_wrapper(val_lines , 1 , input_shape, anchors, num_classes) , num_val , input_shape , len(anchors)//3 , anchors ,num_classes,log_dir)
 
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
-    if False:
+    if True:
         model.compile(optimizer=Adam(lr=1e-3), loss={
             # use custom yolo_loss Lambda layer.
              'yolo_loss' : lambda y_true, y_pred: y_pred})
