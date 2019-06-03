@@ -1,0 +1,992 @@
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000001.jpg 8,12,352,498,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000021.jpg 210,36,336,482,2 46,82,170,365,2 11,181,142,419,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000023.jpg 2,1,117,369,2 3,2,243,462,2 225,1,334,486,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000025.jpg 320,2,496,375,2 221,4,341,374,2 135,14,220,148,2 58,54,104,139,2 279,1,331,86,2 320,22,344,96,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000027.jpg 174,101,349,351,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000030.jpg 51,160,150,292,2 295,138,450,290,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000035.jpg 1,96,191,361,2 218,98,465,318,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000043.jpg 174,229,324,375,2 5,145,250,500,2 19,6,323,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000073.jpg 22,143,146,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000076.jpg 63,78,265,375,2 257,75,448,375,2 362,130,446,261,2 472,157,500,343,2 457,209,478,255,2 439,170,458,216,2 247,142,288,197,2 44,162,84,286,2 77,157,120,245,2 1,159,26,283,2 24,174,45,201,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000081.jpg 198,156,341,231,2 349,145,451,266,2 61,162,170,333,2 29,166,73,213,2 298,246,433,333,2 196,215,332,330,2 270,298,324,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000085.jpg 22,70,254,327,2 338,12,500,199,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000101.jpg 40,64,400,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000104.jpg 291,75,442,333,2 2,7,283,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000124.jpg 2,6,104,146,2 230,25,320,138,2 78,15,478,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000127.jpg 68,21,371,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000133.jpg 73,18,406,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000138.jpg 6,56,154,285,2 145,58,283,258,2 224,54,440,332,2 363,96,500,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000144.jpg 2,100,134,333,2 166,66,279,193,2 351,3,438,304,2 344,8,500,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000151.jpg 4,49,375,440,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000163.jpg 52,22,308,328,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000164.jpg 292,49,446,370,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000174.jpg 143,5,426,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000177.jpg 344,150,500,375,2 321,85,456,362,2 304,92,391,209,2 280,88,337,172,2 163,67,261,163,2 125,94,164,166,2 75,87,158,231,2 1,112,97,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000181.jpg 259,159,410,287,2 121,154,304,369,2 17,129,277,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000182.jpg 114,50,325,372,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000191.jpg 29,181,147,499,2 307,222,333,428,2 204,244,218,296,2 167,245,188,295,2 140,245,155,293,2 224,233,316,438,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000192.jpg 116,64,356,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000193.jpg 80,4,500,375,2 1,29,227,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000200.jpg 28,19,103,167,2 16,54,178,249,2 147,23,245,249,2 227,19,400,249,2 391,13,500,249,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000202.jpg 1,8,335,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000257.jpg 20,142,222,375,2 175,68,472,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000259.jpg 171,1,499,361,2 3,1,271,264,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000269.jpg 227,56,497,213,2 91,59,245,261,2 37,134,203,332,2 226,75,413,274,2 258,114,477,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000272.jpg 25,71,304,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000278.jpg 111,89,417,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000279.jpg 298,190,373,359,2 215,199,302,367,2 75,186,213,365,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000280.jpg 153,68,288,325,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000282.jpg 327,104,476,300,2 232,57,357,374,2 3,32,199,374,2 58,139,296,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000283.jpg 333,110,456,421,2 82,14,191,301,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000285.jpg 224,77,462,375,2 37,97,231,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000286.jpg 94,218,226,375,2 189,11,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000315.jpg 51,195,324,500,2 2,133,112,500,2 284,99,375,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000320.jpg 1,78,372,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000321.jpg 44,167,249,458,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000322.jpg 13,2,469,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000323.jpg 277,3,500,375,2 12,3,305,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000339.jpg 2,110,214,372,2 208,184,302,373,2 301,90,472,358,2 362,174,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000346.jpg 137,78,497,375,2 89,202,129,247,2 72,209,111,259,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000352.jpg 33,68,149,247,2 131,68,210,249,2 198,59,309,284,2 294,83,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000359.jpg 25,13,288,481,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000369.jpg 96,89,429,277,2 231,91,500,375,2 1,92,120,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000388.jpg 2,125,175,497,2 138,6,329,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000428.jpg 76,106,376,404,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000438.jpg 240,56,432,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000446.jpg 130,167,230,476,2 81,86,244,472,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000448.jpg 229,57,314,167,2 171,85,221,152,2 88,71,142,112,2 11,124,190,375,2 47,92,225,286,2 5,72,51,182,2 251,65,357,188,2 335,81,422,217,2 345,107,500,338,2 279,226,433,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000449.jpg 416,61,480,193,2 210,118,306,208,2 129,94,199,209,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000468.jpg 1,143,217,500,2 6,191,330,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000476.jpg 126,110,358,373,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000477.jpg 100,130,137,237,2 151,131,181,246,2 179,133,193,207,2 193,135,231,287,2 229,138,254,258,2 255,121,298,278,2 279,132,323,289,2 301,130,339,316,2 318,117,362,333,2 332,131,400,332,2 380,125,449,333,2 427,125,500,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000479.jpg 34,2,374,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000480.jpg 293,162,419,375,2 114,165,228,373,2 5,172,116,373,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000483.jpg 167,44,255,289,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000485.jpg 10,112,475,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000490.jpg 100,77,184,281,2 130,74,250,319,2 252,191,339,284,2 245,121,500,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000493.jpg 28,61,158,341,2 138,83,221,341,2 210,71,306,341,2 295,36,400,341,2 347,25,472,341,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000499.jpg 230,68,374,291,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000500.jpg 88,51,218,375,2 288,72,321,135,2 231,71,253,135,2 200,85,221,119,2 97,75,123,114,2 76,74,98,107,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000502.jpg 1,1,500,357,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000506.jpg 48,4,325,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000507.jpg 187,49,295,231,2 293,91,350,220,2 284,192,397,284,2 117,154,164,219,2 160,167,199,218,2 61,156,124,263,2 16,168,78,270,2 71,101,126,201,2 409,181,488,284,2 389,185,412,216,2 11,131,42,200,2 2,139,22,174,2 1,214,18,284,2 264,158,305,207,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000516.jpg 1,9,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000517.jpg 196,38,358,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000523.jpg 145,103,209,256,2 212,187,304,417,2 343,228,361,255,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000526.jpg 189,88,276,316,2 259,73,440,320,2 376,85,443,304,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000527.jpg 384,160,426,238,2 232,156,286,254,2 154,163,222,261,2 53,82,86,149,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000530.jpg 1,113,183,408,2 61,111,324,476,2 159,61,217,168,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000532.jpg 185,92,357,316,2 266,54,417,259,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000534.jpg 3,15,463,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000535.jpg 206,55,316,239,2 1,67,71,247,2 130,92,171,207,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000545.jpg 148,146,269,500,2 287,173,330,250,2 315,172,336,249,2 144,174,171,244,2 123,174,136,200,2 50,174,63,206,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000546.jpg 285,56,479,359,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000555.jpg 266,63,332,181,2 160,179,422,374,2 1,174,186,374,2 61,90,213,255,2 157,79,261,217,2 380,92,499,217,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000606.jpg 351,71,500,269,2 151,100,281,233,2 178,68,210,117,2 26,101,220,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000612.jpg 158,144,375,500,2 1,110,195,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000613.jpg 31,110,184,333,2 87,110,181,257,2 137,103,194,224,2 174,91,238,190,2 206,102,245,154,2 131,39,173,127,2 256,84,311,129,2 335,87,369,104,2 377,85,408,108,2 455,97,489,137,2 301,127,465,332,2 335,103,445,197,2 328,95,382,179,2 329,100,357,153,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000633.jpg 2,22,339,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000639.jpg 6,92,330,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000641.jpg 138,121,285,299,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000642.jpg 68,13,443,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000643.jpg 161,112,251,375,2 250,157,339,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000664.jpg 51,2,325,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000670.jpg 189,46,500,375,2 2,61,202,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000692.jpg 104,33,359,208,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000709.jpg 120,63,334,355,2 119,57,394,352,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000750.jpg 22,2,375,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000765.jpg 1,1,446,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000781.jpg 103,66,489,400,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000810.jpg 151,13,498,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000847.jpg 61,111,296,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000848.jpg 33,109,260,334,2 309,170,461,334,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000851.jpg 174,69,302,335,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000856.jpg 174,68,311,314,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000865.jpg 190,102,337,375,2 3,129,124,294,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000866.jpg 187,107,277,298,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000885.jpg 11,12,485,456,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000892.jpg 350,191,427,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000903.jpg 41,25,407,366,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000910.jpg 20,27,183,500,2 112,2,249,500,2 246,233,376,490,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000915.jpg 206,71,416,375,2 94,103,284,264,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000918.jpg 18,15,333,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000926.jpg 1,16,340,500,2 211,334,241,390,2 199,309,231,351,2 174,315,210,360,2 192,354,226,396,2 153,354,197,398,2 126,355,160,401,2 124,319,163,373,2 147,320,180,355,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000927.jpg 256,155,492,332,2 82,1,316,331,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000939.jpg 1,59,340,461,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000940.jpg 185,81,445,355,2 128,85,224,190,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000943.jpg 234,135,500,316,2 305,146,426,267,2 238,147,356,245,2 223,149,298,223,2 76,140,146,266,2 1,69,178,372,2 330,107,375,159,2 50,114,101,185,2 288,110,321,157,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000944.jpg 228,98,373,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000949.jpg 145,36,328,412,2 1,48,159,393,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000952.jpg 15,95,246,332,2 196,103,412,332,2 465,189,492,236,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000955.jpg 139,62,385,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000956.jpg 185,56,500,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000959.jpg 204,22,362,139,2 51,11,201,154,2 100,108,284,332,2 226,110,407,333,2 333,83,500,333,2 1,117,150,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000969.jpg 224,2,500,375,2 2,5,335,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000978.jpg 189,1,486,373,2 103,3,241,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000981.jpg 51,18,332,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000987.jpg 199,19,390,401,2 217,15,270,157,2 393,18,432,162,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000988.jpg 76,56,401,373,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000990.jpg 208,35,460,333,2 5,34,234,334,2 6,114,55,177,2 402,134,450,187,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/000999.jpg 2,16,280,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001020.jpg 75,63,287,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001021.jpg 1,51,183,375,2 199,40,401,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001024.jpg 1,30,386,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001028.jpg 52,231,301,500,2 7,29,406,493,2 359,164,406,229,2 306,174,357,232,2 285,173,321,221,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001033.jpg 145,98,310,386,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001036.jpg 63,186,124,374,2 1,178,35,373,2 143,87,228,191,2 227,5,500,375,2 110,188,361,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001038.jpg 162,91,452,410,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001047.jpg 74,52,211,242,2 188,58,338,251,2 344,3,482,261,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001061.jpg 320,116,489,375,2 1,1,321,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001063.jpg 221,60,319,318,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001065.jpg 128,1,234,124,2 196,75,500,346,2 2,62,499,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001066.jpg 390,83,460,153,2 101,20,165,150,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001067.jpg 89,45,219,375,2 178,40,291,331,2 239,17,394,275,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001079.jpg 188,131,285,261,2 256,147,375,269,2 372,146,475,319,2 121,138,217,283,2 2,140,144,354,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001084.jpg 99,101,225,337,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001086.jpg 299,49,500,358,2 2,37,249,349,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001091.jpg 390,174,500,357,2 254,148,426,327,2 84,167,247,361,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001097.jpg 1,68,93,334,2 33,88,189,334,2 174,191,268,334,2 260,119,430,333,2 343,39,500,334,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001101.jpg 143,61,225,211,2 2,28,217,332,2 306,79,401,311,2 370,82,496,330,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001105.jpg 203,88,423,374,2 443,42,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001108.jpg 87,127,238,375,2 270,49,500,375,2 213,163,308,373,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001109.jpg 274,14,500,333,2 1,72,302,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001113.jpg 387,47,487,160,2 395,80,478,339,2 251,78,406,326,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001116.jpg 29,30,500,356,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001118.jpg 217,88,419,326,2 15,38,235,326,2 40,4,227,225,2 440,1,482,63,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001147.jpg 19,2,497,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001168.jpg 1,1,403,375,2 279,73,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001169.jpg 107,43,327,181,2 237,124,383,279,2 103,120,259,289,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001170.jpg 102,114,341,375,2 318,140,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001171.jpg 4,59,66,243,2 144,85,229,251,2 290,66,479,331,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001173.jpg 3,52,378,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001177.jpg 202,122,465,348,2 103,129,270,268,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001185.jpg 78,78,289,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001229.jpg 15,75,429,375,2 348,157,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001234.jpg 70,14,182,443,2 33,167,190,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001236.jpg 223,28,309,253,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001240.jpg 1,1,135,374,2 22,159,427,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001242.jpg 1,12,310,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001243.jpg 88,15,278,491,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001244.jpg 16,114,237,366,2 255,1,475,373,2 358,63,500,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001251.jpg 129,93,160,128,2 18,11,101,154,2 1,65,22,121,2 1,15,351,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001253.jpg 271,84,375,442,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001261.jpg 61,18,301,343,2 72,123,331,375,2 256,95,493,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001265.jpg 8,44,313,469,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001266.jpg 128,22,315,332,2 281,2,500,332,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001269.jpg 108,92,389,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001272.jpg 103,22,469,414,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001279.jpg 39,32,216,450,2 121,224,264,441,2 24,165,373,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001282.jpg 241,40,397,334,2 30,64,238,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001284.jpg 135,123,235,375,2 238,115,376,304,2 276,117,426,360,2 301,114,500,375,2 1,114,126,375,2 419,90,448,139,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001297.jpg 1,86,330,409,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001309.jpg 92,26,253,486,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001311.jpg 463,67,495,154,2 431,75,468,171,2 333,79,387,201,2 187,106,291,293,2 27,61,163,280,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001315.jpg 42,51,237,334,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001340.jpg 150,140,252,375,2 92,111,331,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001350.jpg 111,114,264,375,2 245,152,356,375,2 307,114,462,372,2 168,143,335,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001351.jpg 399,85,500,375,2 61,177,255,375,2 49,139,152,344,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001354.jpg 2,47,157,255,2 192,71,398,267,2 114,46,188,216,2 183,33,264,210,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001357.jpg 119,25,227,227,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001368.jpg 93,29,301,310,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001370.jpg 22,48,221,454,2 196,57,331,420,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001376.jpg 202,186,306,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001388.jpg 61,9,432,400,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001393.jpg 289,140,480,375,2 291,130,400,355,2 197,124,285,199,2 15,131,133,375,2 134,180,250,375,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001405.jpg 135,89,271,453,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001408.jpg 56,107,230,387,2 210,1,333,108,2 84,87,333,366,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001411.jpg 2,89,152,256,2 164,18,500,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001419.jpg 133,15,333,412,2 42,29,205,280,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001421.jpg 189,1,372,438,2 116,181,374,476,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001423.jpg 124,56,382,333,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001427.jpg 229,58,319,266,2 159,114,267,297,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001429.jpg 1,54,498,369,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001430.jpg 100,154,235,286,2 211,146,303,352,2 245,154,398,374,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001438.jpg 149,8,358,256,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001444.jpg
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001448.jpg 149,247,209,409,2 8,231,156,500,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001450.jpg 183,70,330,253,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001451.jpg 242,119,386,244,2 97,101,221,251,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001452.jpg 94,142,252,350,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/001459.jpg 132,121,281,375,2 250,122,373,375,2 134,173,148,213,2 114,182,140,213,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000158.jpg 43,189,653,363,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000159.jpg 131,179,293,226,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000160.jpg 46,66,247,148,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000161.jpg 35,82,176,384,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000162.jpg 83,14,261,82,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000163.jpg 319,12,615,132,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000167.jpg 258,128,736,372,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000169.jpg 80,1,255,125,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000170.jpg 74,235,383,362,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000171.jpg 393,107,551,294,0 21,98,340,244,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000172.jpg 157,116,377,177,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000173.jpg 35,57,346,369,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000174.jpg 220,110,590,268,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000177.jpg 45,194,491,296,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000179.jpg 113,163,617,405,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000181.jpg 89,196,374,381,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000182.jpg 233,219,721,416,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000184.jpg 97,15,227,129,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000185.jpg 221,37,487,170,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000187.jpg 161,182,524,300,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000188.jpg 140,174,486,300,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000193.jpg 54,384,484,570,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000199.jpg 213,264,376,367,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000200.jpg 45,236,720,464,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000203.jpg 1,85,167,322,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000213.jpg 203,34,506,279,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000214.jpg 31,248,759,487,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000217.jpg 67,42,234,113,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000218.jpg 547,159,1024,385,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000225.jpg 1,36,311,314,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000230.jpg 61,22,229,212,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000239.jpg 446,21,626,157,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000243.jpg 108,159,371,231,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000244.jpg 526,214,840,537,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000245.jpg 10,74,317,177,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000249.jpg 4,25,272,156,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000252.jpg 445,72,566,318,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000253.jpg 297,130,751,288,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000257.jpg 18,248,236,316,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000259.jpg 268,208,580,328,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000270.jpg 167,155,361,229,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000272.jpg 277,124,852,456,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000279.jpg 147,220,855,473,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000283.jpg 150,177,931,473,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000285.jpg 389,1,612,224,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000289.jpg 130,55,479,336,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000293.jpg 170,117,584,290,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000294.jpg 31,38,340,181,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000297.jpg 27,359,242,562,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000301.jpg 255,342,446,394,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000310.jpg 208,19,467,188,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000311.jpg 204,69,412,291,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000314.jpg 353,41,509,126,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000318.jpg 54,220,534,353,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000320.jpg 182,320,432,422,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000321.jpg 345,315,520,370,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000324.jpg 54,42,163,106,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000327.jpg 26,273,397,380,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000329.jpg 1,118,544,302,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000331.jpg 220,239,431,345,0 221,344,453,505,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000332.jpg 396,159,574,282,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000333.jpg 476,285,810,607,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000336.jpg 1,18,288,302,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000337.jpg 7,1,247,160,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000344.jpg 506,255,694,419,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000345.jpg 175,134,499,278,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000346.jpg 351,229,571,325,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000347.jpg 297,139,493,230,0 289,63,364,90,3 409,94,600,178,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000350.jpg 222,25,448,236,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000351.jpg 199,274,458,367,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000352.jpg 11,250,872,537,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000355.jpg 27,101,190,152,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000366.jpg 56,170,474,378,3 337,30,648,163,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000370.jpg 157,19,227,62,0 159,67,235,112,0 161,144,244,194,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000371.jpg 513,54,703,172,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000372.jpg 100,7,730,469,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000376.jpg 272,3,640,239,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000383.jpg 215,298,316,398,0 241,199,317,229,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000385.jpg 138,110,342,188,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000386.jpg 125,3,640,294,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000390.jpg 319,307,611,430,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000391.jpg 161,154,523,340,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000392.jpg 27,56,164,114,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000395.jpg 25,182,285,321,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000397.jpg 226,182,303,280,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000403.jpg 1,24,260,238,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000405.jpg 303,1,750,239,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000410.jpg 227,186,363,244,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000413.jpg 285,203,637,350,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000417.jpg 187,148,579,326,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000422.jpg 83,4,716,268,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000434.jpg 375,17,514,193,3 237,2,359,173,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000442.jpg 171,574,298,629,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000445.jpg 93,89,203,129,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000446.jpg 43,2,202,92,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000449.jpg 342,136,553,250,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000450.jpg 125,71,345,268,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000457.jpg 360,112,581,167,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000459.jpg 359,315,450,376,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000460.jpg 355,262,464,335,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000467.jpg 500,371,619,413,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000468.jpg 340,83,532,331,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000472.jpg 271,232,371,273,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000481.jpg 439,67,504,124,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000489.jpg 119,55,215,166,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000491.jpg 12,71,683,435,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000502.jpg 109,134,253,185,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000503.jpg 277,230,496,314,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000510.jpg 545,116,662,163,0 251,119,347,157,0 186,21,714,419,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000515.jpg 262,11,520,321,2 254,334,311,357,3 119,358,279,412,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000519.jpg 268,134,400,183,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000543.jpg 58,178,473,372,3 339,37,642,161,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000552.jpg 421,12,614,153,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000556.jpg 337,127,892,348,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000569.jpg 250,190,589,328,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000583.jpg 476,289,621,353,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000586.jpg 280,200,520,404,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000590.jpg 366,276,620,378,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000596.jpg 34,141,135,175,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000601.jpg 117,169,516,366,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000607.jpg 192,114,399,171,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000627.jpg 256,82,531,461,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000632.jpg 250,149,354,176,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000637.jpg 340,211,452,347,2 353,243,389,256,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000645.jpg 235,159,464,414,2 326,224,396,250,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000670.jpg 176,152,556,323,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000682.jpg 62,25,359,269,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000699.jpg 206,71,318,105,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000700.jpg 235,182,540,384,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000720.jpg 105,48,174,75,0 55,12,214,222,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/glasses_00000721.jpg 157,96,227,112,0 278,53,499,441,2 126,55,276,332,2 392,399,453,466,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000002.jpg 469,322,566,391,1 550,334,675,366,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000004.jpg 6,157,267,418,1 69,132,422,377,1 95,105,521,318,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000005.jpg 40,112,392,268,1 370,213,402,415,1 398,218,447,426,1 438,216,538,409,1 464,195,609,371,1 436,1,583,165,1 460,94,660,170,1 470,127,686,219,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000006.jpg 327,233,352,268,1 311,264,361,301,1 343,277,390,291,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000008.jpg 182,155,284,258,1 215,155,337,209,1 231,118,311,165,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000009.jpg 299,285,542,488,1 353,271,607,426,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000010.jpg 133,157,168,189,1 107,187,156,213,1 176,190,208,238,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000011.jpg 385,100,609,258,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000012.jpg 72,276,176,581,1 155,298,210,574,1 196,302,287,549,1 229,295,347,512,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000013.jpg 15,75,186,179,1 66,109,224,280,1 207,90,256,232,1 223,91,286,231,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000014.jpg 173,111,432,418,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000015.jpg 295,70,675,175,1 306,124,721,279,1 299,167,537,264,1 239,188,465,311,1 179,63,334,356,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000016.jpg 327,156,468,263,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000018.jpg 264,98,409,191,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000019.jpg 246,160,502,298,1 309,175,529,342,1 501,174,581,383,1 397,182,553,375,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000020.jpg 136,200,260,314,1 46,121,124,218,1 129,36,234,85,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000021.jpg 103,165,321,490,1 289,179,523,512,1 285,73,451,153,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000023.jpg 123,190,492,289,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000027.jpg 11,198,207,263,1 140,230,278,318,1 234,218,437,258,1 232,197,323,226,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000029.jpg 442,215,663,319,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000030.jpg 178,221,286,267,1 178,240,269,302,1 163,240,257,366,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000033.jpg 84,29,157,55,1 49,80,146,118,1 85,141,136,160,1 132,179,238,204,1 154,219,205,241,1 218,128,281,157,1 211,82,305,116,1 202,35,278,61,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000034.jpg 71,165,315,234,1 51,270,245,469,1 73,261,319,377,1 90,255,419,346,1 95,235,288,278,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000035.jpg 251,287,378,585,1 222,306,282,574,1 154,306,216,575,1 89,300,198,533,1 78,290,176,434,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000055.jpg 202,113,299,288,1 243,87,420,182,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000058.jpg 193,440,287,478,1 255,445,356,494,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000065.jpg 358,173,411,234,1 427,183,467,228,1 419,199,452,245,1 414,197,432,249,1 1,1,96,178,4 268,1,378,106,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000066.jpg 265,182,375,235,1 368,211,402,301,1 381,205,438,304,1 381,198,461,250,1 375,177,469,219,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000086.jpg 283,89,362,230,1 79,95,285,265,1 119,265,272,319,1 266,239,335,355,1 327,136,424,238,1 333,98,375,175,1 348,194,471,253,1 308,256,402,362,1 363,256,460,316,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000093.jpg 35,35,107,210,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000145.jpg 294,282,423,347,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000147.jpg 348,174,453,340,1 395,190,564,323,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000155.jpg 260,215,278,237,1 137,175,234,221,5 211,163,296,193,3 270,215,298,235,1 59,100,133,165,4 117,94,188,135,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000176.jpg 241,71,308,242,1 297,63,437,219,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000203.jpg 307,227,393,300,1 347,312,412,478,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/keyfloor_00000220.jpg 62,164,372,259,1 98,62,363,206,1 251,2,397,160,1 160,4,266,84,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000017.jpg 34,306,89,445,1 126,300,171,434,1 207,296,249,424,1 290,291,321,419,1 397,270,464,342,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000035.jpg 135,265,231,400,1 58,237,212,295,1 229,186,313,266,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000089.jpg 171,195,199,273,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000106.jpg 337,72,467,220,1 443,271,618,348,1 365,200,442,339,1 180,245,379,396,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000114.jpg 244,250,271,294,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000149.jpg 40,50,210,386,1 211,52,379,389,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000163.jpg 31,156,378,423,1 231,6,461,325,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000167.jpg 194,60,369,491,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000168.jpg 9,136,297,251,1 87,181,316,399,1 43,160,298,334,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000170.jpg 115,147,227,476,1 259,125,362,438,1 313,124,488,387,1 217,139,295,470,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000171.jpg 23,35,102,77,1 59,66,117,116,1 34,103,111,143,1 28,148,70,220,1 71,166,127,233,1 103,13,164,72,1 125,42,205,80,1 108,82,193,128,1 130,141,210,182,1 129,187,181,263,1 180,192,249,249,1 238,199,303,264,1 228,141,302,196,1 270,95,338,147,1 260,2,299,75,1 313,34,375,88,1 326,120,364,182,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000172.jpg 307,124,423,346,1 430,105,615,324,1 456,72,770,324,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000174.jpg 162,29,429,99,1 156,85,428,173,1 157,92,413,240,1 133,102,379,301,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000177.jpg 13,61,76,272,1 4,200,71,406,1 54,176,121,411,1 73,70,134,221,1 118,192,168,413,1 123,72,180,279,1 160,73,227,269,1 163,199,210,408,1 210,270,244,410,1 210,69,268,220,1 252,195,301,412,1 263,71,331,253,1 305,195,348,412,1 309,71,374,279,1 363,69,427,279,1 350,211,418,410,1 408,203,463,411,1 411,74,480,230,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000178.jpg 137,31,762,330,1 145,198,569,484,1 282,163,584,409,1 259,420,578,502,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000181.jpg 31,23,450,908,1 279,114,679,924,1 562,147,929,934,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000182.jpg 146,121,257,395,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000183.jpg 22,81,169,364,1 152,77,310,354,1 272,77,430,354,1 400,71,558,322,1 501,65,658,302,1 606,54,754,274,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000187.jpg 152,127,501,243,1 69,188,494,383,1 329,215,558,426,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000188.jpg 112,72,215,272,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000189.jpg 233,44,552,702,1 436,246,718,908,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000192.jpg 200,58,337,282,1 11,71,201,200,1 71,140,234,241,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000199.jpg 36,25,421,395,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000201.jpg 82,82,662,369,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000203.jpg 51,87,121,231,1 124,93,174,203,1 188,117,233,235,1 248,90,298,200,1 317,97,364,195,1 379,92,424,192,1 568,93,629,238,1 625,96,704,254,1 697,93,743,238,1 24,261,75,407,1 100,259,144,381,1 147,256,200,367,1 221,256,274,370,1 348,257,396,362,1 400,266,468,392,1 470,263,539,358,1 529,255,601,402,1 599,254,656,381,1 664,255,721,406,1 717,250,780,398,1 1,425,49,539,1 53,417,121,548,1 114,414,182,549,1 178,421,250,546,1 245,421,310,547,1 295,419,388,549,1 376,418,434,546,1 442,414,491,549,1 511,415,554,515,1 691,420,754,549,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000206.jpg 148,104,357,185,1 1,240,227,329,1 277,165,474,248,1 83,314,348,425,1 389,227,634,332,1 310,344,593,478,1 528,96,730,188,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000208.jpg 45,91,101,214,1 178,27,317,60,1 175,49,326,79,1 177,62,330,109,1 92,88,143,242,1 138,87,190,241,1 138,87,225,217,1 153,78,316,186,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000211.jpg 102,39,250,369,1 294,39,445,373,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000213.jpg 34,23,570,917,1 589,98,921,849,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000220.jpg 130,48,169,127,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000223.jpg 66,105,349,280,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000224.jpg 177,24,216,130,1 126,71,177,122,1 102,118,174,151,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000226.jpg 334,156,513,379,1 212,128,365,313,1 27,190,233,264,1 114,218,271,287,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000227.jpg 5,62,67,142,1 65,58,133,194,1 95,57,173,158,1 106,56,187,123,1 121,50,198,85,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000229.jpg 19,125,78,258,1 92,124,150,254,1 146,75,227,260,1 230,51,295,255,1 301,59,361,255,1 367,93,440,250,1 438,138,491,258,1 496,138,558,258,1 93,274,140,432,1 162,274,222,432,1 240,272,284,426,1 295,271,340,422,1 352,266,413,421,1 416,264,474,415,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000236.jpg 1,51,285,237,1 30,158,205,290,1 190,154,305,342,1 219,132,383,322,1 275,111,469,276,1 436,138,588,256,1 346,61,610,212,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000237.jpg 40,90,173,288,1 199,48,282,253,1 313,61,452,291,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000239.jpg 30,27,576,229,1 95,225,705,450,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000241.jpg 73,36,151,203,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000242.jpg 1,89,70,245,1 40,276,108,413,1 107,286,172,434,1 154,72,215,205,1 205,170,272,334,1 271,273,342,408,1 353,303,417,461,1 409,85,480,257,1 486,8,560,134,1 457,265,526,413,1 537,265,612,433,1 613,157,676,290,1 666,280,741,422,1 735,160,800,310,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000244.jpg 75,187,433,294,1 173,205,433,517,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000248.jpg 31,113,166,208,1 37,95,151,131,1 45,88,150,109,1 102,12,161,106,1 164,18,191,97,1 172,1,239,112,1 179,32,274,120,1 177,108,308,146,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000249.jpg 478,246,549,283,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000253.jpg 11,49,90,291,1 12,318,86,504,1 79,170,163,422,1 103,453,169,657,1 180,240,229,438,1 188,465,273,672,1 169,22,263,215,1 262,26,346,276,1 252,300,327,497,1 338,216,419,471,1 321,478,408,743,1 408,38,498,286,1 427,293,533,554,1 438,581,517,750,1 490,4,585,228,1 608,15,671,207,1 538,230,649,497,1 543,516,623,750,1 659,211,750,408,1 651,451,717,656,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000254.jpg 126,206,225,363,1 200,291,279,439,1 304,233,372,399,1 373,288,460,439,1 464,221,529,370,1 551,252,630,407,1 605,160,676,307,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000263.jpg 213,238,360,355,1 282,254,388,408,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000265.jpg 105,268,121,305,1 114,255,129,297,1 96,72,118,129,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000267.jpg 435,157,507,419,1 480,152,546,423,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000275.jpg 144,46,192,92,1 171,80,214,103,1 144,196,190,241,1 163,191,211,217,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000277.jpg 46,135,208,210,1 114,139,214,228,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000282.jpg 279,74,554,232,1 507,196,721,253,1 486,269,787,477,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000285.jpg 631,480,897,1002,1 497,473,693,973,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000286.jpg 87,257,139,387,1 97,189,192,239,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000287.jpg 45,7,293,239,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000292.jpg 313,434,378,599,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000293.jpg 17,137,162,584,1 178,140,326,584,1 339,140,597,597,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000298.jpg 24,52,292,204,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000302.jpg 9,140,292,243,1 76,1,325,151,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000311.jpg 8,72,338,292,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000315.jpg 11,126,256,224,1 161,279,416,383,1 210,38,386,131,1 296,110,486,230,1 521,228,789,340,1 521,36,808,165,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000316.jpg 82,54,286,141,1 177,132,422,221,1 61,202,318,296,1 398,55,552,126,1 518,127,772,220,1 447,230,727,325,1 653,55,811,129,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000334.jpg 21,42,188,336,1 209,44,391,334,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000342.jpg 34,190,323,238,1 80,231,257,299,1 229,199,351,370,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000349.jpg 121,66,225,143,1 165,91,246,192,1 372,302,435,456,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000372.jpg 177,303,264,390,1 90,315,204,342,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000379.jpg 37,150,181,212,1 28,18,291,126,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000383.jpg 394,172,477,314,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/key_00000387.jpg 477,239,685,391,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000040.jpg 77,102,247,258,5 240,63,368,252,3 75,71,144,151,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000151.jpg 22,488,118,518,1 135,416,460,503,5 319,465,461,554,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000259.jpg 13,53,49,120,1 53,16,114,202,0 109,49,221,269,3 65,456,118,559,3 204,438,266,553,3 287,530,363,614,5 318,204,394,322,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000261.jpg 268,43,362,93,1 267,238,333,366,0 349,258,524,453,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000262.jpg 323,125,448,367,0 249,529,301,660,1 434,513,481,631,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000265.jpg 138,131,296,181,0 141,199,305,249,0 164,324,188,384,1 182,336,201,381,1 11,234,98,402,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000266.jpg 390,223,468,368,3 113,80,233,175,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000277.jpg 330,36,628,164,1 343,153,597,307,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000278.jpg 118,38,187,134,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000294.jpg 13,144,108,272,0 370,298,516,383,0 63,165,192,328,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000295.jpg 214,92,638,251,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000296.jpg 184,109,220,172,1 235,1,305,110,0 400,110,498,211,0 202,195,346,332,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000301.jpg 295,266,326,330,1 314,302,384,341,1 430,121,594,288,3 614,122,780,273,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000305.jpg 46,64,98,226,0 225,215,277,280,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000309.jpg 228,79,544,500,3 601,184,677,319,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000317.jpg 168,103,231,305,0 204,85,285,279,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000319.jpg 358,177,509,292,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000326.jpg 605,239,679,402,1 174,4,423,445,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000333.jpg 13,66,197,188,1 348,301,472,386,1 403,338,452,411,1 153,36,424,401,3 497,45,790,426,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000345.jpg 243,6,345,199,0 86,162,226,346,3 186,130,230,219,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000346.jpg 50,78,333,292,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000357.jpg 155,10,240,95,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000360.jpg 11,15,153,165,5 105,15,203,151,3 213,87,253,156,1 247,87,265,146,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000380.jpg 70,61,240,120,0 318,43,452,140,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000381.jpg 1,284,241,547,3 1,271,297,620,5 272,305,475,521,0 234,479,281,536,1 275,462,349,611,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000402.jpg 301,112,427,172,0 2,39,553,470,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000412.jpg 216,43,636,309,0 141,121,428,267,5 255,315,329,465,1 191,312,294,449,1 201,277,309,300,1 184,286,297,330,1 135,306,259,400,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000413.jpg 542,39,649,259,0 369,32,437,81,1 224,286,367,435,0 194,264,299,435,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000415.jpg 12,62,172,212,0 169,1,413,136,5 244,174,271,269,1 259,177,310,275,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000418.jpg 310,169,574,264,1 301,118,562,212,1 284,109,475,191,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000419.jpg 7,70,89,221,0 192,210,208,238,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000421.jpg 146,249,216,278,1 653,45,762,208,3 337,83,494,204,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000423.jpg 373,54,794,136,3 394,136,751,237,5 423,469,703,597,1 370,196,881,437,0 303,327,407,366,1 169,274,335,415,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000426.jpg 214,219,329,287,0 384,217,428,246,1 305,114,372,197,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000432.jpg 105,85,226,171,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000444.jpg 120,117,421,264,3 360,238,467,315,1 487,167,771,301,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000465.jpg 170,613,227,700,1 562,88,700,376,3 533,622,796,832,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000473.jpg 132,226,144,251,1 140,225,154,253,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000476.jpg 39,136,442,453,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000485.jpg 34,17,212,90,0 300,70,346,130,1 270,4,361,57,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000501.jpg 163,118,314,165,0 211,175,316,299,5 128,250,190,310,1 86,252,111,306,1 109,252,130,312,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000512.jpg 182,262,238,380,0 234,266,281,378,0 257,282,302,330,1 341,285,367,317,1 323,280,363,289,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000520.jpg 375,248,420,297,3 187,25,597,480,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000525.jpg 344,55,487,112,0 400,153,509,239,5 298,135,330,185,1 307,227,391,387,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000537.jpg 154,109,238,144,0 219,297,269,350,0 257,392,273,419,1 93,34,335,647,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000544.jpg 168,80,322,254,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000553.jpg 331,365,558,427,0 77,64,269,224,5 437,82,499,173,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000557.jpg 107,276,163,327,1 96,273,127,332,1 81,282,122,342,1 26,321,118,356,1 77,351,139,436,1 217,130,385,277,3 319,235,534,449,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000561.jpg 200,33,298,93,1 224,73,300,103,1 190,66,253,150,1 142,93,220,170,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000565.jpg 189,35,223,116,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000566.jpg 250,297,287,370,1 264,268,304,337,1 218,171,274,216,1 220,266,263,393,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000567.jpg 139,220,154,269,1 108,236,116,278,1 100,235,109,280,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000572.jpg 144,171,219,228,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000583.jpg 218,223,241,279,1 246,222,267,277,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000592.jpg 345,118,487,389,3 196,123,320,294,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000593.jpg 226,152,239,171,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000594.jpg 386,66,468,244,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000596.jpg 253,77,378,125,0 113,21,349,256,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000603.jpg 462,56,677,454,3 802,340,878,536,1 775,396,833,542,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000604.jpg 302,5,577,409,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000605.jpg 92,230,118,276,1 192,171,207,229,1 202,175,223,231,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000610.jpg 284,218,363,320,1 168,202,287,287,1 219,220,286,329,1 268,221,306,325,1 1,76,237,308,5 76,17,502,182,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000612.jpg 106,135,303,273,0 4,9,400,496,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000613.jpg 254,59,349,88,0 175,11,431,240,2 373,289,409,379,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000614.jpg 65,86,309,194,0 30,13,428,450,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwgp_00000616.jpg 271,53,652,575,2 52,193,254,282,0 591,150,761,206,0 11,109,336,576,2 338,61,767,574,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000002.jpg 218,105,325,318,3 38,130,175,280,5 694,157,733,226,1 687,158,707,230,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000003.jpg 324,20,658,297,3 23,224,354,522,5 362,364,434,470,1 379,443,508,504,1 383,389,470,470,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000012.jpg 47,204,218,523,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000015.jpg 68,85,211,355,3 499,186,554,297,1 533,191,569,304,1 563,189,607,299,1 550,161,645,258,1 248,88,435,335,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000025.jpg 141,31,190,108,1 193,5,263,204,0 479,203,588,338,5 265,38,385,283,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000030.jpg 92,73,622,318,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000035.jpg 12,71,80,148,5 93,61,137,151,3 202,90,232,149,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000040.jpg 347,202,408,273,1 224,324,446,520,5 491,274,697,547,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000046.jpg 100,47,169,193,3 110,169,212,296,5 308,192,335,258,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000058.jpg 264,167,315,261,3 327,164,379,265,0 259,84,282,136,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000060.jpg 229,154,445,321,1 389,208,559,358,1 82,1,484,122,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000062.jpg 229,61,481,213,5 269,256,395,363,1 62,121,252,350,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000064.jpg 119,72,259,273,3 370,150,512,195,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000069.jpg 200,71,602,721,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000083.jpg 72,144,348,405,5 182,213,257,368,1 184,48,427,142,0 385,128,623,423,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000092.jpg 105,87,332,276,5 240,256,337,310,1 225,302,329,348,1 255,317,344,391,1 322,287,379,395,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000098.jpg 75,167,765,689,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000114.jpg 349,158,569,245,1 353,207,526,280,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000136.jpg 51,123,164,177,1 33,73,214,236,5 1,1,181,74,3 250,40,376,202,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000138.jpg 148,197,255,245,5 280,229,327,263,1 228,179,322,213,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000159.jpg 88,188,141,226,1 11,188,73,228,1 42,240,144,311,5 43,321,138,370,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000160.jpg 218,221,242,238,1 191,225,221,245,1 209,184,315,220,5 180,165,256,188,3 36,128,143,193,4 1,124,77,192,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000164.jpg 20,153,74,240,1 106,71,260,318,3 359,211,427,406,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000171.jpg 86,57,426,192,0 101,281,323,398,1 61,182,430,504,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000181.jpg 86,33,256,239,3 301,133,339,153,1 323,143,348,172,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000191.jpg 63,96,139,254,3 187,38,330,285,3 290,300,471,439,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000192.jpg 117,265,223,338,1 294,147,467,382,3 565,179,631,264,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000210.jpg 179,93,299,156,1 119,106,160,150,1 161,96,226,141,1 91,108,119,122,1 1,7,237,88,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000220.jpg 438,33,584,98,1 1,5,153,121,5 175,1,410,167,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000227.jpg 194,119,346,441,3 30,91,184,386,0 491,266,572,452,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000230.jpg 28,167,86,191,1 17,143,162,187,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000238.jpg 298,284,482,386,5 102,240,288,354,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000262.jpg 264,38,345,157,3 99,29,171,115,3 91,115,119,152,1 344,32,412,118,5 88,5,141,60,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000266.jpg 32,159,65,209,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000268.jpg 34,110,158,353,0 487,205,649,422,5 174,109,334,353,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000280.jpg 67,150,241,301,1 306,63,546,350,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000284.jpg 137,122,237,162,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000287.jpg 20,99,176,251,3 216,83,448,232,5 245,31,289,67,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000299.jpg 289,20,506,425,3 173,298,239,365,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000304.jpg 131,97,220,130,1 170,150,429,398,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000337.jpg 438,250,640,475,1 5,1,344,267,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000353.jpg 40,30,330,357,5 229,35,439,325,3 455,185,544,327,1 516,186,565,321,1
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000354.jpg 124,261,178,354,1 81,250,126,377,1 63,246,119,391,1 185,113,390,459,3 393,80,536,452,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/kwp_00000366.jpg 6,296,134,456,3 86,365,217,477,1 259,358,424,506,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000057.jpg 73,241,115,265,4 138,208,175,244,4 309,231,374,350,4 437,309,537,380,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000097.jpg 215,152,317,214,4 172,150,231,203,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000098.jpg 15,254,74,395,4 115,337,256,396,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000101.jpg 14,160,107,307,4 140,221,269,324,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000103.jpg 42,192,148,291,4 139,187,299,267,4 312,243,383,337,4 404,243,487,342,4 504,197,628,296,4 642,198,731,293,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000104.jpg 34,101,255,181,4 297,117,421,227,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000106.jpg 34,103,159,164,4 119,101,240,149,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000107.jpg 222,85,444,488,4 106,228,235,394,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000111.jpg 350,184,550,459,4 474,171,600,339,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000113.jpg 60,239,349,514,4 360,308,688,500,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000115.jpg 90,290,180,369,4 220,310,264,402,4 474,347,490,380,4 546,310,563,332,4 563,312,577,331,4 484,304,495,329,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000116.jpg 74,271,277,500,4 214,195,392,377,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000117.jpg 240,334,360,407,4 469,256,552,393,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000119.jpg 90,134,206,243,4 203,105,351,180,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000120.jpg 143,138,328,359,4 364,201,610,346,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000125.jpg 163,148,353,252,4 233,128,423,189,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000128.jpg 77,281,376,766,4 359,553,599,865,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000130.jpg 26,145,207,300,4 106,86,237,173,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000131.jpg 302,853,349,904,4 335,798,381,886,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000132.jpg 70,242,315,386,4 357,237,507,407,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000133.jpg 89,202,433,620,4 219,28,410,437,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000134.jpg 281,102,480,302,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000137.jpg 81,62,515,410,4 486,151,784,290,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000138.jpg 356,252,446,396,4 164,196,328,353,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000139.jpg 92,239,144,270,4 226,226,265,273,4 315,236,372,272,4 442,236,484,276,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000140.jpg 14,262,86,405,4 124,359,267,400,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000141.jpg 49,210,393,341,4 286,188,645,276,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000142.jpg 73,348,363,799,4 303,527,564,728,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000143.jpg 81,115,400,326,4 449,166,609,386,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000144.jpg 155,166,501,274,4 314,111,581,220,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000146.jpg 189,129,301,255,4 273,167,476,303,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000147.jpg 202,276,452,426,4 147,147,368,373,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000148.jpg 117,187,205,277,4 200,405,320,494,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000149.jpg 106,34,384,239,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000150.jpg 136,7,451,603,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000151.jpg 93,355,334,571,4 293,486,444,762,4 478,92,739,482,4 555,277,970,682,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000152.jpg 65,3,245,368,4 428,238,650,393,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000153.jpg 21,437,230,610,4 167,489,351,610,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000154.jpg 18,199,329,362,4 160,198,573,405,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000155.jpg 138,190,342,329,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000157.jpg 114,178,401,344,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000158.jpg 120,46,242,295,4 257,190,378,490,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000161.jpg 287,331,538,481,4 399,303,525,418,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000165.jpg 151,175,233,222,4 294,161,371,228,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000166.jpg 37,175,55,218,4 57,176,75,218,4 81,162,102,218,4 102,164,124,221,4 224,171,245,215,4 246,171,262,218,4 267,175,291,219,4 290,174,308,219,4 151,176,170,217,4 170,178,189,217,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000167.jpg 233,131,676,337,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000169.jpg 49,305,200,398,4 216,346,301,447,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000171.jpg 90,73,299,352,4 352,49,529,307,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000172.jpg 169,43,349,588,4 365,52,549,606,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000175.jpg 271,366,331,404,4 400,333,429,394,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000177.jpg 185,464,341,718,4 385,476,524,732,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000178.jpg 52,189,249,355,4 209,238,389,367,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000183.jpg 3,218,121,298,4 151,205,249,297,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000184.jpg 62,487,129,546,4 316,483,341,536,4 354,478,389,541,4 559,469,601,547,4 596,480,633,543,4 29,9,163,546,2 270,8,459,538,2 523,6,679,542,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000186.jpg 62,71,624,534,4 195,53,714,273,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000187.jpg 27,103,129,214,4 119,162,295,257,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000188.jpg 173,114,330,273,4 382,161,547,323,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000191.jpg 7,440,185,611,4 242,543,476,643,4 489,399,916,619,4 578,286,973,467,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000192.jpg 176,291,383,497,4 76,288,231,431,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000193.jpg 35,159,355,480,4 222,102,558,322,4 509,174,684,409,4 612,163,864,375,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000196.jpg 141,156,440,347,4 235,241,573,432,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000197.jpg 342,79,720,647,4 25,250,373,551,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000198.jpg 165,82,311,354,4 361,189,625,398,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000200.jpg 106,182,441,409,4 399,1,540,255,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000201.jpg 319,304,367,391,4 251,258,310,334,4 43,312,144,348,4 435,271,538,322,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000204.jpg 8,235,486,557,4 257,119,755,357,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000205.jpg 113,267,387,580,4 286,263,501,564,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000210.jpg 183,422,241,453,4 216,442,279,491,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000211.jpg 108,113,647,322,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000215.jpg 63,487,397,699,4 324,478,629,684,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000217.jpg 167,171,295,214,4 240,183,384,243,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000223.jpg 458,247,524,366,4 525,258,569,369,4 324,307,363,385,4 278,305,324,384,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000225.jpg 12,228,56,350,4 57,231,104,350,4 102,232,159,350,4 155,233,210,350,4 205,225,255,350,4 254,227,301,350,4 306,230,355,350,4 356,229,401,350,4 403,227,475,350,4 458,228,518,350,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000226.jpg 316,256,495,370,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000227.jpg 57,212,363,351,4 488,36,638,320,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000228.jpg 10,143,238,239,4 82,59,248,123,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000230.jpg 190,156,287,236,4 301,159,369,233,4 456,171,506,233,4 513,178,564,234,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000232.jpg 30,16,227,225,4 262,145,458,223,4 245,21,455,127,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000234.jpg 100,303,321,412,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000236.jpg 172,274,537,560,4 23,205,290,438,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000237.jpg 330,54,520,601,4 115,38,322,620,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000238.jpg 114,9,426,405,4 179,67,523,327,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000240.jpg 166,150,242,257,4 298,242,403,320,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000243.jpg 126,48,210,221,4 2,91,128,172,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000245.jpg 176,603,341,809,4 341,493,473,690,4 538,519,697,712,4 435,284,541,435,4 485,310,597,462,4 513,413,628,573,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000246.jpg 31,214,110,268,4 73,210,147,261,4 183,187,306,233,4 197,236,326,287,4 213,288,337,345,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000247.jpg 225,361,259,436,4 259,402,291,461,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000248.jpg 179,424,487,525,4 593,256,803,471,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000250.jpg 1,428,347,554,4 343,309,593,571,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000251.jpg 177,28,346,386,4 326,156,608,394,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000254.jpg 171,31,356,481,4 342,110,658,340,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000255.jpg 218,421,640,749,4 327,143,593,478,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000257.jpg 96,211,758,438,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000258.jpg 107,185,593,401,4 201,22,497,212,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000259.jpg 121,246,482,636,4 360,292,542,581,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000261.jpg 305,203,568,284,4 150,193,300,267,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000262.jpg 41,412,638,606,4 107,209,420,518,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000264.jpg 182,70,300,241,4 291,214,397,390,4 179,294,326,470,4 11,192,190,328,4 71,40,165,219,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000265.jpg 60,217,149,271,4 76,154,116,207,4 64,233,208,319,4 93,246,276,338,4 211,263,376,361,4 337,255,565,352,4 475,272,669,394,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000267.jpg 84,184,396,309,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000268.jpg 159,2,422,303,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000269.jpg 222,646,354,785,4 548,625,696,781,4 100,14,709,790,2 219,54,320,104,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000270.jpg 213,71,733,394,4 56,70,589,338,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000271.jpg 97,1,330,303,4 357,2,595,339,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000272.jpg 62,632,130,690,4 164,644,217,688,4 417,24,584,181,4 421,196,580,323,4 414,390,599,499,4 426,510,599,675,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000273.jpg 32,154,110,228,4 211,146,296,219,4 331,138,404,226,4 476,133,607,228,4 613,133,776,224,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000274.jpg 229,773,297,844,4 311,787,363,844,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000275.jpg 352,107,469,344,4 509,35,609,275,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000276.jpg 150,99,811,393,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000278.jpg 166,21,542,356,4 167,195,597,434,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000279.jpg 145,116,418,320,4 6,107,229,268,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000281.jpg 154,248,412,551,4 413,364,527,439,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000283.jpg 216,129,369,161,4 209,148,376,203,4 205,196,389,232,4 205,215,399,276,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000285.jpg 357,169,718,337,4 147,192,541,370,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000286.jpg 285,223,548,388,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000287.jpg 25,131,423,419,4 9,2,205,177,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000291.jpg 42,224,448,429,4 223,23,475,327,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000295.jpg 90,130,273,565,4 246,105,432,533,4 453,93,628,469,4 629,68,803,434,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000296.jpg 265,263,552,568,4 387,198,626,431,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000297.jpg 54,197,132,336,4 158,86,224,222,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000300.jpg 88,383,138,441,4 113,392,166,440,4 128,45,157,60,0 81,29,207,445,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000301.jpg 17,18,647,410,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000303.jpg 224,72,329,406,4 333,77,456,408,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000304.jpg 76,339,154,384,4 165,330,236,389,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000306.jpg 24,513,132,584,4 154,465,239,548,4 311,347,486,465,4 513,410,591,579,4 319,245,420,290,4 417,263,495,293,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000308.jpg 64,356,151,438,4 217,362,268,428,4 398,349,455,415,4 472,354,536,420,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000309.jpg 154,158,341,404,4 32,134,200,360,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000310.jpg 198,608,250,682,4 163,61,203,82,0 130,31,289,679,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000311.jpg 260,272,307,345,4 337,405,422,447,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000312.jpg 171,19,623,287,4 252,96,693,369,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000313.jpg 225,69,357,336,4 425,81,516,351,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000314.jpg 341,24,494,398,4 182,23,329,406,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000315.jpg 462,146,702,376,4 209,150,472,352,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000318.jpg 65,34,311,478,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000320.jpg 311,337,458,564,4 39,467,274,596,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000322.jpg 165,216,340,395,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000323.jpg 19,107,168,163,4 59,154,243,235,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000325.jpg 398,208,558,391,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000326.jpg 81,155,306,295,4 455,209,570,409,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000327.jpg 233,59,492,331,4 197,225,440,538,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000328.jpg 157,111,322,646,2 204,134,250,154,0 375,136,464,488,2 241,599,308,641,4 182,571,253,615,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000329.jpg 304,8,376,89,4 216,9,308,96,4 95,54,237,127,4 29,88,194,142,4 1,113,190,169,4 1,160,196,217,4 2,191,215,302,4 72,223,276,341,4 199,239,336,387,4 309,248,423,414,4 446,260,593,415,4 530,251,630,379,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000330.jpg 30,172,189,266,4 71,267,239,386,4 1,371,242,477,4 349,342,550,471,4 387,133,550,243,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000332.jpg 275,118,483,203,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000337.jpg 238,140,537,328,4 135,261,566,621,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000338.jpg 35,127,521,393,4 185,125,641,325,4 292,104,701,229,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000339.jpg 367,231,485,374,4 500,337,685,410,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000340.jpg 76,427,406,721,4 275,461,661,764,4 438,408,649,612,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000345.jpg 55,90,210,406,4 180,150,407,305,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000349.jpg 186,197,454,315,4 450,216,606,389,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000350.jpg 57,3,234,421,4 234,4,401,421,4 424,1,608,394,4 578,1,759,404,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000351.jpg 154,132,329,216,4 35,242,240,360,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000353.jpg 73,323,425,587,4 270,190,535,583,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000354.jpg 3,201,198,333,4 154,198,304,338,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000355.jpg 372,428,419,505,4 392,447,450,522,4 330,1,477,519,2
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000356.jpg 105,101,259,315,4 269,185,499,316,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000357.jpg 36,71,251,216,4 162,31,368,173,4 286,2,481,134,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000359.jpg 78,458,145,630,2 262,404,356,620,2 67,40,150,298,2 267,18,383,287,2 323,46,346,59,0 87,469,108,476,0 297,415,325,426,0 127,606,147,626,4 71,612,106,633,4 263,249,294,283,4 340,254,385,287,4 63,267,96,295,4 116,260,150,297,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000362.jpg 12,15,165,459,4 179,115,484,492,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000363.jpg 267,329,407,414,4 218,10,538,419,2 476,181,544,209,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000365.jpg 228,312,307,439,4 328,334,397,442,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000366.jpg 371,499,456,575,4 363,557,449,650,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000369.jpg 330,365,381,420,4 498,409,561,446,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000370.jpg 174,8,773,297,4 77,93,648,518,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000372.jpg 104,60,303,331,4 1,106,174,395,4 381,361,441,411,4 442,374,496,429,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000373.jpg 237,343,376,539,4 364,359,500,576,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000376.jpg 172,100,272,490,2 212,447,238,487,4 185,422,219,476,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000377.jpg 10,78,97,206,4 99,81,183,204,4 201,80,277,207,4 284,78,370,207,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000378.jpg 157,251,184,294,4 156,40,272,295,2 240,259,268,293,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000379.jpg 105,175,230,436,4 231,41,405,397,4 361,44,534,407,4 331,241,650,521,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000380.jpg 73,16,221,527,2 16,67,98,372,2 163,47,218,178,2 153,459,182,518,4 76,479,125,546,4 105,45,151,67,0 481,208,632,523,4 321,179,518,501,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000382.jpg 15,139,160,216,4 61,187,223,302,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000385.jpg 345,172,401,273,4 210,322,301,414,4 164,288,210,405,4 18,329,119,401,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000386.jpg 11,287,69,409,4 205,325,332,410,4 521,309,595,426,4 722,285,787,399,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000387.jpg 209,47,428,185,4 400,185,613,378,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/shoes_00000390.jpg 261,256,653,398,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000274.jpg 229,136,847,389,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000276.jpg 129,48,757,585,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000279.jpg 235,36,559,419,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000286.jpg 210,20,424,402,3 441,14,616,391,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000288.jpg 3,5,300,288,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000292.jpg 283,1,491,367,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000298.jpg 110,8,442,293,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000304.jpg 186,21,781,586,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000309.jpg 93,16,629,422,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000316.jpg 303,26,496,335,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000323.jpg 283,24,432,335,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000328.jpg 181,92,316,359,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000329.jpg 232,32,489,371,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000344.jpg 214,23,391,374,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000345.jpg 223,5,471,427,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000352.jpg 330,34,586,449,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000355.jpg 267,49,576,300,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000359.jpg 262,11,460,406,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000364.jpg 280,63,449,224,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000365.jpg 251,14,467,411,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000367.jpg 304,36,547,440,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000368.jpg 179,69,487,360,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000370.jpg 41,104,375,541,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000377.jpg 187,51,805,456,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000380.jpg 228,157,646,302,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000382.jpg 1,11,300,288,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000385.jpg 54,18,260,318,3 356,77,580,329,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000386.jpg 169,13,557,377,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000388.jpg 23,35,620,288,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000392.jpg 138,100,278,299,3 298,19,403,218,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000395.jpg 96,87,817,435,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000396.jpg 160,3,298,300,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000397.jpg 104,61,288,407,3 283,48,481,427,3 461,59,655,400,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000398.jpg 305,12,509,441,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000405.jpg 232,51,609,229,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000406.jpg 181,91,532,461,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000407.jpg 14,5,202,102,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000408.jpg 209,43,426,238,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000409.jpg 172,87,472,232,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000414.jpg 79,187,248,264,3 359,143,491,210,3 153,93,234,131,3 284,84,374,100,3 394,106,462,136,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000421.jpg 193,31,432,396,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000422.jpg 213,61,397,363,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000423.jpg 151,13,338,360,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000429.jpg 137,62,637,359,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000432.jpg 118,75,185,122,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000433.jpg 125,22,461,174,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000442.jpg 152,73,328,424,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000448.jpg 39,7,265,246,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000457.jpg 204,47,400,383,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000460.jpg 27,21,584,402,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000461.jpg 262,80,464,399,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000462.jpg 227,30,420,405,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000463.jpg 71,44,530,335,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000466.jpg 1,16,296,283,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000472.jpg 372,22,580,418,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000474.jpg 204,25,481,374,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000481.jpg 137,81,323,443,3 371,76,557,439,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000487.jpg 152,32,489,335,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000490.jpg 86,19,527,384,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000509.jpg 86,40,321,375,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000516.jpg 19,6,204,262,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000524.jpg 95,18,415,375,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000529.jpg 119,2,346,326,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000530.jpg 173,30,399,493,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000533.jpg 135,1,354,356,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000537.jpg 78,40,558,390,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000538.jpg 102,147,581,308,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000539.jpg 93,38,573,268,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000542.jpg 241,57,413,395,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000543.jpg 318,21,523,450,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000545.jpg 14,11,822,410,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000547.jpg 414,10,604,159,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000548.jpg 1,11,300,284,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000549.jpg 109,46,464,411,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000551.jpg 209,5,630,450,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000553.jpg 309,50,567,396,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000554.jpg 58,63,242,176,3 267,6,407,165,3 300,167,546,377,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000556.jpg 75,11,220,296,3 499,94,592,296,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000561.jpg 303,15,669,167,3 282,172,700,354,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000563.jpg 111,22,307,421,3 318,23,513,422,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000564.jpg 114,2,245,213,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000565.jpg 59,1,212,231,3 230,23,376,231,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000567.jpg 155,101,527,287,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000568.jpg 209,6,392,392,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000570.jpg 292,33,470,401,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000574.jpg 292,79,670,317,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000575.jpg 74,33,629,387,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000577.jpg 130,94,642,324,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000579.jpg 204,32,480,420,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000585.jpg 170,68,381,370,3 280,199,488,373,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000587.jpg 130,3,400,562,3 1,3,170,565,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000588.jpg 109,3,224,250,3 26,1,110,245,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000593.jpg 104,1,222,322,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000594.jpg 162,1,800,448,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000597.jpg 147,9,472,394,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000598.jpg 168,143,441,282,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000600.jpg 244,37,387,314,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000601.jpg 192,6,490,263,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000602.jpg 364,69,548,440,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000604.jpg 1,11,299,287,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000605.jpg 163,5,387,332,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000609.jpg 421,57,573,361,3 588,57,746,368,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000610.jpg 24,98,300,413,3 299,75,480,412,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000611.jpg 75,71,449,344,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000613.jpg 149,40,479,427,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000614.jpg 245,20,396,338,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000615.jpg 160,52,406,280,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000617.jpg 163,20,579,426,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000618.jpg 138,83,466,324,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000630.jpg 144,22,427,386,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000634.jpg 106,27,328,365,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000638.jpg 272,36,418,312,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000639.jpg 341,98,497,421,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000640.jpg 72,3,293,327,3 211,8,494,350,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000641.jpg 152,66,586,473,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000642.jpg 4,9,574,371,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000655.jpg 127,103,477,304,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000657.jpg 252,99,377,314,3 688,158,800,279,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000659.jpg 141,3,497,391,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000660.jpg 196,59,448,383,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000665.jpg 64,88,389,328,3 377,135,718,414,3 287,21,590,141,3 75,206,497,379,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000671.jpg 91,64,522,280,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000676.jpg 1,78,577,349,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000677.jpg 55,5,596,360,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000679.jpg 289,89,593,528,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000682.jpg 161,84,525,360,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/smartphone_00000685.jpg 187,34,355,374,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000000.jpg 45,293,444,407,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000001.jpg 4,220,465,373,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000002.jpg 258,254,587,390,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000003.jpg 272,333,419,393,5 334,138,453,263,4 210,150,284,230,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000004.jpg 223,163,289,299,4 367,287,474,342,4 150,278,200,328,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000006.jpg 24,256,415,364,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000008.jpg 219,268,314,317,5 210,89,278,184,4 276,114,319,139,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000009.jpg 18,256,401,377,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000010.jpg 84,169,278,293,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000011.jpg 79,229,109,245,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000012.jpg 297,383,580,491,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000013.jpg 116,168,460,417,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000017.jpg 121,168,255,216,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000018.jpg 101,77,599,460,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000019.jpg 167,246,285,320,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000020.jpg 17,145,225,358,5 247,168,394,341,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000023.jpg 427,68,659,179,5 163,69,395,180,5 54,213,298,336,5 323,214,560,330,5 51,357,295,480,5 323,357,567,480,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000025.jpg 258,270,277,281,5 299,252,317,287,4 321,264,350,278,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000026.jpg 18,41,568,527,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000027.jpg 1,60,299,231,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000028.jpg 35,72,483,475,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000029.jpg 24,107,873,556,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000032.jpg 155,80,533,392,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000034.jpg 14,199,410,372,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000035.jpg 201,255,482,328,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000037.jpg 277,255,412,335,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000038.jpg 221,39,514,636,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000044.jpg 94,63,343,325,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000048.jpg 150,191,327,334,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000050.jpg 74,121,407,347,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000053.jpg 79,149,345,296,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000056.jpg 46,115,381,340,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000057.jpg 36,202,483,507,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000058.jpg 113,261,502,546,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000065.jpg 22,48,289,249,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000067.jpg 25,29,354,309,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000069.jpg 98,229,445,517,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000072.jpg 273,246,500,294,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000080.jpg 70,311,351,392,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000081.jpg 54,114,680,660,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000082.jpg 6,43,588,558,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000088.jpg 4,137,477,376,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000089.jpg 181,208,391,404,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000090.jpg 20,127,475,474,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000091.jpg 116,278,568,498,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000092.jpg 43,101,515,455,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000093.jpg 12,143,255,221,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000104.jpg 187,189,480,393,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000109.jpg 21,116,399,427,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000113.jpg 57,94,426,403,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000120.jpg 14,196,410,373,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000122.jpg 199,138,428,341,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000124.jpg 3,149,295,304,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000125.jpg 36,38,468,468,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000128.jpg 104,125,465,421,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000129.jpg 88,181,320,486,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000132.jpg 168,188,373,354,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000137.jpg 60,225,749,574,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000139.jpg 16,239,364,406,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000146.jpg 9,58,536,488,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000147.jpg 326,310,594,549,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000148.jpg 46,37,327,381,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000151.jpg 229,170,335,222,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000153.jpg 48,345,380,519,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000154.jpg 95,191,343,357,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000157.jpg 37,195,271,318,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000160.jpg 37,81,393,353,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000162.jpg 27,86,354,390,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000164.jpg 64,103,563,656,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000165.jpg 9,118,296,418,5 116,149,440,436,5 209,229,469,444,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000166.jpg 100,256,467,432,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000167.jpg 94,115,320,310,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000169.jpg 5,1,392,236,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000170.jpg 125,185,220,229,5 167,56,266,122,4 322,82,387,169,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000171.jpg 138,173,489,461,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000177.jpg 208,164,330,202,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000180.jpg 69,50,727,758,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000185.jpg 16,135,843,566,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000186.jpg 44,197,405,501,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000187.jpg 3,90,633,420,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000189.jpg 30,203,395,357,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000191.jpg 166,227,371,397,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000194.jpg 97,161,349,356,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000195.jpg 89,355,351,533,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000206.jpg 165,195,577,431,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000207.jpg 77,133,264,296,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000208.jpg 200,127,464,362,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000212.jpg 7,103,422,479,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000216.jpg 52,158,429,317,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000217.jpg 110,317,403,563,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000223.jpg 139,66,281,332,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000224.jpg 64,207,455,366,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000228.jpg 304,275,485,318,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000229.jpg 41,40,402,394,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000230.jpg 89,229,235,279,5 155,59,284,107,4 207,41,301,95,4
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000233.jpg 200,9,486,257,3
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000236.jpg 62,132,641,570,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000237.jpg 81,44,823,762,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000240.jpg 39,99,455,322,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000241.jpg 25,262,322,418,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000242.jpg 15,134,411,457,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000244.jpg 135,125,290,305,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000254.jpg 113,308,405,567,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000260.jpg 100,181,414,576,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000261.jpg 97,343,380,506,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000263.jpg 15,111,416,459,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000265.jpg 58,64,568,441,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000271.jpg 78,383,470,611,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000277.jpg 75,325,345,508,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000294.jpg 12,106,410,312,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000301.jpg 122,252,459,567,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000305.jpg 1,6,432,615,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000310.jpg 79,308,344,478,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000313.jpg 22,107,398,418,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000317.jpg 21,60,635,615,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000321.jpg 56,288,489,643,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000352.jpg 118,196,208,280,5 36,3,298,285,2 161,70,243,99,0
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000357.jpg 6,11,300,137,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000360.jpg 163,184,796,481,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000365.jpg 42,19,256,199,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000371.jpg 62,85,441,398,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000373.jpg 3,78,279,309,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000375.jpg 2,2,320,323,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000376.jpg 75,42,471,531,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000386.jpg 13,196,785,545,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000409.jpg 214,120,326,189,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000427.jpg 118,57,383,521,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000428.jpg 184,41,440,235,5 22,180,268,418,5 176,177,477,470,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000431.jpg 75,141,407,342,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000441.jpg 237,119,449,573,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000443.jpg 1,3,601,392,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000449.jpg 53,77,354,349,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000450.jpg 76,19,418,399,5
+D:\python\YOLO_Collection\yolov3-keras-tf/VOCdevkit/VOCelderly/JPEGImages/wallet_00000468.jpg 108,215,241,379,5 297,165,487,226,0 42,43,649,418,2
