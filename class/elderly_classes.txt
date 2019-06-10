@@ -1,0 +1,6 @@
+glasses
+key
+person
+phone
+shoes
+wallet
