@@ -35,16 +35,19 @@ from model.small_mobilenets2 import yolo_body
 #model_name = 'small_mobilenet_trained_weights_final.h5'
 #model_name = 'small_mobilenets2_trained_weights_final.h5'
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
+model_name = 'new_a2_ds_small_mobilenets2_weights_final.h5'
 #model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
 #model_name = 'bnfuse_tiny_yolo_trained.h5'
 #model_name = 'bnfuse_med_tiny_yolo.h5'
+#model_name = 'bnfuse_a2_ds_small_mobilenets2_trained_model.h5'
 #model_name = 'tiny_yolo.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = '2scale_small_mobilenet_trained_model.h5'
 #model_name = '1scale_tiny_yolo_model.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = 'new_med_darknet_trained_weights_final.h5'
-model_name = 'quantized_mobilenets2.h5'
+#model_name = 'quantized_mobilenets2.h5'
+
 
 class YOLO(object):
     _defaults = {
