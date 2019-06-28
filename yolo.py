@@ -45,7 +45,11 @@ from model.small_mobilenets2 import yolo_body
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = 'new_med_darknet_trained_weights_final.h5'
 #model_name = 'quantized_mobilenets2.h5'
+#model_name = 'eld_yolo_trained_weights_final.h5'
 model_name = 'eld_small_mobilenets2_trained_weights_final.h5'
+#model_name = 'eld_distill_small_mobilenets2_a1_2_trained_weights_final.h5'
+#model_name = 'eld_med_tiny_yolo_trained_weights_final.h5'
+#model_name = 'eld_tiny_yolo_trained_weights_final.h5'
 
 class YOLO(object):
     _defaults = {
@@ -54,7 +58,7 @@ class YOLO(object):
         "anchors_path": 'anchors/elderly_anchors.txt',#yolo_anchors.txt
         #"anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
-        "score" : 0.1,
+        "score" : 0.035,
         "iou" : 0.45,
         "model_image_size" : (416, 416),#416,288,224,160,96 32multiplier
         "gpu_num" : 1,
@@ -219,13 +223,13 @@ def detect_video(yolo, video_path, output_path=""):
     vid = cv2.VideoCapture(video_path)
     if not vid.isOpened():
         raise IOError("Couldn't open webcam or video")
-    video_FourCC    = int(vid.get(cv2.CAP_PROP_FOURCC))
-    video_fps       = vid.get(cv2.CAP_PROP_FPS)
+    video_FourCC    = cv2.VideoWriter_fourcc(*'XVID') #int(vid.get(cv2.CAP_PROP_FOURCC))
+    video_fps       = 20.0 #vid.get(cv2.CAP_PROP_FPS)
     video_size      = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)),
                         int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
     isOutput = True if output_path != "" else False
     if isOutput:
-        print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
+        print("!!! TYPE:", type(output_path), type(video_FourCC),type(video_fps),video_fps, type(video_size))
         if(video_path == 0 ):
             video_FourCC = cv2.VideoWriter_fourcc(*'XVID')
             video_fps = 20.0
