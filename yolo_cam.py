@@ -6,4 +6,7 @@ import argparse
 from yolo import YOLO, detect_video
 from PIL import Image
 
-detect_video(YOLO(), 0 ,"saved_cam.avi")
+#detect_video(YOLO(), 0 ,"saved_cam.avi")
+
+
+detect_video(YOLO(), "http://192.168.43.232:8080/video" ,"saved_cam.mp4")
