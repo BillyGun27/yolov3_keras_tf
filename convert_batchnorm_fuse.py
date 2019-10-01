@@ -26,14 +26,17 @@ def get_anchors(anchors_path):
 #model_path = 'model_data/new_small_mobilenets2_trained_weights_final.h5'
 #model_path = 'model_data/tiny_yolo.h5'
 #model_path = 'model_data/new_med_darknet_trained_weights_final.h5'
-model_path = 'model_data/new_a2_ds_small_mobilenets2_weights_final.h5'
+#model_path = 'model_data/new_a2_ds_small_mobilenets2_weights_final.h5'
+model_path = 'model_data/eld_small_mobilenets2_trained_weights_final.h5'
 
-train_path = '2007_train.txt'
-val_path = '2007_val.txt'
+#train_path = '2007_train.txt'
+#val_path = '2007_val.txt'
 # test_path = '2007_test.txt'
-log_dir = 'logs/logits_only_000/'
-classes_path = 'class/voc_classes.txt'
-anchors_path = 'anchors/tiny_yolo_anchors.txt'
+#log_dir = 'logs/logits_only_000/'
+#classes_path = 'class/voc_classes.txt'
+#anchors_path = 'anchors/tiny_yolo_anchors.txt'
+classes_path = 'class/elderly_classes.txt'
+anchors_path = 'anchors/elderly_anchors.txt'
 class_names = get_classes(classes_path)
 num_classes = len(class_names)
 anchors = get_anchors(anchors_path)
@@ -55,7 +58,8 @@ model_reduced = reduce_keras_model(model)
 #model_reduced.save('model_data/416bnfuse_small_mobilenets2_trained_model.h5')
 #model_reduced.save('model_data/416bnfuse_tiny_yolo.h5')
 #model_reduced.save('model_data/bnfuse_med_tiny_yolo.h5')
-model_reduced.save('model_data/bnfuse_a2_ds_small_mobilenets2_trained_model.h5')
+#model_reduced.save('model_data/bnfuse_a2_ds_small_mobilenets2_trained_model.h5')
+model_reduced.save('model_data/bnfuse_eld_small_mobilenets2_trained_weights_final.h5')
 model_reduced.summary()
 print(len(model_reduced.layers))
 
