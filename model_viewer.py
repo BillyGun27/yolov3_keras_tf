@@ -7,13 +7,15 @@ from kito import reduce_keras_model
 
 from keras.applications.mobilenet import MobileNet
 from keras.applications.mobilenet_v2 import MobileNetV2
+from keras.applications.densenet import DenseNet121,DenseNet169, DenseNet201
 
 #from model.new_squeezenet import SqueezeNet,yolo_body
-from model.small_mobilenets2 import yolo_body
+#from model.small_mobilenets2 import yolo_body
 #from model.mobilenet import yolo_body
 #from model.mobilenetv2 import yolo_body
 #from model.medium_darknet import tiny_yolo_body,yolo_body
 #from model.yolo3 import darknet_body, yolo_body, tiny_yolo_body
+
 
 
 def get_classes(classes_path):
@@ -80,15 +82,24 @@ num_anchors = len(anchors)
 #darknet.summary()
 #darknet.save_weights('empty_darknet_body.h5')
 
-darknet = yolo_body(image_input, num_anchors//3, num_classes)
+#darknet = yolo_body(image_input, num_anchors//3, num_classes)
 #plot(darknet , to_file='{}.png'.format("medium_tiny_yolo"), show_shapes=True)
-darknet.summary()
-print(len(darknet.layers))
+#darknet.summary()
+#print(len(darknet.layers))
 #darknet.save_weights('empty_medium_tiny_yolo.h5')
 
 #model = load_model("model_data/416bnfuse_small_mobilenets2_trained_model.h5") 
 #model.summary()
 #print(len(model.layers))
+
+#dense = DenseNet121(input_tensor=image_input,weights='imagenet')
+#dense = DenseNet169(input_tensor=image_input,weights='imagenet')
+dense = DenseNet201(input_tensor=image_input,weights='imagenet')
+plot(dense, to_file='{}.png'.format("densenet201"), show_shapes=True)
+dense.summary()
+dense.save_weights('densenet_empty201.h5')
+
+
 
 
 
