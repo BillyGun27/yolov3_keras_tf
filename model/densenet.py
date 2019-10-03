@@ -12,8 +12,8 @@ def yolo_body(inputs, num_anchors, num_classes):
 
     # input: 416 x 416 x 3
     # conv_pw_13_relu :13 x 13 x 1024
-    # conv_pw_11_relu :26 x 26 x 512
-    # conv_pw_5_relu : 52 x 52 x 256
+    # conv_pw_11_relu :26 x 26 x 1024
+    # conv_pw_5_relu : 52 x 52 x 512
 
     f1 = densenet.get_layer('relu').output
     # f1 :13 x 13 x 1024
