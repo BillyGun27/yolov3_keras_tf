@@ -83,7 +83,7 @@ def _main():
         print('Train on {} samples, val on {} samples, with batch size {}.'.format(num_train, num_val, batch_size))
         history = model.fit_generator(data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
                 steps_per_epoch=max(1, num_train//batch_size),
-                validation_data=data_generator_wrapper(train_lines, batch_size, input_shape, anchors, num_classes),
+                validation_data=data_generator_wrapper(val_lines, batch_size, input_shape, anchors, num_classes),
                 validation_steps=max(1, num_val//batch_size),
                 epochs=epoch_end_first,
                 initial_epoch=0,
