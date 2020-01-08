@@ -2,6 +2,15 @@ Last tested on tensorflow 1.13.1
 
 source : https://github.com/qqwweee/keras-yolo3
 
+package:
+keras
+tensorflow
+pillow
+matplotlib
+numpy
+opencv
+kito
+
 # Convert original keras Weight
 ## to weight (For training direct use)
     `python convert.py -w yolov3.cfg yolov3.weights model_data/yolo_weights.h5`
